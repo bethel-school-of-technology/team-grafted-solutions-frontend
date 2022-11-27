@@ -1,2 +1,3 @@
 testing the merge commit to different branches
 this will be added to the test2 branch 
+test
