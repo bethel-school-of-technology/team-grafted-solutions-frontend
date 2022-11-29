@@ -6,17 +6,30 @@
   </ion-card>
 </ion-header>
 
-<ion-content [fullscreen]="true"> </ion-content>
+<ion-content></ion-content>
+
 <ion-footer collapse="condense">
-  <nav navLinks="true">
+  <nav class="nav-links">
     <ion-segment value="buttons">
-      <ion-segment-button routerLink="../profile" value="home">
+      <ion-segment-button
+        routerLink="/profile"
+        routerLinkActive="true"
+        value="home"
+      >
         <ion-icon name="person-circle-outline"></ion-icon>
       </ion-segment-button>
-      <ion-segment-button routerLink="../music" value="music">
+      <ion-segment-button
+        routerLink="/profile/music"
+        routerLinkActive="true"
+        value="music"
+      >
         <ion-icon name="musical-notes"></ion-icon>
       </ion-segment-button>
-      <ion-segment-button routerLink="../messages" value="message">
+      <ion-segment-button
+        routerLink="/profile/messages"
+        routerLinkActive="true"
+        value="message"
+      >
         <ion-icon name="mail"></ion-icon>
       </ion-segment-button>
     </ion-segment>

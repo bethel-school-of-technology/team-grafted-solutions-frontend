@@ -1,29 +1,40 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FriendsPage } from '../friends/friends.page';
-import { MessagesPage } from '../messages/messages.page';
-import { MusicPage } from '../music/music.page';
-
 import { ProfilePage } from './profile.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'profile',
     component: ProfilePage,
     children: [
       {
-        path: 'messages',
-        component: MessagesPage,
+        path: 'friends',
+        loadChildren: () =>
+          import('../friends/friends.module').then((m) => m.FriendsPageModule),
       },
       {
-        path: 'friends',
-        component: FriendsPage,
+        path: 'messages',
+        loadChildren: () =>
+          import('../messages/messages.module').then(
+            (m) => m.MessagesPageModule
+          ),
       },
       {
         path: 'music',
-        component: MusicPage,
+        loadChildren: () =>
+          import('../music/music.module').then((m) => m.MusicPageModule),
+      },
+      {
+        path: '',
+        redirectTo: '/profile',
+        pathMatch: 'full',
       },
     ],
+  },
+  {
+    path: '',
+    redirectTo: '/profile',
+    pathMatch: 'full',
   },
 ];
 
