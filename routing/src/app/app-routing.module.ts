@@ -17,28 +17,6 @@ const routes: Routes = [
     redirectTo: 'profile',
     pathMatch: 'full',
   },
-  {
-    path: 'friends',
-    loadChildren: () =>
-      import('./friends/tab1.module').then((m) => m.Tab1PageModule),
-  },
-
-  {
-    path: 'messages',
-    loadChildren: () =>
-      import('./messages/tab2.module').then((m) => m.Tab2PageModule),
-  },
-
-  {
-    path: 'tab3',
-    loadChildren: () =>
-      import('./music/tab3.module').then((m) => m.Tab3PageModule),
-  },
-  {
-    path: 'login',
-    loadChildren: () =>
-      import('./login/login.module').then((m) => m.LoginPageModule),
-  },
 ];
 @NgModule({
   imports: [
