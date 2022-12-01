@@ -1,7 +1,0 @@
-{
-  "name": "toolbarB",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
