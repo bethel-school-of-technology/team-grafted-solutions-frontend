@@ -4,9 +4,15 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     component: TabsPage,
     children: [
+      {
+        path: 'home',
+        loadChildren: () =>
+          import('../homepage/tab4.module').then((m) => m.Tab4PageModule),
+      },
+
       {
         path: 'friends',
         loadChildren: () =>
@@ -25,7 +31,7 @@ const routes: Routes = [
 
       {
         path: '',
-        redirectTo: '/home/music',
+        redirectTo: '/home',
         pathMatch: 'full',
       },
     ],
