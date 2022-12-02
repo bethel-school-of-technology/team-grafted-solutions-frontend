@@ -4,35 +4,35 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: 'home',
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'friends',
         loadChildren: () =>
           import('../friends/tab1.module').then((m) => m.Tab1PageModule),
       },
       {
-        path: 'tab2',
+        path: 'music',
         loadChildren: () =>
           import('../music/tab2.module').then((m) => m.Tab2PageModule),
       },
       {
-        path: 'tab3',
+        path: 'messages',
         loadChildren: () =>
           import('../messages/tab3.module').then((m) => m.Tab3PageModule),
       },
 
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/home/music',
         pathMatch: 'full',
       },
     ],
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/home/music',
     pathMatch: 'full',
   },
 ];
