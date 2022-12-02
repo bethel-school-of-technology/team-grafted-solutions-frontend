@@ -17,6 +17,10 @@ const routes: Routes = [
     redirectTo: 'profile',
     pathMatch: 'full',
   },
+  {
+    path: 'log-in',
+    loadChildren: () => import('./log-in/log-in.module').then( m => m.LogInPageModule)
+  },
 ];
 @NgModule({
   imports: [
