@@ -7,6 +7,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./tabs/tabs.module').then((m) => m.TabsPageModule),
   },
+
   {
     path: 'profile',
     loadChildren: () =>
@@ -14,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'log-in',
+    redirectTo: 'profile',
     pathMatch: 'full',
   },
   {
