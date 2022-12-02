@@ -4,7 +4,7 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: 'socialvibez',
     component: TabsPage,
     children: [
       {
@@ -22,17 +22,16 @@ const routes: Routes = [
         loadChildren: () =>
           import('../messages/tab3.module').then((m) => m.Tab3PageModule),
       },
-
       {
         path: '',
-        redirectTo: '/home/music',
+        redirectTo: '/socialvibez/music',
         pathMatch: 'full',
       },
     ],
   },
   {
     path: '',
-    redirectTo: '/home/music',
+    redirectTo: '/socialvibez/music',
     pathMatch: 'full',
   },
 ];

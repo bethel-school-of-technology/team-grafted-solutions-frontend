@@ -8,19 +8,129 @@
             src="https://ionicframework.com/docs/img/demos/avatar.svg"
           /> </ion-avatar
       ></ion-button> -->
-      <ion-card-title> Music </ion-card-title>
+      <ion-card-title class="ion-padding"> Music </ion-card-title>
     </ion-item>
   </ion-card>
-  <ion-fab horizontal="end" vertical="top">
-    <ion-fab-button size="small">
+  <ion-fab horizontal="end" vertical="top" class="ion-padding">
+    <ion-fab-button size="small" expand="block" (click)="setOpen(true)">
       <ion-avatar>
         <img
           alt="Silhouette of a person's head"
-          src="https://ionicframework.com/docs/img/demos/avatar.svg"
+          src="https://images.unsplash.com/photo-1517231461833-7301fb461719?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2471&q=80"
         />
       </ion-avatar>
     </ion-fab-button>
+    <ion-modal [isOpen]="isModalOpen">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-chip>
+              <ion-avatar>
+                <img
+                  alt="Silhouette of a person's head"
+                  src="https://images.unsplash.com/photo-1517231461833-7301fb461719?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2471&q=80"
+                />
+              </ion-avatar>
+              <ion-label>James Avatar</ion-label>
+            </ion-chip>
+
+            <ion-buttons slot="end">
+              <ion-button (click)="setOpen(false)">Close</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni illum
+            quidem recusandae ducimus quos reprehenderit. Veniam, molestias
+            quos, dolorum consequuntur nisi deserunt omnis id illo sit cum qui.
+            Eaque, dicta.
+          </p>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
   </ion-fab>
 </ion-header>
 
-<ion-content [fullscreen]="true"> </ion-content>
+<ion-content [fullscreen]="true">
+  <ion-card color="primary">
+    <ion-card-header>
+      <ion-card-title>Card Title</ion-card-title>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content> Card Content </ion-card-content>
+  </ion-card>
+
+  <ion-card color="secondary">
+    <ion-card-header>
+      <ion-card-title>Card Title</ion-card-title>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content> Card Content </ion-card-content>
+  </ion-card>
+
+  <ion-card color="tertiary">
+    <ion-card-header>
+      <ion-card-title>Card Title</ion-card-title>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content> Card Content </ion-card-content>
+  </ion-card>
+
+  <ion-card color="success">
+    <ion-card-header>
+      <ion-card-title>Card Title</ion-card-title>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content> Card Content </ion-card-content>
+  </ion-card>
+
+  <ion-card color="warning">
+    <ion-card-header>
+      <ion-card-title>Card Title</ion-card-title>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content> Card Content </ion-card-content>
+  </ion-card>
+
+  <ion-card color="danger">
+    <ion-card-header>
+      <ion-card-title>Card Title</ion-card-title>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content> Card Content </ion-card-content>
+  </ion-card>
+
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title>Card Title</ion-card-title>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content> Card Content </ion-card-content>
+  </ion-card>
+
+  <ion-card color="medium">
+    <ion-card-header>
+      <ion-card-title>Card Title</ion-card-title>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content> Card Content </ion-card-content>
+  </ion-card>
+
+  <ion-card color="dark">
+    <ion-card-header>
+      <ion-card-title>Card Title</ion-card-title>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content> Card Content </ion-card-content>
+  </ion-card>
+</ion-content>

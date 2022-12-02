@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./home/tabs.module').then((m) => m.TabsPageModule),
+      import('./socialvibez/tabs.module').then((m) => m.TabsPageModule),
   },
 
   {
