@@ -1,22 +1,21 @@
-import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Tab3Page } from './tab3.page';
+import { IonicModule } from '@ionic/angular';
+import { FriendsPageRoutingModule } from './friends-routing.module';
+import { FriendsPage } from './friends.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
-
-import { Tab3PageRoutingModule } from './tab3-routing.module';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
-    IonicModule,
     CommonModule,
     FormsModule,
+    IonicModule,
+    FriendsPageRoutingModule,
     ExploreContainerComponentModule,
-    Tab3PageRoutingModule,
     SharedModule,
   ],
-  declarations: [Tab3Page],
+  declarations: [FriendsPage],
 })
-export class Tab3PageModule {}
+export class FriendsPageModule {}

@@ -3,14 +3,18 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'socialvibez',
     loadChildren: () =>
       import('./socialvibez/tabs.module').then((m) => m.TabsPageModule),
   },
-
+  // {
+  //   path: 'socialvibez',
+  //   redirectTo: 'socialvibez/music',
+  //   pathMatch: 'full',
+  // },
   {
     path: '',
-    redirectTo: 'profile',
+    redirectTo: 'log-in',
     pathMatch: 'full',
   },
   {
