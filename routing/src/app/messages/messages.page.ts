@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewChild } from '@angular/core';
+// import { ModalController } from '@ionic/angular';
+// import { IonModal } from '@ionic/angular';
+// import { OverlayEventDetail } from '@ionic/core/components';
 @Component({
   selector: 'app-messages',
   templateUrl: './messages.page.html',
@@ -10,7 +12,6 @@ export class MessagesPage implements OnInit {
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
   }
-  constructor() {}
 
   ngOnInit() {}
 }
