@@ -1,20 +1,21 @@
-import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Tab1Page } from './tab1.page';
+import { IonicModule } from '@ionic/angular';
+import { MusicPageRoutingModule } from './music-routing.module';
+import { MusicPage } from './music.page';
+import { SharedModule } from '../shared/shared.module';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
-
-import { Tab1PageRoutingModule } from './tab1-routing.module';
 
 @NgModule({
   imports: [
-    IonicModule,
     CommonModule,
     FormsModule,
+    IonicModule,
+    MusicPageRoutingModule,
     ExploreContainerComponentModule,
-    Tab1PageRoutingModule
+    SharedModule,
   ],
-  declarations: [Tab1Page]
+  declarations: [MusicPage],
 })
-export class Tab1PageModule {}
+export class MusicPageModule {}

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
+// import { ProfileComponent } from '../shared/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -8,37 +9,32 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'home',
-        loadChildren: () =>
-          import('../homepage/tab4.module').then((m) => m.Tab4PageModule),
-      },
-
-      {
         path: 'friends',
         loadChildren: () =>
-          import('../friends/tab1.module').then((m) => m.Tab1PageModule),
+          import('../friends/friends.module').then((m) => m.FriendsPageModule),
       },
       {
         path: 'music',
         loadChildren: () =>
-          import('../music/tab2.module').then((m) => m.Tab2PageModule),
+          import('../music/music.module').then((m) => m.MusicPageModule),
       },
       {
         path: 'messages',
         loadChildren: () =>
-          import('../messages/tab3.module').then((m) => m.Tab3PageModule),
+          import('../messages/messages.module').then(
+            (m) => m.MessagesPageModule
+          ),
       },
-
       {
         path: '',
-        redirectTo: '/home',
-        pathMatch: 'full',
+        redirectTo: '/socialvibez/music',
+        pathMatch: 'full',      
       },
     ],
   },
   {
-    path: '',
-    redirectTo: '/home/music',
+    path: 'socialvibez',
+    redirectTo: '/socialvibez/music',
     pathMatch: 'full',
   },
 ];
