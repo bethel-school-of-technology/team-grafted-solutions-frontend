@@ -24,20 +24,21 @@ export class Profile1Page implements OnInit {
     const alert = await this.alertController.create({
       header: 'Edit Profile',
       buttons: [
-        {
-          text: 'Cancel',
-          // role: 'cancel',
-          handler: () => {
-            this.handlerMessage = 'Alert canceled';
-          },
-        },
-        {
-          text: 'OK',
-          role: 'Saved',
-          handler: () => {
-            this.handlerMessage = 'Alert confirmed';
-          },
-        },
+        'Save',
+        // {
+        // text: 'Cancel',
+        // role: 'cancel',
+        // handler: () => {
+        //   this.handlerMessage = 'Alert canceled';
+        // },
+        // },
+        // {
+        // text: 'OK',
+        // role: 'Saved',
+        // handler: () => {
+        //   this.handlerMessage = 'Alert confirmed';
+        // },
+        // },
       ],
       inputs: [
         // {
@@ -46,6 +47,9 @@ export class Profile1Page implements OnInit {
         {
           type: 'textarea',
           placeholder: 'Favorite Genres',
+          handler: () => {
+            this.handlerMessage = 'Favorite Genres';
+          },
         },
         // {
         //   type: 'number',
@@ -56,6 +60,9 @@ export class Profile1Page implements OnInit {
         {
           type: 'textarea',
           placeholder: 'A little about yourself',
+          handler: () => {
+            this.handlerMessage = 'About Me:';
+          },
         },
       ],
     });
