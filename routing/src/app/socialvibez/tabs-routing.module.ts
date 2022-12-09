@@ -9,6 +9,12 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
+        path: 'feed',
+        loadChildren: () =>
+          import('../VibezFeed/feed.module').then((m) => m.FeedPageModule),
+      },
+
+      {
         path: 'friends',
         loadChildren: () =>
           import('../friends/friends.module').then((m) => m.FriendsPageModule),

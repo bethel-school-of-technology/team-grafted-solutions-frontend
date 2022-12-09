@@ -1,43 +1,39 @@
-<ion-card class="ion-name">
+<ion-card>
   <ion-card-header style="text-align: center">
-    <ion-card-subtitle>
-      S<ion-icon name="earth-sharp"></ion-icon>CIAL VIBEZ
+    <ion-card-subtitle> S<ion-icon name="earth-sharp"></ion-icon>CIAL VIBEZ
     </ion-card-subtitle>
   </ion-card-header>
 </ion-card>
-<ion-content class="ion-padding">
-  <ion-button id="open-modal" expand="full" color="light">Sign In
-  </ion-button>
-  <ion-card class="card">
-    <ion-card-header>
-      <ion-card-title>Discover & Share</ion-card-title>
+<ion-content>
+  <ion-card>
+    <ion-card-header style="text-align: center">
+      <ion-card-title style="color: white;">Log in</ion-card-title>
     </ion-card-header>
-  
-    <ion-card-content>
-      New songs, different genres, artists, and cool mixes posted by people all over the world
-    </ion-card-content>
-    </ion-card>
-    <br>
-    <ion-card class="card">
-      <ion-card-header>
-        <ion-card-title>Discuss</ion-card-title>
-      </ion-card-header>
-    
-      <ion-card-content>
-        News and opinons on the latest albums & artists.      </ion-card-content>
-      </ion-card>
-      <br>
-      <ion-card class="card">
-        <ion-card-header>
-          <ion-card-title>Build</ion-card-title>
-        </ion-card-header>
-      
-        <ion-card-content>
-          Healthy connections through the expression of music       
-       </ion-card-content>
-        </ion-card>
-      
 
+    <ion-card-content>
+      <ion-item lines="full">
+        <ion-label position="floating">UserName</ion-label>
+        <ion-input type="text" required></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" required></ion-input>
+      </ion-item>
+    </ion-card-content>
+    <ion-col>
+      <ion-button
+        [routerLink]="['/socialvibez/music']"
+        type="submit"
+        color="danger"
+        expand="block"
+        >Sign In</ion-button>
+      <a [routerLink]="['/forgot-password']" class="small-text"
+        >Forgot Password?</a>
+    </ion-col>
+    <!-- center the button below -->
+      <ion-button id="open-modal" color="light">Dont have an account?
+  </ion-button>
+  </ion-card>
   <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
     <ng-template>
       <ion-header>
@@ -52,12 +48,28 @@
       </ion-header>
       <ion-content class="ion-padding">
         <ion-item lines="full">
-          <ion-label position="floating">Username</ion-label>
+          <ion-label position="floating">First Name</ion-label>
           <ion-input type="text" required></ion-input>
         </ion-item>
+        <br>
+        <ion-item lines="full">
+          <ion-label position="floating">Last Name</ion-label>
+          <ion-input type="password" required></ion-input>
+        </ion-item>
+        <br>
+        <ion-item lines="full">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" placeholder="email@domain.com"></ion-input>        
+        </ion-item>
+        <br>
+        <ion-item lines="full">
+          <ion-label position="floating">Username</ion-label>
+          <ion-input type="password" required></ion-input>
+        </ion-item>
+        <br>
         <ion-item lines="full">
           <ion-label position="floating">Password</ion-label>
-          <ion-input type="password" required></ion-input>
+          <ion-input type="password" value="password"></ion-input>        
         </ion-item>
         <ion-col>
           <ion-button
@@ -66,13 +78,10 @@
             type="submit"
             color="success"
             expand="block"
-            >Sign In</ion-button
-          >
-          <a [routerLink]="['/forgot-password']" class="small-text"
-            >Forgot Password?</a
-          >
+            >Sign Up</ion-button>
         </ion-col>
       </ion-content>
     </ng-template>
   </ion-modal>
+
 </ion-content>
