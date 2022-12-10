@@ -29,7 +29,10 @@
       </ion-header>
       <ion-card>
         <ion-card-subtitle> About Me </ion-card-subtitle>
-        <ion-card-content> </ion-card-content>
+        <ion-card-content>
+          <p>{{ message }}</p>
+          <p>{{ bio }}</p>
+        </ion-card-content>
       </ion-card>
 
       <ion-segment value="default">
@@ -78,11 +81,9 @@
         </ion-card>
       </ion-content>
       <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-button>
-            <ion-icon name="cog"></ion-icon>
-          </ion-button>
-        </ion-buttons>
+        <ion-button (click)="openModal()" fill="clear">
+          <ion-icon slot="start" name="cog"></ion-icon>
+        </ion-button>
       </ion-toolbar>
     </ng-template>
   </ion-modal>
