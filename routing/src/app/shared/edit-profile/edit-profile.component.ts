@@ -7,9 +7,8 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./edit-profile.component.scss'],
 })
 export class EditProfileComponent {
-  name: string = '';
-
   constructor(private modalCtrl: ModalController) {}
+  name: string = '';
 
   cancel() {
     return this.modalCtrl.dismiss(null, 'cancel');
