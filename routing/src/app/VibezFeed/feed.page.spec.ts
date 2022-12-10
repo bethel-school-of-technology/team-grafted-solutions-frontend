@@ -5,7 +5,7 @@ import { ExploreContainerComponent } from '../explore-container/explore-containe
 
 import { FeedPage } from './feed.page';
 
-describe('Tab4Page', () => {
+describe('FeedPage', () => {
   let component: FeedPage;
   let fixture: ComponentFixture<FeedPage>;
 
