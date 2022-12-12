@@ -4,14 +4,9 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'socialvibez',
-    loadChildren: () =>
-      import('./socialvibez/tabs.module').then((m) => m.TabsPageModule),
+    loadChildren: () => import('./socialvibez/tabs.module').then((m) => m.TabsPageModule),
   },
-  // {
-  //   path: 'socialvibez',
-  //   redirectTo: 'socialvibez/music',
-  //   pathMatch: 'full',
-  // },
+
   {
     path: '',
     redirectTo: 'log-in',
@@ -19,14 +14,15 @@ const routes: Routes = [
   },
   {
     path: 'log-in',
-    loadChildren: () =>
-      import('./log-in/log-in.module').then((m) => m.LogInPageModule),
+    loadChildren: () => import('./log-in/log-in.module').then((m) => m.LogInPageModule),
+  },
+  {
+    path: 'socialvibez/friends-profile',
+    loadChildren: () => import('./friends-profile/friends-profile.module').then((m) => m.FriendsProfilePageModule),
   },
 ];
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
-  ],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
