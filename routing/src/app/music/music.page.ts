@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Music } from '../models/music';
+import { MusicService } from '../service/music.service';
+
+
 
 @Component({
   selector: 'app-music',
@@ -6,11 +10,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./music.page.scss'],
 })
 export class MusicPage implements OnInit {
-  isModalOpen = false;
-  setOpen(isOpen: boolean) {
-    this.isModalOpen = isOpen;
-  }
-  constructor() {}
 
-  ngOnInit() {}
+  music: Music[] = [];
+  searchTerm: string = ""
+  constructor(private service: MusicService) { }
+
+  ngOnInit() {
+  }
+
+  searchMusic(){
+    this.service.searchMusic(this.searchTerm).subscribe(m=> this.music = m);
+  }
+
+  sortArtist(){
+    this.service.sortArtist().subscribe(m => this.music = m);
+  }
+  
+  sortSong(){
+    this.service.sortSong().subscribe(m => this.music = m);
+  }
+
 }
