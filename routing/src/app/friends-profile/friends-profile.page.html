@@ -1,9 +1,69 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>friends-profile</ion-title>
+    <ion-card ion-text-center>
+      <ion-item lines="none">
+        <ion-buttons slot="start">
+          <ion-back-button text=""></ion-back-button>
+        </ion-buttons>
+        <ion-card-title class="ion-padding"> Friend Profile </ion-card-title>
+      </ion-item>
+    </ion-card>
   </ion-toolbar>
+
+  <!-- <app-profile1></app-profile1> -->
 </ion-header>
 
-<ion-content>
+<!-- <div class="ion-text-end"><ion-label>Recent</ion-label></div> -->
 
+<ion-card>
+  <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+  <ion-card-header>
+    <!-- <ion-card-title>James Avatar</ion-card-title> -->
+    <ion-chip>
+      <ion-avatar>
+        <img
+          alt="Silhouette of a person's head"
+          src="https://images.unsplash.com/photo-1517231461833-7301fb461719?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2471&q=80"
+        />
+      </ion-avatar>
+      <ion-label>James Avatar</ion-label>
+    </ion-chip>
+  </ion-card-header>
+
+  <ion-card-content> Here's a small text description for the card content. Nothing more, nothing less. </ion-card-content>
+</ion-card>
+<div class="ion-text-start"><ion-label> Recent Activity </ion-label></div>
+<ion-content class="ion-padding">
+  <div class="ion-text-end"><ion-label>Recent Songs</ion-label></div>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-thumbnail slot="start">
+          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+        </ion-thumbnail>
+        <ion-label>
+          Song Title
+          <p>Album</p>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-content class="ion-padding">
+  <div class="ion-text-end"><ion-label>Recent Comments</ion-label></div>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-thumbnail slot="start">
+          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+        </ion-thumbnail>
+        <ion-label>
+          Name
+          <p>Comments</p>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

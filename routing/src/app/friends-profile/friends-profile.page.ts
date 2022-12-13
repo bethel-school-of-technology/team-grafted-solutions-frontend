@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./friends-profile.page.scss'],
 })
 export class FriendsProfilePage implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  isModalOpen = false;
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
   }
+  constructor() {}
 
+  ngOnInit() {}
 }
