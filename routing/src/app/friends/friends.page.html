@@ -9,7 +9,7 @@
 <!-- <h1>Find Friends</h1>
 <div class="search">
   <input type="text" placeholder="Search.."[(ngModel)]="searchTerm">
-  <button (click)="searchFriends()" mat-raised-button>Search</button>
+  <ion-button (click)="searchFriends()" mat-raised-button>Search</ion-button>
   <p *ngFor="let f of friends">
     <ion-card>
    {{f}}

@@ -18,16 +18,16 @@ export class MusicPage implements OnInit {
   ngOnInit() {
   }
 
-  searchMusic(){
-    this.service.searchMusic(this.searchTerm).subscribe(m=> this.music = m);
-  }
+  // searchMusic(){
+  //   this.service.searchMusic(this.searchTerm).subscribe(m=> this.music = m);
+  // }
 
-  sortArtist(){
-    this.service.sortArtist().subscribe(m => this.music = m);
-  }
+  // sortArtist(){
+  //   this.service.sortArtist().subscribe(m => this.music = m);
+  // }
   
-  sortSong(){
-    this.service.sortSong().subscribe(m => this.music = m);
-  }
+  // sortSong(){
+  //   this.service.sortSong().subscribe(m => this.music = m);
+  // }
 
 }
