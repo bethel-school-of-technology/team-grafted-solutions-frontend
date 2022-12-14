@@ -20,6 +20,10 @@ const routes: Routes = [
     path: 'socialvibez/friends-profile',
     loadChildren: () => import('./friends-profile/friends-profile.module').then((m) => m.FriendsProfilePageModule),
   },
+  {
+    path: 'socialvibez/artist',
+    loadChildren: () => import('./artist/artist.module').then((m) => m.ArtistPageModule),
+  },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
