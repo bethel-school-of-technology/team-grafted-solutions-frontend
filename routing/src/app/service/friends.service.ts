@@ -9,36 +9,36 @@ import { Friends } from '../models/friends';
 })
 export class FriendsService {
 
-//   getMusic() {
-//     return this.http.get<Friends[]>(this.dataSource);
-//   }
-// dataSource: string ='https://api.spotify.com/v1/search'
+  getFriends() {
+    return this.http.get<Friends[]>(this.dataSource);
+  }
+dataSource: string ='https://api.spotify.com/v1/search'
 
-//need new data source above for stored friends list 
+// need new data source above for stored friends list 
 
-//   constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
-// searchFriends(searchTerm: string): Observable<Friends[]> {
-//     return this.http.get<Friends[]>(this.dataSource + "?q=" + searchTerm + "&type=firstName", {headers: {'Authorization':'Bearer BQBZDS1c-qulmfx_J2hNBsN-1tPbuicNBEqvZ_CpqEwvn6NenrPNnv70gDEVali95QQBa9QWtd5XwAVm2tuzhkA5WYQUdMkMJZsvPfPMCfOZuy9j8bI'}});
-//   }
+searchFriends(searchTerm: string): Observable<Friends[]> {
+    return this.http.get<Friends[]>(this.dataSource + "?q=" + searchTerm + "&type=firstName", {headers: {'Authorization':'Bearer BQBZDS1c-qulmfx_J2hNBsN-1tPbuicNBEqvZ_CpqEwvn6NenrPNnv70gDEVali95QQBa9QWtd5XwAVm2tuzhkA5WYQUdMkMJZsvPfPMCfOZuy9j8bI'}});
+  }
 
-// getFriendsByID(id: number): Observable<Friends> {
-//   return this.http.get<Friends>(this.dataSource + "/" + id);
-// }
+getFriendsByID(id: number): Observable<Friends> {
+  return this.http.get<Friends>(this.dataSource + "/" + id);
+}
 
-// deleteFriendsByID(id: number): Observable<Friends> {
-//   return this.http.delete<Friends>(this.dataSource + "/" + id);
+deleteFriendsByID(id: number): Observable<Friends> {
+  return this.http.delete<Friends>(this.dataSource + "/" + id);
 
-// }
+}
 
-// addFriends(edittedFriends: Friends): Observable<Friends> {
-//   return this.http.post<Friends>(this.dataSource + "/", edittedFriends);
-// }
+addFriends(edittedFriends: Friends): Observable<Friends> {
+  return this.http.post<Friends>(this.dataSource + "/", edittedFriends);
+}
 
 
 
-// sortFriends(): Observable<Friends[]> {
-//   return this.http.get<Friends[]>(this.dataSource + "?_sort=firstName&_order=asc");
-// }
+sortFriends(): Observable<Friends[]> {
+  return this.http.get<Friends[]>(this.dataSource + "?_sort=firstName&_order=asc");
+}
 
 }

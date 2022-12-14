@@ -15,7 +15,7 @@ export class FriendsPage implements OnInit {
 
   ngOnInit() {}
 
-  // searchFriends(){
-  //   this.service.searchFriends(this.searchTerm).subscribe(f=> this.friends = f);
-  // }
+  searchFriends(){
+    this.service.searchFriends(this.searchTerm).subscribe(f=> this.friends = f);
+  }
 }

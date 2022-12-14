@@ -6,14 +6,6 @@
   </ion-card>
   <app-profile1></app-profile1>
 </ion-header>
-<!-- <h1>Find Friends</h1>
-<div class="search">
-  <input type="text" placeholder="Search.."[(ngModel)]="searchTerm">
-  <ion-button (click)="searchFriends()" mat-raised-button>Search</ion-button>
-  <p *ngFor="let f of friends">
-    <ion-card>
-   {{f}}
-      </ion-card> -->
 <ion-content class="ion-padding">
   <div class="ion-text-end"><ion-label>Recent</ion-label></div>
   <ion-card>
@@ -24,9 +16,18 @@
         </ion-thumbnail>
         <ion-label>
           Friends
+          
           <p>comments</p>
         </ion-label>
       </ion-item>
     </ion-card-content>
   </ion-card>
 </ion-content>
+
+<div class="search">
+  <input type="text" placeholder="Search.."[(ngModel)]="searchTerm">
+  <ion-button (click)="searchFriends()" mat-raised-button>Search</ion-button>
+  <p *ngFor="let f of friends">
+    <ion-card>
+   {{f}}
+      </ion-card>

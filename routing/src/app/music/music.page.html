@@ -1,41 +1,53 @@
 <ion-header>
   <ion-card>
-    <ion-item lines="none">
-      <!-- <ion-button fill="clear" size="large" slot="end">
-        <ion-avatar>
-          <img
-            alt="Silhouette of a person's head"
-            src="https://ionicframework.com/docs/img/demos/avatar.svg"
-          /> </ion-avatar
-      ></ion-button> -->
-      <ion-card-title class="ion-padding"> Music </ion-card-title>
-      
-    </ion-item>
-    
-  </ion-card>
+  <ion-item>
+  <ion-card-title class="ion-padding"> Music </ion-card-title>
+        </ion-item>
+      </ion-card>
   <app-profile1></app-profile1>
 </ion-header>
 
-<!-- <h1>Find Artist</h1>
-<div class="search">
-  <input type="text" placeholder="Search.."[(ngModel)]="searchTerm">
-  <button (click)="searchMusic()" mat-raised-button>Search</button>
-  <p *ngFor="let m of music">
-    <ion-card>
-   {{m}}
-      </ion-card> -->
 
 <ion-content [fullscreen]="true">
-  <ion-card color="primary">
+  <!-- <ion-card color="primary">
     <ion-card-header>
       <ion-card-title>Card Title</ion-card-title>
       <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
     </ion-card-header>
+    </ion-card>
+    </ion-content> -->
 
-    <ion-card-content> Card Content </ion-card-content>
-  </ion-card>
+    <ion-card>
+      <ion-item lines="none">
+        <ion-card-content> 
+          <h1>Find Artist</h1>
+          <div class="search">
+            <input type="text" placeholder="Search.."[(ngModel)]="searchTerm">
+            <button (click)="searchMusic()" mat-raised-button>Search</button>
+            <div *ngFor="let m of music">
+              <ion-card>
+             {{m.artistName}}
+                </ion-card>
+            </div>
+              </div>
+              </ion-card-content>
+       
 
-  <ion-card color="secondary">
+    <!-- <ion-card-content> 
+      <h1>Find Artist</h1>
+      <div class="search">
+        <input type="text" placeholder="Search.."[(ngModel)]="searchTerm">
+        <button (click)="searchMusic()" mat-raised-button>Search</button>
+        <p *ngFor="let m of music">
+          <ion-card>
+         {{m}}
+            </ion-card>
+          </p>
+          </div>
+          </ion-card-content> -->
+  <!-- </ion-card> -->
+
+  <!-- <ion-card color="secondary">
     <ion-card-header>
       <ion-card-title>Card Title</ion-card-title>
       <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
@@ -106,4 +118,6 @@
 
     <ion-card-content> Card Content </ion-card-content>
   </ion-card>
-</ion-content>
+</ion-content> -->
+
+
