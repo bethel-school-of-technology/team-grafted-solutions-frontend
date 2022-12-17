@@ -16,7 +16,7 @@ export class Profile1Page implements OnInit {
   setClose(isOpen: boolean) {
     this.isModalOpen = !isOpen;
   }
-  message = 'This modal example';
+  message = '';
   bio = '';
   constructor(private modalCtrl: ModalController) {}
 

@@ -12,7 +12,6 @@ const routes: Routes = [
         path: 'friends',
         loadChildren: () => import('../friends/friends.module').then((m) => m.FriendsPageModule),
       },
-
       {
         path: 'music',
         loadChildren: () => import('../music/music.module').then((m) => m.MusicPageModule),

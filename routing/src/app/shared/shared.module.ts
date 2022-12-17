@@ -7,6 +7,6 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 @NgModule({
   declarations: [Profile1Page, EditProfileComponent],
   imports: [CommonModule, IonicModule],
-  exports: [Profile1Page],
+  exports: [Profile1Page, EditProfileComponent],
 })
 export class SharedModule {}
