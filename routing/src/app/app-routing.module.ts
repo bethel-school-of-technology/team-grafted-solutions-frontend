@@ -16,14 +16,6 @@ const routes: Routes = [
     path: 'log-in',
     loadChildren: () => import('./log-in/log-in.module').then((m) => m.LogInPageModule),
   },
-  {
-    path: 'socialvibez/friends-profile',
-    loadChildren: () => import('./friends-profile/friends-profile.module').then((m) => m.FriendsProfilePageModule),
-  },
-  {
-    path: 'socialvibez/artist',
-    loadChildren: () => import('./artist/artist.module').then((m) => m.ArtistPageModule),
-  },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
