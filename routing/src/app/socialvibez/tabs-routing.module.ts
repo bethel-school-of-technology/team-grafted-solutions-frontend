@@ -12,7 +12,6 @@ const routes: Routes = [
         path: 'friends',
         loadChildren: () => import('../friends/friends.module').then((m) => m.FriendsPageModule),
       },
-
       {
         path: 'music',
         loadChildren: () => import('../music/music.module').then((m) => m.MusicPageModule),
@@ -20,6 +19,14 @@ const routes: Routes = [
       {
         path: 'messages',
         loadChildren: () => import('../messages/messages.module').then((m) => m.MessagesPageModule),
+      },
+      {
+        path: 'artist',
+        loadChildren: () => import('../artist/artist.module').then((m) => m.ArtistPageModule),
+      },
+      {
+        path: 'friends-profile',
+        loadChildren: () => import('../friends-profile/friends-profile.module').then((m) => m.FriendsProfilePageModule),
       },
       {
         path: '',
