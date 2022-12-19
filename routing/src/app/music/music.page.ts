@@ -11,7 +11,7 @@ import { MusicService } from '../service/music.service';
 })
 export class MusicPage implements OnInit {
 
-  music: Music[] = [];
+  music!: Music ;
   searchTerm: string = ""
   constructor(private service: MusicService) { }
 
@@ -20,9 +20,6 @@ export class MusicPage implements OnInit {
 
   searchMusic(){
     this.service.searchMusic(this.searchTerm).subscribe(m=> this.music = m);
-  }
-  getMusic(){
-    this.service.getMusic(this.searchTerm).subscribe(m=> this.music = m);
   }
 
   sortArtist(){

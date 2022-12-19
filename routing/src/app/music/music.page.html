@@ -24,9 +24,9 @@
           <div class="search">
             <input type="text" placeholder="Search.."[(ngModel)]="searchTerm">
             <button (click)="searchMusic()" mat-raised-button>Search</button>
-            <div *ngFor="let m of music">
+            <div *ngIf="music != null">
               <ion-card>
-             {{m.artistName}}
+             {{music.artists.items[0].name}}
                 </ion-card>
             </div>
               </div>

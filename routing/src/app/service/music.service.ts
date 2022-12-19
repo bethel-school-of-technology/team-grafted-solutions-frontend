@@ -14,15 +14,15 @@ dataSource: string ='https://api.spotify.com/v1/search'
 
   constructor(private http: HttpClient) {}
 
-  getMusic(searchTerm: string): Observable<Music[]>  {
-    return this.http.get<Music[]>(this.dataSource + "?q=" + searchTerm + "&type=artist", {headers: {'Authorization':'Bearer BQCowKKGo364bKl9wI8eoldkqsqVBSJc2jia-WgANGhMR2Muuv5-igA1gd7cNXFurYTr0MOUdhRLXjY3YUMPeM1b5PM3D1-q-9wlzrsynr8k2-sUTJI'}});
+  getMusic(searchTerm: string): Observable<Music>  {
+    return this.http.get<Music>(this.dataSource + "?q=" + searchTerm + "&type=artist", {headers: {'Authorization':'Bearer BQBp7Y5-OO177R0nhsEpVTK-PeS0c1KG_p3mRbgJuNn3MjI7IeasRj9o4NZhpjFcladWh-OYy_kTJ7l2nqK4slxEwftDwnLYDq51MLMf6SGmlI9e_9I'}});
   }
   // getArtist() {
   //   return this.http.get<Music[]>(this.artistSource);
   // }
 
-  searchMusic(searchTerm: string): Observable<Music[]> {
-    return this.http.get<Music[]>(this.dataSource + "?q=" + searchTerm + "&type=artist", {headers: {'Authorization':'Bearer BQCowKKGo364bKl9wI8eoldkqsqVBSJc2jia-WgANGhMR2Muuv5-igA1gd7cNXFurYTr0MOUdhRLXjY3YUMPeM1b5PM3D1-q-9wlzrsynr8k2-sUTJI'}});
+  searchMusic(searchTerm: string): Observable<Music> {
+    return this.http.get<Music>(this.dataSource + "?q=" + searchTerm + "&type=artist", {headers: {'Authorization':'Bearer BQBp7Y5-OO177R0nhsEpVTK-PeS0c1KG_p3mRbgJuNn3MjI7IeasRj9o4NZhpjFcladWh-OYy_kTJ7l2nqK4slxEwftDwnLYDq51MLMf6SGmlI9e_9I'}});
   }
 
 getMusicByID(id: number): Observable<Music> {
@@ -48,11 +48,11 @@ addMusic(edittedMusic: Music): Observable<Music> {
 
 
 
-sortArtist(): Observable<Music[]> {
-  return this.http.get<Music[]>(this.dataSource + "?_sort=artistName&_order=asc");
+sortArtist(): Observable<Music> {
+  return this.http.get<Music>(this.dataSource + "?_sort=artistName&_order=asc");
 }
 
-sortSong(): Observable<Music[]> {
-  return this.http.get<Music[]>(this.dataSource + "?_sort=song&_order=asc");
+sortSong(): Observable<Music> {
+  return this.http.get<Music>(this.dataSource + "?_sort=song&_order=asc");
 }
 }
