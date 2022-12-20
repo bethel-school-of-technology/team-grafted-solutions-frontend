@@ -21,6 +21,9 @@ export class MusicPage implements OnInit {
   searchMusic(){
     this.service.searchMusic(this.searchTerm).subscribe(m=> this.music = m);
   }
+  // searchItem(){
+  //   this.service.searchItem(this.searchTerm).subscribe(m=> this.music = m);
+  // }
 
   sortArtist(){
     this.service.sortArtist().subscribe(m => this.music = m);

@@ -1,11 +1,3 @@
-// export class Music {
-//     id: number = 0
-//     name: string =  ""
-//     // song: string = ""
-//     url: string = ""
-//     href: string = ""
-// }
-
 export interface Music {
     artists: Artists
   }
@@ -30,7 +22,7 @@ export interface Music {
     name: string
     popularity: number
     type: string
-    uri: string
+    uri: string 
   }
   
   export interface ExternalUrls {
