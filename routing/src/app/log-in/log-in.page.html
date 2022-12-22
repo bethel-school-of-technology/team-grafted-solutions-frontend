@@ -20,16 +20,17 @@
       </ion-item>
     </ion-card-content>
     <ion-col>
+      <ion-button [routerLink]="['/socialvibez/music']" type="submit" color="danger" expand="block">Sign In</ion-button>
+
       <ion-button
-        [routerLink]="['/socialvibez/music']"
+        style="font-size: 22px; display: flex; margin-bottom: 3vh; margin-top: 3vh"
+        href="https://accounts.spotify.com/authorize?client_id=8bd256e91ff74895a1cc0a91d438dc0a&response_type=code&redirect_uri=http://localhost:4200/socialvibez/music&show_dialog=true&scope=playlist-read-private%20streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state"
         type="submit"
-        color="danger"
         expand="block"
-        >Sign In</ion-button
+        >Login With Spotify</ion-button
       >
-      <a [routerLink]="['/forgot-password']" class="small-text"
-        >Forgot Password?</a
-      >
+
+      <a [routerLink]="['/forgot-password']" class="small-text">Forgot Password?</a>
     </ion-col>
   </ion-card>
 </ion-content>

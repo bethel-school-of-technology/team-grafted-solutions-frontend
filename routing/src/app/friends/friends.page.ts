@@ -8,14 +8,25 @@ import { FriendsService } from '../service/friends.service';
   styleUrls: ['./friends.page.scss'],
 })
 export class FriendsPage implements OnInit {
-
+  listOfFriends: any;
   friends: Friends[] = [];
   searchTerm: string = ""
+  dataSource: any;
   constructor(private service: FriendsService) { }
 
-  ngOnInit() {}
+  ngOnInit(): void {
+    this.service.getFriends().subscribe(result =>{
+      this.listOfFriends = result;
+    });
+  }
 
   searchFriends(){
-    this.service.searchFriends(this.searchTerm).subscribe(f=> this.friends = f);
+    this.service.searchFriends(this.searchTerm).subscribe(f => {
+      this.friends = f;
+    });
+  }
+
+  getFriends(){
+    this.service.getFriends().subscribe(f=> this.friends = f);
   }
 }

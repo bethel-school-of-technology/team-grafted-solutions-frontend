@@ -9,17 +9,20 @@ import { Friends } from '../models/friends';
 })
 export class FriendsService {
 
+  dataSource: string ='http://localhost:3001/friends/'
+
   getFriends() {
     return this.http.get<Friends[]>(this.dataSource);
   }
-dataSource: string ='https://api.spotify.com/v1/search'
+
+// dataSource: string ='https://api.spotify.com/v1/search'
 
 // need new data source above for stored friends list 
 
   constructor(private http: HttpClient) {}
 
 searchFriends(searchTerm: string): Observable<Friends[]> {
-    return this.http.get<Friends[]>(this.dataSource + "?q=" + searchTerm + "&type=firstName", {headers: {'Authorization':'Bearer BQBZDS1c-qulmfx_J2hNBsN-1tPbuicNBEqvZ_CpqEwvn6NenrPNnv70gDEVali95QQBa9QWtd5XwAVm2tuzhkA5WYQUdMkMJZsvPfPMCfOZuy9j8bI'}});
+    return this.http.get<Friends[]>(this.dataSource + 'search/' + searchTerm);
   }
 
 getFriendsByID(id: number): Observable<Friends> {
