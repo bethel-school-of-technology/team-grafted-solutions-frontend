@@ -19,39 +19,26 @@
   </ion-card>
 </ion-content>
 
-<ion-card style="display: flex;
-justify-content: center;">
-  <button style="font-size: 22px; display: flex; margin-bottom: 3vh; margin-top: 3vh" (click)="getAccessToken(this.code)" mat-raised-button>
-    Get Access Token
-  </button>
-</ion-card>
-
 <ion-card>
   <ion-item lines="none">
     <ion-card-content>
       <h1>Find Artist</h1>
       <div class="search">
         <input type="text" placeholder="Search.." [(ngModel)]="searchTerm" />
-        <button style="margin-left: 3vw;
-        font-size: 2vh;" (click)="searchMusic()" mat-raised-button>Search</button>
-        <div *ngFor="let m of music">
-          <ion-card> {{m.artistName}} </ion-card>
-        </div>
+        <button style="margin-left: 3vw; font-size: 2vh" (click)="searchMusicTest()" mat-raised-button>Search</button>
+      </div>
+      <div *ngFor="let m of music">
+        <ion-card> {{m.body}} </ion-card>
       </div>
     </ion-card-content>
+  </ion-item>
+</ion-card>
 
-    <!-- <ion-card-content> 
-      <h1>Find Artist</h1>
-      <div class="search">
-        <input type="text" placeholder="Search.."[(ngModel)]="searchTerm">
-        <button (click)="searchMusic()" mat-raised-button>Search</button>
-        <p *ngFor="let m of music">
-          <ion-card>
-         {{m}}
-            </ion-card>
-          </p>
-          </div>
-          </ion-card-content> -->
-    <!-- </ion-card> -->
-  </ion-item></ion-card
->
+
+
+
+
+
+
+
+

@@ -1,4 +1,4 @@
-import { Injectable, OnChanges } from '@angular/core';
+import { Injectable, OnChanges, OnInit, DoCheck } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Music } from '../models/music';
@@ -6,7 +6,8 @@ import { Music } from '../models/music';
 @Injectable({
   providedIn: 'root',
 })
-export class MusicService implements OnChanges {
+
+export class MusicService implements OnInit {
   accessToken: any;
 
   dataSource: string = 'https://api.spotify.com/v1/search';
@@ -15,13 +16,7 @@ export class MusicService implements OnChanges {
     this.accessToken = localStorage.getItem('accessToken');
   }
 
-  onAccessTokenChange(newToken: string) {
-    localStorage.setItem('accessToken', newToken);
-    this.accessToken = newToken;
-  }
-
-  ngOnChanges() {
-    this.onAccessTokenChange(JSON.stringify(localStorage.getItem('accessToken')));
+  ngOnInit() {
   }
 
   getMusic(searchTerm: string): Observable<Music[]> {
@@ -30,11 +25,13 @@ export class MusicService implements OnChanges {
     });
   }
 
+  searchMusicTest(searchTerm: string, token: any): Observable<Music[]> {
+    return this.http.post<Music[]>('http://localhost:3001/songs/search/' + searchTerm, token);
+  }
+
   searchMusic(searchTerm: string): Observable<Music[]> {
-    return this.http.get<Music[]>(this.dataSource + '?q=' + searchTerm + '&type=artist', {
-      headers: {
-        Authorization: 'Bearer BQCowKKGo364bKl9wI8eoldkqsqVBSJc2jia-WgANGhMR2Muuv5-igA1gd7cNXFurYTr0MOUdhRLXjY3YUMPeM1b5PM3D1-q-9wlzrsynr8k2-sUTJI',
-      },
+    return this.http.get<Music[]>(this.dataSource + '?q=' + searchTerm + '&type=album', {
+      headers: { Authorization: 'Bearer' + ' ' + this.accessToken },
     });
   }
 
