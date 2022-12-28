@@ -17,8 +17,9 @@ export class MusicPage implements OnInit {
 
   ngOnInit() {
     this.code = new URLSearchParams(window.location.search).get('code');
-    localStorage.setItem('accessToken', JSON.stringify(this.getAccessToken(this.code)));
-    this.accessToken = localStorage.getItem('accessToken');
+
+    this.getAccessToken(this.code);
+
   }
 
   searchMusic() {
@@ -26,9 +27,7 @@ export class MusicPage implements OnInit {
   }
 
   searchMusicTest() {
-    let data = JSON.parse(this.accessToken);
-    localStorage.getItem('accessToken')
-    let token = { token: data };
+    let token = { token: JSON.parse(this.accessToken) };
 
     this.service.searchMusicTest(this.searchTerm, token).subscribe(m => {
       this.music = m;
@@ -50,6 +49,7 @@ export class MusicPage implements OnInit {
   getAccessToken(code: any) {
     this.service.getAccessToken(code).subscribe((result) => {
       localStorage.setItem('accessToken', JSON.stringify(result));
+      this.accessToken = localStorage.getItem('accessToken');
     });
   }
 }
