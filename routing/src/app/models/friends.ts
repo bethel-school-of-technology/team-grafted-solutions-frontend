@@ -1,4 +1,4 @@
 export class Friends {
-    id: number = 0
-    firstName: string =  ""
+    friendId: number = 0
+    display_name: string =  ""
 }
