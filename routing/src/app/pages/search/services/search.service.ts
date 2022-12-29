@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
 // Services
-import { GlobalService } from 'src/app/services/global.service';
+import { GlobalService } from 'src/app/service/global.service';
 
 // Models
 import { APISearch } from '../models/search-model';

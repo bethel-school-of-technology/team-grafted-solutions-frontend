@@ -1,0 +1,16 @@
+<div class="search-artist animated fadeIn" *ngIf="artist" (click)="navigate(artist)">  
+  <div class="search-artist__img-container">
+      <img class="search-artist__img" [src]="artist.images | errorImage" [alt]="artist.name">
+  </div>
+  <div class="search-artist__title-container">
+      <h4 class="search-artist__title">{{ artist.name }}</h4>
+  </div>
+  <div class="search-artist__bottom-container">
+      <div class="search-artist__artists-container" *ngFor="let artist of artist.artists">
+          <span class="search-artist__artist">{{ artist.name }}</span>
+      </div>
+      <div class="search-artist__type-container">
+          <span class="search-artist__type">{{ artist.type | uppercase }}</span>
+      </div>
+  </div>    
+</div>

@@ -1,11 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+// Services
+import { SearchService } from '../services/search.service';
 import { Router } from '@angular/router';
-import { SearchService } from '../service/search.service';
+import { GlobalService } from 'src/app/services/global.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss'],
+  styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
   @Input() public showModal: boolean = false;
