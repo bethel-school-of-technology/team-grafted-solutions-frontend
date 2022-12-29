@@ -9,12 +9,26 @@ import { Music } from '../models/music';
 })
 export class MusicService {
 
+public credentials = {
+
+  clientId: '69372f48d4b24c099e581c69793c1879',
+  clientSecret: '3fd83b37a78044e597517228a2cb6796',
+  accessToken: ''
+};
+
+
   dataSource: string = 'https://api.spotify.com/v1/search'
   // artistSource: string ='https://api.spotify.com/v1/search?q=Miles%20Davis&type=artist'
 
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    this.upDateToken()
+  }
+
+  upDateToken(){
+    this.credentials.accessToken = sessionStorage.getItem('token') || '';
+  }
 
   getMusic(searchTerm: string): Observable<Music> {
     return this.http.get<Music>(this.dataSource + "?q=" + searchTerm + "&type=artist", { headers: { 'Authorization': 'Bearer BQBp7Y5-OO177R0nhsEpVTK-PeS0c1KG_p3mRbgJuNn3MjI7IeasRj9o4NZhpjFcladWh-OYy_kTJ7l2nqK4slxEwftDwnLYDq51MLMf6SGmlI9e_9I' } });
@@ -31,6 +45,8 @@ export class MusicService {
       return this.http.get<Music>(this.dataSource + "?q=" + searchTerm + "&type=artist", { headers: { 'Authorization': `Bearer ${result.access_token}` } });
     }));
   }
+
+  
 
   getMusicByID(id: number): Observable<Music> {
     return this.http.get<Music>(this.dataSource + "/" + id);
