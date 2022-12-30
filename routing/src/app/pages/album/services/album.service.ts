@@ -6,7 +6,7 @@ import { map, catchError } from 'rxjs/operators';
 import { APIAlbums } from '../models/album-model';
 
 // Services
-import { GlobalService } from 'src/app/services/global.service';
+import { GlobalService } from 'src/app/service/global.service';
 
 @Injectable() // service provided in Artist module
 export class AlbumService {
