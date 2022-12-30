@@ -8,6 +8,20 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-item lines="none">
+      <ion-card-content>
+        <h1>Find Artist</h1>
+        <div class="search">
+          <input type="text" placeholder="Search.." [(ngModel)]="searchTerm" />
+          <button style="margin-left: 3vw; font-size: 2vh" (click)="searchMusicTest()" mat-raised-button>Search</button>
+        </div>
+        <div *ngFor="let m of music">
+          <ion-card> {{m.body}} </ion-card>
+        </div>
+      </ion-card-content>
+    </ion-item>
+  </ion-card>
   <ion-card color="primary" [routerLink]="['/socialvibez/artist']">
     <ion-card-header>
       <ion-thumbnail slot="start">
@@ -18,27 +32,3 @@
     </ion-card-header>
   </ion-card>
 </ion-content>
-
-<ion-card>
-  <ion-item lines="none">
-    <ion-card-content>
-      <h1>Find Artist</h1>
-      <div class="search">
-        <input type="text" placeholder="Search.." [(ngModel)]="searchTerm" />
-        <button style="margin-left: 3vw; font-size: 2vh" (click)="searchMusicTest()" mat-raised-button>Search</button>
-      </div>
-      <div *ngFor="let m of music">
-        <ion-card> {{m.body}} </ion-card>
-      </div>
-    </ion-card-content>
-  </ion-item>
-</ion-card>
-
-
-
-
-
-
-
-
-
