@@ -6,7 +6,6 @@ import { Music } from '../models/music';
 @Injectable({
   providedIn: 'root',
 })
-
 export class MusicService implements OnInit {
   accessToken: any;
 
@@ -16,8 +15,7 @@ export class MusicService implements OnInit {
     this.accessToken = localStorage.getItem('accessToken');
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   getMusic(searchTerm: string): Observable<Music[]> {
     return this.http.get<Music[]>(this.dataSource + '?q=' + searchTerm + '&type=album', {
@@ -26,7 +24,7 @@ export class MusicService implements OnInit {
   }
 
   searchMusicTest(searchTerm: string, token: any): Observable<Music[]> {
-    return this.http.post<Music[]>('http://localhost:3001/songs/search/' + searchTerm, token);
+    return this.http.post<Music[]>('http://localhost:8100/songs/search/' + searchTerm, token);
   }
 
   searchMusic(searchTerm: string): Observable<Music[]> {
@@ -64,6 +62,6 @@ export class MusicService implements OnInit {
   }
 
   getAccessToken(code: any) {
-    return this.http.post('http://localhost:3001/login', { code });
+    return this.http.post('http://localhost:8100/login', { code });
   }
 }
