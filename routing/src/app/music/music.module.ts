@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { MusicPageRoutingModule } from './music-routing.module';
+// import { MusicPageRoutingModule } from './music-routing.module';
 import { MusicPage } from './music.page';
 import { SharedModule } from '../shared/shared.module';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
+
 
 
 
@@ -14,7 +15,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
     CommonModule,
     FormsModule,
     IonicModule,
-    MusicPageRoutingModule,
+    MusicPageModule,
     ExploreContainerComponentModule,
     SharedModule,
 

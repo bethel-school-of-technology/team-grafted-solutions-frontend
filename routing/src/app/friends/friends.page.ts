@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Friends } from '../models/friends';
-import { FriendsService } from '../service/friends.service';
+import { FriendsService } from './service/friends.service';
+// import { FriendsService } from '../service/friends.service';
 
 @Component({
   selector: 'app-friends',

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Modules and Components
-import { AlbumRoutingModule } from './album-routing.module';
+import { AlbumRoutingModule } from './album.routing.module';
 import { AlbumComponent } from './album-component/album.component';
 
 // Services

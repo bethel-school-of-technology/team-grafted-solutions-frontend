@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { flatMap, mergeMap, Observable } from 'rxjs';
-import { Music } from '../models/music';
+import { Music } from 'src/app/models/music';
+// import { Music } from '../models/music';
 
 
 @Injectable({

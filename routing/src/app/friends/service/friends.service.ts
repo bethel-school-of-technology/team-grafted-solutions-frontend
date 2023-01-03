@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Friends } from '../models/friends';
+import { Friends } from 'src/app/models/friends';
+// import { Friends } from '../models/friends';
 
 
 @Injectable({
