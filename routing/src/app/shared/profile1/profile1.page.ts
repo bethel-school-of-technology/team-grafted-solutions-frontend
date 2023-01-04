@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
+import { EditProfileComponent } from '../edit-profile/edit-profile.component';
+
 @Component({
   selector: 'app-profile1',
   templateUrl: './profile1.page.html',
@@ -14,55 +16,22 @@ export class Profile1Page implements OnInit {
   setClose(isOpen: boolean) {
     this.isModalOpen = !isOpen;
   }
+  message = '';
+  bio = '';
+  constructor(private modalCtrl: ModalController) {}
 
-  constructor(private alertController: AlertController) {}
-
-  handlerMessage = '';
-  roleMessage = '';
-
-  async presentAlert() {
-    const alert = await this.alertController.create({
-      header: 'Edit Profile',
-      buttons: [
-        {
-          text: 'Cancel',
-          // role: 'cancel',
-          handler: () => {
-            this.handlerMessage = 'Alert canceled';
-          },
-        },
-        {
-          text: 'OK',
-          role: 'Saved',
-          handler: () => {
-            this.handlerMessage = 'Alert confirmed';
-          },
-        },
-      ],
-      inputs: [
-        // {
-        //   placeholder: 'Name',
-        // },
-        {
-          type: 'textarea',
-          placeholder: 'Favorite Genres',
-        },
-        // {
-        //   type: 'number',
-        //   placeholder: 'Age',
-        //   min: 1,
-        //   max: 100,
-        // },
-        {
-          type: 'textarea',
-          placeholder: 'A little about yourself',
-        },
-      ],
+  async openModal() {
+    const modal = await this.modalCtrl.create({
+      component: EditProfileComponent,
     });
+    modal.present();
 
-    await alert.present();
-    const { role } = await alert.onDidDismiss();
-    this.roleMessage = `${role}`;
+    const { data, role } = await modal.onWillDismiss();
+
+    if (role === 'confirm') {
+      this.message = `${data}!`;
+      this.bio = `${data}`;
+    }
   }
   ngOnInit() {}
 }

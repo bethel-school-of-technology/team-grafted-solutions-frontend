@@ -7,6 +7,8 @@ import { MusicPage } from './music.page';
 import { SharedModule } from '../shared/shared.module';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +17,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
     MusicPageRoutingModule,
     ExploreContainerComponentModule,
     SharedModule,
+
   ],
   declarations: [MusicPage],
 })

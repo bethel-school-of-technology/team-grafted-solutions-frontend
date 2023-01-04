@@ -10,20 +10,23 @@ const routes: Routes = [
     children: [
       {
         path: 'friends',
-        loadChildren: () =>
-          import('../friends/friends.module').then((m) => m.FriendsPageModule),
+        loadChildren: () => import('../friends/friends.module').then((m) => m.FriendsPageModule),
       },
       {
         path: 'music',
-        loadChildren: () =>
-          import('../music/music.module').then((m) => m.MusicPageModule),
+        loadChildren: () => import('../music/music.module').then((m) => m.MusicPageModule),
       },
       {
         path: 'messages',
-        loadChildren: () =>
-          import('../messages/messages.module').then(
-            (m) => m.MessagesPageModule
-          ),
+        loadChildren: () => import('../messages/messages.module').then((m) => m.MessagesPageModule),
+      },
+      {
+        path: 'artist',
+        loadChildren: () => import('../artist/artist.module').then((m) => m.ArtistPageModule),
+      },
+      {
+        path: 'friends-profile',
+        loadChildren: () => import('../friends-profile/friends-profile.module').then((m) => m.FriendsProfilePageModule),
       },
       {
         path: '',

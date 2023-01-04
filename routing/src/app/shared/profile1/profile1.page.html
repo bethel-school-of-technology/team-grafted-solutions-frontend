@@ -7,7 +7,7 @@
       />
     </ion-avatar>
   </ion-fab-button>
-
+  <!-- <app-edit-profile></app-edit-profile> -->
   <ion-modal [isOpen]="isModalOpen">
     <ng-template>
       <ion-header [translucent]="true">
@@ -30,8 +30,8 @@
       <ion-card>
         <ion-card-subtitle> About Me </ion-card-subtitle>
         <ion-card-content>
-          <p>{{ handlerMessage }}</p>
-          <p>{{ roleMessage }}</p>
+          <p>{{ message }}</p>
+          <p>{{ bio }}</p>
         </ion-card-content>
       </ion-card>
 
@@ -52,10 +52,7 @@
           <ion-card-content>
             <ion-item lines="none">
               <ion-thumbnail slot="start">
-                <img
-                  alt="Silhouette of mountains"
-                  src="https://ionicframework.com/docs/img/demos/thumbnail.svg"
-                />
+                <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
               </ion-thumbnail>
               <ion-label>
                 Song Title
@@ -73,10 +70,7 @@
           <ion-card-content>
             <ion-item lines="none">
               <ion-thumbnail slot="start">
-                <img
-                  alt="Silhouette of mountains"
-                  src="https://ionicframework.com/docs/img/demos/thumbnail.svg"
-                />
+                <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
               </ion-thumbnail>
               <ion-label>
                 Name
@@ -87,11 +81,9 @@
         </ion-card>
       </ion-content>
       <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-button (click)="presentAlert()">
-            <ion-icon name="cog"></ion-icon>
-          </ion-button>
-        </ion-buttons>
+        <ion-button (click)="openModal()" fill="clear">
+          <ion-icon slot="start" name="cog"></ion-icon>
+        </ion-button>
       </ion-toolbar>
     </ng-template>
   </ion-modal>
