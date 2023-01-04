@@ -7,39 +7,37 @@ import { NewReleasesService } from './service/new-releases.service';
 @Component({
   selector: 'app-music',
   templateUrl: './music.page.html',
-  styleUrls: ['./music.page.scss']
+  styleUrls: ['./music.page.scss'],
 })
 export class MusicPage implements OnInit {
   public newReleases: NewReleasesItem[] = [];
   // public activeLanguage: string = 'en';
 
-  constructor(
-    private newReleasesService: NewReleasesService,
-    private globalService: GlobalService,
-    // private translateService: TranslateService 
-    ){  }
+  constructor(private newReleasesService: NewReleasesService, private globalService: GlobalService) // private translateService: TranslateService
+  {}
 
   ngOnInit(): void {
     // this.setLanguage();
-    this.getNewReleases();
+    // this.getNewReleases();
   }
 
   // call service to get new releases from spotify
-  public getNewReleases(): void {
-    this.newReleasesService.getNewReleases().subscribe((data: any) => {
-      this.newReleases = data;
-      console.log('Data:', data);
-    }, (err) => {
-      console.log('Error:', err);
-      console.error(err.message);
-    }, () => {
-      console.log('Complete!');
-    });
-  }
+  // public getNewReleases(): void {
+  //   this.newReleasesService.getNewReleases().subscribe((data: any) => {
+  //     this.newReleases = data;
+  //     console.log('Data:', data);
+  //   }, (err) => {
+  //     console.log('Error:', err);
+  //     console.error(err.message);
+  //   }, () => {
+  //     console.log('Complete!');
+  //   });
+  // }
 
   // scroll to element
   public scrollTo(elementId: string): void {
-    document?.getElementById(elementId)?.scrollIntoView();  }
+    document?.getElementById(elementId)?.scrollIntoView();
+  }
 
   // set language
   // public setLanguage(): void {
@@ -48,13 +46,10 @@ export class MusicPage implements OnInit {
   // }
 }
 
-
 // import { Component, OnInit } from '@angular/core';
 // import { Music } from '../models/music';
 // import { MusicService } from './service/music.service';
 // // import { MusicService } from '../service/music.service';
-
-
 
 // @Component({
 //   selector: 'app-music',
@@ -81,7 +76,7 @@ export class MusicPage implements OnInit {
 //   sortArtist(){
 //     this.service.sortArtist().subscribe(m => this.music = m);
 //   }
-  
+
 //   sortSong(){
 //     this.service.sortSong().subscribe(m => this.music = m);
 //   }

@@ -8,19 +8,23 @@ import { NewReleasesItem } from '../music/models/new-release-model';
 @Component({
   selector: 'app-new-release-item',
   templateUrl: './new-release-item.component.html',
-  styleUrls: ['./new-release-item.component.scss']
+  styleUrls: ['./new-release-item.component.scss'],
 })
 export class NewReleaseItemComponent implements OnInit {
-  @Input() newRelease: NewReleasesItem;
+  // @Input() newRelease: NewReleasesItem;
 
-  constructor(private router: Router) { /*empty*/ }
+  constructor(private router: Router) {
+    /*empty*/
+  }
 
-  ngOnInit(): void { /*empty*/ }
+  ngOnInit(): void {
+    /*empty*/
+  }
 
   public navigate(newRelease: any): void {
     let newReleaseId: number = 0;
 
-    newRelease.type === 'artist' ?  newReleaseId = newRelease.id : newReleaseId = newRelease.id;
+    newRelease.type === 'artist' ? (newReleaseId = newRelease.id) : (newReleaseId = newRelease.id);
     console.log('new release type:', newRelease.type);
     console.log('New Release Id:', newReleaseId);
 
