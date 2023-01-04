@@ -15,16 +15,17 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-button id="open-modal" color="light"><ion-icon name="create"></ion-icon>New Post
-  </ion-button>
 
   <ion-segment [(ngModel)]="selectTabs">
     <ion-segment-button value="Feed">Feed</ion-segment-button>
-    <ion-segment-button value="directMessages">Direct Messages</ion-segment-button>
+    <ion-segment-button value="directMessages">My Messages</ion-segment-button>
   </ion-segment>
 
 
   <ion-content class="ion-padding" *ngIf="selectTabs == 'Feed'">
+    <ion-button id="open-newPost-modal" color="light"><ion-icon name="create"></ion-icon>New Post
+    </ion-button>
+  
     <ion-card>
       <ion-card-content>
         <ion-item lines="none">
@@ -45,35 +46,36 @@
     </ion-card>
   </ion-content>
 
-
-  <ion-content>
-    <ion-card>
-      <ion-card-header>
-        <ion-chip color="secondary">
-          <ion-avatar>
-            <img
-              alt="Silhouette of a person's head"
-              src="https://ionicframework.com/docs/img/demos/avatar.svg"
-            />
-          </ion-avatar>
-          <ion-label>Chad Ipsum</ion-label>
-        </ion-chip>
-      </ion-card-header>
+<ion-card>
+  <ion-card-content>
+      <ion-list *ngIf="segment == 'chats' && (User) as user$">
         <ion-toolbar>
-        <ion-buttons slot="primary">
-          <ion-button size="large" fill="clear" id="open-Dm-modal">
-            <ion-icon name="arrow-up-circle"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-card>
+            <ion-item *ngFor="let item of user$"
+              (click)="getChat(item)"
+               [detail]="true">
+               <ion-avatar slot="start">
+                <img [src]="item.photo" />
+               </ion-avatar>
+               <ion-label>
+                {{item?.name}}
+                <p>
+                  <ion-text>message</ion-text>
+                </p>
+               </ion-label>
+            </ion-item>
+
+        </ion-toolbar>
+      </ion-list>
+      </ion-card-content>
+     </ion-card> 
+    
 
   
-  </ion-content>
-</ion-content>
 
+<!--************OPEN NEWPOST MODAL ************ -->
+        <!-- ******************************* -->
 
-<ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+<ion-modal trigger="open-newPost-modal" (willDismiss)="onWillDismiss($event)">
   <ng-template>
     <ion-header>
       <ion-toolbar>
@@ -102,7 +104,8 @@
   </ng-template>
 </ion-modal>
 
-
+<!--************OPEN DM MODAL ************ -->
+        <!-- ******************************* -->
 <ion-modal trigger="open-Dm-modal" (willDismiss)="onWillDismiss($event)">
   <ng-template>
     <ion-header>
@@ -128,13 +131,10 @@
                 </ion-avatar>
                 <ion-label>Chad Ipsum</ion-label>
               </ion-chip>
-
             </ion-thumbnail>
-
           </ion-item>
         </ion-card-content>
       </ion-card>
-
       <ion-card>
         <ion-card-content>
           <ion-item lines="none">
@@ -151,19 +151,10 @@
           </ion-item>
         </ion-card-content>
       </ion-card>
-
-
-
-
-
-
-
-
       <ion-item>
         <ion-textarea placeholder="Type something here" [autoGrow]="true" [(ngModel)]="post">
         </ion-textarea>
       </ion-item>
-
       <ion-col>
         <ion-button
         (click)="confirm()"
@@ -172,9 +163,45 @@
           id="btn-post"
           >Send</ion-button>
           
-      </ion-col>
-    </ion-content>
-  </ng-template>
-</ion-modal>
+        </ion-col>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-fab slot="fixed" horizontal="end" vertical="bottom">
+    <ion-fab-button (click)="newChat()" id="newChat">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <!--************OPEN NEWCHAT MODAL ************ -->
+        <!-- ******************************* -->
+
+        <ion-modal trigger="newChat" [isOpen]="open_new_chat" (willDismiss)="onWillDismiss($event)">
+          <ng-template>
+            <ion-header>
+              <ion-toolbar color="primary">
+                <ion-title>New Chat</ion-title>
+                  <ion-buttons slot="end">
+                    <ion-button (click)="cancel()">Cancel</ion-button>
+                  </ion-buttons>
+              </ion-toolbar>
+            </ion-header>
+            <ion-content color="light">
+              <ion-item lines="full" (click)="redirect()" detail="true">
+                <ion-avatar slot="start">
+                  <img [src]="item?.photo" />
+                </ion-avatar>
+                <ion-label>
+                  {{ item?.name}}
+                </ion-label>
+              </ion-item>
+            </ion-content>
+          </ng-template>
+
+        </ion-modal>
+
+</ion-content>
+
 
 
