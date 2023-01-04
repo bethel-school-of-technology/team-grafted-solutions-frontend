@@ -16,7 +16,7 @@ export class MusicPage implements OnInit {
   constructor(
     private newReleasesService: NewReleasesService,
     private globalService: GlobalService,
-    private translateService: TranslateService 
+    // private translateService: TranslateService 
     ){  }
 
   ngOnInit(): void {
@@ -39,8 +39,7 @@ export class MusicPage implements OnInit {
 
   // scroll to element
   public scrollTo(elementId: string): void {
-    document.getElementById(elementId).scrollIntoView();
-  }
+    document?.getElementById(elementId)?.scrollIntoView();  }
 
   // set language
   // public setLanguage(): void {
