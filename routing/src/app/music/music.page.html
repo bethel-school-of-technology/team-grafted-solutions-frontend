@@ -6,18 +6,21 @@
   </ion-card>
   <app-profile1></app-profile1>
 </ion-header>
-
-<ion-content [fullscreen]="true">
+<ion-content>
   <ion-card>
+    <ion-card-title>Find Artist</ion-card-title>
+
     <ion-item lines="none">
       <ion-card-content>
-        <h1>Find Artist</h1>
         <div class="search">
           <input type="text" placeholder="Search.." [(ngModel)]="searchTerm" />
-          <button style="margin-left: 3vw; font-size: 2vh" (click)="searchMusicTest()" mat-raised-button>Search</button>
+          <ion-button (click)="searchMusicTest()">Search</ion-button>
         </div>
         <div *ngFor="let m of music">
-          <ion-card> {{m.body}} </ion-card>
+          <ion-avatar>
+            <img src="{{m.body}}" />
+          </ion-avatar>
+          <ion-card></ion-card>
         </div>
       </ion-card-content>
     </ion-item>
