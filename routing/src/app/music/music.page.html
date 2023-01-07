@@ -30,7 +30,9 @@
       <div *ngFor="let m of music">
         <!-- <ion-card> <div routerLink="{{m.external_urls[]"></div> </ion-card> -->
         <ion-card>
-          
+          <ion-avatar>
+            <img [src]="m.images[0].url">
+          </ion-avatar>
           <!-- <a href="{{m.external_urls.spotify}}"></a> -->
           <a href="{{m.external_urls.spotify}}">{{m.external_urls.spotify}}</a>
           <br>
@@ -38,16 +40,27 @@
           <br>
           <a href="{{m.images}}">{{m.images}}</a>
           <br>
-          <a href="{{m.uri}}">{{"Link"}}</a>
+          <a href="{{m.uri}}">{{m.uri}}</a>
           <br>
-          <a href="{{m.preview_url}}">{{m.preview_url}}</a>
-        
+          <a href="{{m.external_urls.href}}">{{m.external_urls.href}}</a>
+          <br>
+          <a href="{{m.url}}">{{m.url}}</a>
+          <br>
         </ion-card>
+        </div>
+          <!-- <a href="https://api.spotify.com/v1/artists/{{m.id}}">{{m.id}}}</a> -->
+          <!-- <div>
+          <ion-avatar>
+            <img alt=“Silhouette of a persons head” src="{{m.external_urls.spotify}}" />
+          </ion-avatar>
+        </div>
+        
+       </ion-card>
 
-      </div>
-    </ion-card-content>
+      </div> -->
+    <!-- </ion-card-content>
   </ion-item>
-</ion-card>
+</ion-card> -->
 
    <!-- <ion-card>
       <ion-item lines="none">

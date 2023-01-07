@@ -11,10 +11,12 @@
         uri: string
         artists : string
         preview_url: string
+        url: string
       }
       
       export interface ExternalUrls {
         spotify: string
+        href:string
       }
       
       export interface Followers {
