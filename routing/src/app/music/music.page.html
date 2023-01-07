@@ -28,12 +28,43 @@
         <button style="margin-left: 3vw; font-size: 2vh" (click)="searchMusicTest()" mat-raised-button>Search</button>
       </div>
       <div *ngFor="let m of music">
-        <ion-card> {{m.body}} </ion-card>
+        <!-- <ion-card> <div routerLink="{{m.external_urls[]"></div> </ion-card> -->
+        <ion-card>
+          
+          <!-- <a href="{{m.external_urls.spotify}}"></a> -->
+          <a href="{{m.external_urls.spotify}}">{{m.external_urls.spotify}}</a>
+          <br>
+          <a href="{{m.name}}">{{m.name}}</a>
+          <br>
+          <a href="{{m.images}}">{{m.images}}</a>
+          <br>
+          <a href="{{m.uri}}">{{"Link"}}</a>
+          <br>
+          <a href="{{m.preview_url}}">{{m.preview_url}}</a>
+        
+        </ion-card>
+
       </div>
     </ion-card-content>
   </ion-item>
 </ion-card>
 
+   <!-- <ion-card>
+      <ion-item lines="none">
+        <ion-card-content> 
+          <h1>Find Artist</h1>
+          <div class="search">
+            <input type="text" placeholder="Search.."[(ngModel)]="searchTerm">
+            <button (click)="searchMusic()" mat-raised-button>Search</button>
+            <div *ngIf="music != null">
+              <ion-card>
+             {{music.artists.items[0].name}}
+             <br>
+             {{music.artists.items[0].uri}}
+                </ion-card>
+            </div>
+              </div>
+              </ion-card-content> -->
 
 
 

@@ -11,6 +11,7 @@ import { MusicService } from '../service/music.service';
 export class MusicPage implements OnInit {
   accessToken: any;
   music: Music[] = [];
+  // artists: Artist[];
   code: any;
   searchTerm: string = '';
   constructor(private service: MusicService) {}
@@ -26,6 +27,10 @@ export class MusicPage implements OnInit {
     this.service.searchMusic(this.searchTerm).subscribe((m) => (this.music = m));
   }
 
+  // searchArtists() {
+  //   this.service.searchArtists(this.searchTerm).subscribe((a) => (this.artists = a));
+  // }
+
   searchMusicTest() {
     let token = { token: JSON.parse(this.accessToken) };
 
@@ -36,6 +41,10 @@ export class MusicPage implements OnInit {
 
   getMusic() {
     this.service.getMusic(this.searchTerm).subscribe((m) => (this.music = m));
+  }
+
+  getArtists() {
+    this.service.getArtists(this.searchTerm).subscribe((a) => (this.music = a));
   }
 
   sortArtist() {

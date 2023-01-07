@@ -1,16 +1,31 @@
-// export class Music {
-//     id: number = 0
-//     artistName: string =  ""
-//     song: string = ""
-// }
-
-// export class Music {
-    //     artist: any
-    //     title: any
-    //     uri: any
-    //     albumUrl: any
-    // }
+    export interface Music {
+        external_urls: ExternalUrls
+        followers: Followers
+        genres: string[]
+        href: string
+        id: string
+        images: Image[]
+        name: string
+        popularity: number
+        type: string
+        uri: string
+        artists : string
+        preview_url: string
+      }
+      
+      export interface ExternalUrls {
+        spotify: string
+      }
+      
+      export interface Followers {
+        href: any
+        total: number
+      }
+      
+      export interface Image {
+        height: number
+        url: string
+        width: number
+      }
     
-    export class Music {
-        body: any
-    }
+   

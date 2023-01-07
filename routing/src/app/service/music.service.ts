@@ -25,7 +25,17 @@ export class MusicService implements OnInit {
     });
   }
 
+  getArtists(searchTerm: string): Observable<Music[]> {
+    return this.http.get<Music[]>(this.dataSource + '?q=' + searchTerm + '&type=album', {
+      headers: { Authorization: 'Bearer' + ' ' + this.accessToken },
+    });
+  }
+
   searchMusicTest(searchTerm: string, token: any): Observable<Music[]> {
+    return this.http.post<Music[]>('http://localhost:3001/songs/search/' + searchTerm, token);
+  }
+
+  searchArtists(searchTerm: string, token: any): Observable<Music[]> {
     return this.http.post<Music[]>('http://localhost:3001/songs/search/' + searchTerm, token);
   }
 
