@@ -2,6 +2,8 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core';
+import { Observable } from 'rxjs';
+import { ChatService } from '../service/chat/chat.service';
 
 
 @Component({
@@ -19,6 +21,8 @@ post: any[] = [];
 open_new_chat = false;
 @Input() item: any;
 segment = 'chats'
+users: Observable<any[]>;
+
 
 User = [
   {id:1, name: 'User1', photo:'https://i.pravatar.cc/325'},
@@ -43,7 +47,13 @@ User = [
     }
   }
 
-  newChat() {}
+  newChat() {
+    this.open_new_chat=true;
+    if(!this.users) this.getUsers();
+  }
+
+  getUsers() {
+  }
   
   redirect() {
 
