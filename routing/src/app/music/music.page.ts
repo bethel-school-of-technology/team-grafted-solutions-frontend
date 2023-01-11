@@ -30,21 +30,28 @@ export class MusicPage implements OnInit {
   // searchArtists() {
   //   this.service.searchArtists(this.searchTerm).subscribe((a) => (this.artists = a));
   // }
+  // album() {
+  //   let token = { token: JSON.parse(this.accessToken) };
 
-  searchMusicTest() {
-    let token = { token: JSON.parse(this.accessToken) };
+  //   this.service.album(this.searchTerm, token).subscribe(c => {
+  //     this.music = c;
+  //   });
+  // }
 
-    this.service.searchMusicTest(this.searchTerm, token).subscribe(m => {
-      this.music = m;
-    });
-  }
+  // searchMusicTest() {
+  //   let token = { token: JSON.parse(this.accessToken) };
+
+  //   this.service.searchMusicTest(this.searchTerm, token).subscribe(m => {
+  //     this.music = m;
+  //   });
+  // }
 
   getMusic() {
     this.service.getMusic(this.searchTerm).subscribe((m) => (this.music = m));
   }
 
   getArtists() {
-    this.service.getArtists(this.searchTerm).subscribe((a) => (this.music = a));
+    this.service.getArtist(this.searchTerm).subscribe((a) => (this.music = a));
   }
 
   sortArtist() {
@@ -54,6 +61,17 @@ export class MusicPage implements OnInit {
   sortSong() {
     this.service.sortSong().subscribe((m) => (this.music = m));
   }
+
+  getAlbum() {
+    let token = { token: JSON.parse(this.accessToken) };
+
+    this.service.getAlbumByID(this.searchTerm, token).subscribe((b) => (this.music = b));
+    
+  }
+
+  // getAlbumPhoto() {
+  //   this.service.getAlbumPhoto(this.searchTerm).subscribe((a) => (this.music = p));
+  // }
 
   getAccessToken(code: any) {
     this.service.getAccessToken(code).subscribe((result) => {

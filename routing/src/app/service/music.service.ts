@@ -11,6 +11,7 @@ export class MusicService implements OnInit {
   accessToken: any;
 
   dataSource: string = 'https://api.spotify.com/v1/search';
+  // dataSource: String = 'https://api.spotify.com/v1/artists/{id}'
 
   constructor(private http: HttpClient) {
     this.accessToken = localStorage.getItem('accessToken');
@@ -20,20 +21,20 @@ export class MusicService implements OnInit {
   }
 
   getMusic(searchTerm: string): Observable<Music[]> {
-    return this.http.get<Music[]>(this.dataSource + '?q=' + searchTerm + '&type=album', {
+    return this.http.get<Music[]>(this.dataSource + '?q=' + searchTerm + '&type=artist%2Calbum%2Ctrack"', {
       headers: { Authorization: 'Bearer' + ' ' + this.accessToken },
     });
   }
 
-  getArtists(searchTerm: string): Observable<Music[]> {
-    return this.http.get<Music[]>(this.dataSource + '?q=' + searchTerm + '&type=album', {
+  getArtist(searchTerm: string): Observable<Music[]> {
+    return this.http.get<Music[]>(this.dataSource + '?q=' + searchTerm + '&type=artist', {
       headers: { Authorization: 'Bearer' + ' ' + this.accessToken },
     });
   }
 
-  searchMusicTest(searchTerm: string, token: any): Observable<Music[]> {
-    return this.http.post<Music[]>('http://localhost:3001/songs/search/' + searchTerm, token);
-  }
+  // searchMusicTest(searchTerm: string, token: any): Observable<Music[]> {
+  //   return this.http.post<Music[]>('http://localhost:3001/songs/search/' + searchTerm, token);
+  // }
 
   searchArtists(searchTerm: string, token: any): Observable<Music[]> {
     return this.http.post<Music[]>('http://localhost:3001/songs/search/' + searchTerm, token);
@@ -73,7 +74,24 @@ export class MusicService implements OnInit {
     return this.http.get<Music[]>(this.dataSource + '?_sort=song&_order=asc');
   }
 
+  // getAlbumByID(id: number): Observable<Music> {
+  //   return this.http.get<Music>(this.dataSource + '/' + id);
+  // }
+
+  // getAlbumPhoto(id: number): Observable<Music> {
+  //   return this.http.get<Music>(this.dataSource + '/' + id);
+  // }
+
   getAccessToken(code: any) {
     return this.http.post('http://localhost:3001/login', { code });
+  }
+  getAlbumByID(searchTerm: string, token: any): Observable<Music[]> {
+    return this.http.post<Music[]>('http://localhost:3001/songs/search/' + searchTerm, token);
+  }
+  getAlbumPhoto(searchTerm: string, token: any): Observable<Music[]> {
+    return this.http.post<Music[]>('http://localhost:3001/songs/search/' + searchTerm, token);
+  }
+  getAlbum(searchTerm: string, token: any): Observable<Music[]> {
+    return this.http.post<Music[]>('http://localhost:3001/songs/search/' + searchTerm, token);
   }
 }

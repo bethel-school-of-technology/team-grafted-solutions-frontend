@@ -6,7 +6,6 @@
   </ion-card>
   <app-profile1></app-profile1>
 </ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-card color="primary" [routerLink]="['/socialvibez/artist']">
     <ion-card-header>
@@ -18,21 +17,26 @@
     </ion-card-header>
   </ion-card>
 </ion-content>
-
+<ion-card> <h1>Find Artist</h1>
+  <div class="search">
+    <input type="text" placeholder="Search.." [(ngModel)]="searchTerm" />
+    <!-- <button style="margin-left: 3vw; font-size: 2vh" (click)="searchMusicTest()" mat-raised-button>Search</button> -->
+    <button style="margin-left: 3vw; font-size: 2vh" (click)="getAlbum()" mat-raised-button>Search</button>
+  </div></ion-card>
 <ion-card>
   <ion-item lines="none">
     <ion-card-content>
-      <h1>Find Artist</h1>
+      <!-- <h1>Find Artist</h1>
       <div class="search">
         <input type="text" placeholder="Search.." [(ngModel)]="searchTerm" />
         <button style="margin-left: 3vw; font-size: 2vh" (click)="searchMusicTest()" mat-raised-button>Search</button>
-      </div>
+      </div> -->
       <div *ngFor="let m of music">
         <!-- <ion-card> <div routerLink="{{m.external_urls[]"></div> </ion-card> -->
         <ion-card>
-          <ion-avatar>
+          <!-- <ion-avatar>
             <img [src]="m.images[0].url">
-          </ion-avatar>
+          </ion-avatar> -->
           <!-- <a href="{{m.external_urls.spotify}}"></a> -->
           <a href="{{m.external_urls.spotify}}">{{m.external_urls.spotify}}</a>
           <br>
