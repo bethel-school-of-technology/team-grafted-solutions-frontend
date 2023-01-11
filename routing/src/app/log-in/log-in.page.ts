@@ -6,10 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./log-in.page.scss'],
 })
 export class LogInPage implements OnInit {
+  swLogo = '../src/assets/icon/swLogo.svg';
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

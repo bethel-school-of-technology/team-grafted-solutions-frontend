@@ -10,7 +10,12 @@
     </ion-card-header>
 
     <ion-card-content>
-      <ion-button href="https://www.spotify.com/us/signup?forward_url=https%3A%2F%2Fopen.spotify.com%2F">Sign Up with Spotify</ion-button>
+      <div>
+        <ion-button href="https://www.spotify.com/us/signup?forward_url=https%3A%2F%2Fopen.spotify.com%2F">
+          <ion-icon class="font-size-60" [src]="swLogo"></ion-icon>
+          Sign Up with Spotify
+        </ion-button>
+      </div>
     </ion-card-content>
     <!-- <ion-button [routerLink]="['/socialvibez/music']" type="submit" color="danger" expand="block">Sign In</ion-button> -->
 
@@ -21,7 +26,5 @@
       expand="block"
       >Login With Spotify</ion-button
     >
-
-    <a [routerLink]="['/forgot-password']" class="small-text">Forgot Password?</a>
   </ion-card>
 </ion-content>

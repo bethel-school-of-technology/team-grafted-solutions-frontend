@@ -33,6 +33,13 @@ export class MusicService implements OnInit {
     });
   }
 
+  // Below will try to adjust the code to search for images
+  // searchImage(searchTerm: string): Observable<Music[]> {
+  //   return this.http.get<Music[]>(this.dataSource + '?q=' + searchTerm + '&type=album', {
+  //     headers: { Authorization: 'Bearer' + ' ' + this.accessToken },
+  //   });
+  // }
+
   getMusicByID(id: number): Observable<Music> {
     return this.http.get<Music>(this.dataSource + '/' + id);
   }
