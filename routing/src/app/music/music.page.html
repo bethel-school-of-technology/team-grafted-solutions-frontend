@@ -9,13 +9,14 @@
 <ion-content>
   <ion-card>
     <ion-card-title>Find Artist</ion-card-title>
-
     <ion-item lines="none">
+      <ion-searchbar showCancelButton="focus" class="custom" [(ngModel)]="searchTerm"></ion-searchbar>
+
       <ion-card-content>
-        <div class="search">
-          <input type="text" placeholder="Search.." [(ngModel)]="searchTerm" />
-          <ion-button (click)="searchMusicTest()">Search</ion-button>
-        </div>
+        <!-- <div class="search"> -->
+        <!-- <input type="text" placeholder="Search.." [(ngModel)]="searchTerm" /> -->
+        <!-- <ion-button (click)="searchMusicTest()">Search</ion-button> -->
+        <!-- </div> -->
         <div *ngFor="let m of music">
           <ion-avatar>
             <img src="https://api.spotify.com/v1/artists/4oUHIQIBe0LHzYfvXNW4QM" />

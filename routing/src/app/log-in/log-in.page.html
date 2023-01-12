@@ -11,15 +11,18 @@
 
     <ion-card-content>
       <div>
-        <ion-button href="https://www.spotify.com/us/signup?forward_url=https%3A%2F%2Fopen.spotify.com%2F">
-          <ion-icon class="font-size-60" [src]="swLogo"></ion-icon>
-          Sign Up with Spotify
+        <ion-button fill="outline" href="https://www.spotify.com/us/signup?forward_url=https%3A%2F%2Fopen.spotify.com%2F">
+          <ion-avatar>
+            <img src="../assets/icon/Spotify_Icon_RGB_White.png" alt="" />
+          </ion-avatar>
+          Sign Up With Spotify
         </ion-button>
       </div>
     </ion-card-content>
     <!-- <ion-button [routerLink]="['/socialvibez/music']" type="submit" color="danger" expand="block">Sign In</ion-button> -->
 
     <ion-button
+      fill="outline"
       style="font-size: 22px; display: flex; margin-bottom: 3vh; margin-top: 3vh"
       href="https://accounts.spotify.com/authorize?client_id=69372f48d4b24c099e581c69793c1879&response_type=code&redirect_uri=http://localhost:8100/socialvibez/music&show_dialog=true&scope=playlist-read-private%20streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state"
       type="submit"
@@ -28,3 +31,4 @@
     >
   </ion-card>
 </ion-content>
+<ion-footer color="light"> </ion-footer>
