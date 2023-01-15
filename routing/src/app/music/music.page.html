@@ -22,15 +22,11 @@
           <!-- <ion-chip> -->
           <ion-item>
             <ion-avatar>
-              <!-- <img alt="" src="{{ m.album.images[0].url }}" /> -->
-              <!-- <a class="album__name" [routerLink]="['/artist', album.artist.id]">{{ artist.name }}</a> -->
+              <img src="{{ m.album.images[0].url }}" />
             </ion-avatar>
             <ion-label>{{ m.album.artists[0].name }}</ion-label>
-            <ion-icon name="caret-forward-circle-outline">
-              <a href="{{ m.album.external_urls.preview_url }}">{{ m.album.external_urls.preview_url  }}</a>
-            </ion-icon>
+            <a href="{{ m.album.preview_url }}">{{ m.album.preview_url }}</a>
           </ion-item>
-         
           <!-- </ion-chip> -->
           <!-- <img alt="Silhouette of mountains" src="{{ m.album.images[0].url }}" /> -->
           <!-- <ion-card-header>
