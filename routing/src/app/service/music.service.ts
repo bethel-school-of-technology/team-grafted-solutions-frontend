@@ -18,7 +18,7 @@ export class MusicService implements OnInit {
   ngOnInit() {}
 
   getMusic(searchTerm: string): Observable<Music[]> {
-    return this.http.get<Music[]>(this.dataSource + '?q=' + searchTerm + '&type=album', {
+    return this.http.post<Music[]>(this.dataSource + '?q=' + searchTerm + '&type=album', {
       headers: { Authorization: 'Bearer' + ' ' + this.accessToken },
     });
   }
