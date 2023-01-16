@@ -6,31 +6,29 @@
 <ion-content>
   <ion-card>
     <ion-card-header style="text-align: center">
-      <ion-card-title>Log in</ion-card-title>
+      <ion-card-title></ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
-      <ion-item lines="full">
-        <ion-label position="floating">UserName</ion-label>
-        <ion-input type="text" required></ion-input>
-      </ion-item>
-      <ion-item lines="full">
-        <ion-label position="floating">Password</ion-label>
-        <ion-input type="password" required></ion-input>
-      </ion-item>
+      <div>
+        <ion-button fill="outline" href="https://www.spotify.com/us/signup?forward_url=https%3A%2F%2Fopen.spotify.com%2F">
+          <ion-avatar>
+            <img src="../assets/icon/Spotify_Icon_RGB_White.png" alt="" />
+          </ion-avatar>
+          Sign Up With Spotify
+        </ion-button>
+      </div>
     </ion-card-content>
-    <ion-col>
-      <ion-button [routerLink]="['/socialvibez/music']" type="submit" color="danger" expand="block">Sign In</ion-button>
+    <!-- <ion-button [routerLink]="['/socialvibez/music']" type="submit" color="danger" expand="block">Sign In</ion-button> -->
 
-      <ion-button
-        style="font-size: 22px; display: flex; margin-bottom: 3vh; margin-top: 3vh"
-        href="https://accounts.spotify.com/authorize?client_id=69372f48d4b24c099e581c69793c1879&response_type=code&redirect_uri=http://localhost:8100/socialvibez/music&show_dialog=true&scope=playlist-read-private%20streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state"
-        type="submit"
-        expand="block"
-        >Login With Spotify</ion-button
-      >
-
-      <a [routerLink]="['/forgot-password']" class="small-text">Forgot Password?</a>
-    </ion-col>
+    <ion-button
+      fill="outline"
+      style="font-size: 22px; display: flex; margin-bottom: 3vh; margin-top: 3vh"
+      href="https://accounts.spotify.com/authorize?client_id=69372f48d4b24c099e581c69793c1879&response_type=code&redirect_uri=http://localhost:8100/socialvibez/music&show_dialog=true&scope=playlist-read-private%20streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state"
+      type="submit"
+      expand="block"
+      >Login With Spotify</ion-button
+    >
   </ion-card>
 </ion-content>
+<ion-footer color="light"> </ion-footer>

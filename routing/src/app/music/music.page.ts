@@ -7,10 +7,10 @@ import { MusicService } from '../service/music.service';
   templateUrl: './music.page.html',
   styleUrls: ['./music.page.scss'],
 })
-
 export class MusicPage implements OnInit {
   accessToken: any;
-  music: Music[] = [];
+  // music: Music[] = [];
+  music: any[] = [];
   code: any;
   searchTerm: string = '';
   constructor(private service: MusicService) {}
@@ -19,7 +19,6 @@ export class MusicPage implements OnInit {
     this.code = new URLSearchParams(window.location.search).get('code');
 
     this.getAccessToken(this.code);
-
   }
 
   searchMusic() {
@@ -29,7 +28,7 @@ export class MusicPage implements OnInit {
   searchMusicTest() {
     let token = { token: JSON.parse(this.accessToken) };
 
-    this.service.searchMusicTest(this.searchTerm, token).subscribe(m => {
+    this.service.searchMusicTest(this.searchTerm, token).subscribe((m) => {
       this.music = m;
     });
   }
