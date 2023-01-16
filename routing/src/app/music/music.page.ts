@@ -47,8 +47,8 @@ export class MusicPage implements OnInit {
   }
 
   getAccessToken(code: any) {
-    this.service.getAccessToken(code).subscribe((result) => {
-      localStorage.setItem('accessToken', JSON.stringify(result));
+    this.service.getAccessToken(code).subscribe((result:any) => {
+      localStorage.setItem('accessToken', JSON.stringify(result.token));
       this.accessToken = localStorage.getItem('accessToken');
     });
   }
