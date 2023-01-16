@@ -13,6 +13,14 @@ export class MusicPage implements OnInit {
   music: any[] = [];
   code: any;
   searchTerm: string = '';
+  public data = [`${this.music}`];
+  public results = [...this.data];
+
+  handleChange(event: any) {
+    const query = event.target.value.toLowerCase();
+    this.results = this.data.filter((d) => d.toLowerCase().indexOf(query) > -1);
+  }
+
   constructor(private service: MusicService) {}
 
   ngOnInit() {
@@ -21,9 +29,9 @@ export class MusicPage implements OnInit {
     this.getAccessToken(this.code);
   }
 
-  searchMusic() {
-    this.service.searchMusic(this.searchTerm).subscribe((m) => (this.music = m));
-  }
+  // searchMusic() {
+  //   this.service.searchMusic(this.searchTerm).subscribe((m) => (this.music = m));
+  // }
 
   searchMusicTest() {
     let token = { token: JSON.parse(this.accessToken) };
@@ -34,6 +42,8 @@ export class MusicPage implements OnInit {
   }
 
   getMusic() {
+    let token = { token: JSON.parse(this.accessToken) };
+
     this.service.getMusic(this.searchTerm).subscribe((m) => (this.music = m));
   }
 

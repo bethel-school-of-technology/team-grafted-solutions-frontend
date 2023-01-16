@@ -1,52 +1,49 @@
-<ion-header>
-  <ion-card>
-    <ion-item lines="none">
-      <ion-card-title class="ion-padding"> Music </ion-card-title>
-    </ion-item>
-  </ion-card>
-  <app-profile1></app-profile1>
-</ion-header>
+<ion-card>
+  <ion-card-title class="ion-padding"> Music </ion-card-title>
+</ion-card>
+<app-profile1></app-profile1>
 <ion-content>
-  <ion-card>
-    <ion-card-title>Find Artist</ion-card-title>
-    <ion-item lines="none">
-      <!-- <ion-searchbar showCancelButton="focus" class="custom" [(ngModel)]="searchTerm"></ion-searchbar> -->
+  <!-- <ion-card> -->
+  <!-- <ion-card-title>Find Artist</ion-card-title> -->
+  <!-- <ion-searchbar showCancelButton="focus" class="custom" [(ngModel)]="searchTerm"></ion-searchbar> -->
+  <!-- <div class="search"> -->
 
-      <ion-card-content>
-        <div class="search">
-          <input type="text" placeholder="Search.." [(ngModel)]="searchTerm" />
-          <ion-button (click)="searchMusicTest()">Search</ion-button>
-        </div>
-        <ion-list lines="none" *ngFor="let m of music">
-          <!-- <ion-card *ngFor="let m of music"> -->
-          <!-- <ion-chip> -->
-          <ion-item>
-            <ion-avatar>
-              <img src="{{ m.album.images[0].url }}" />
-            </ion-avatar>
-            <ion-label>{{ m.album.artists[0].name }}</ion-label>
-            <a href="{{ m.album.preview_url }}">{{ m.album.preview_url }}</a>
-          </ion-item>
-          <!-- </ion-chip> -->
-          <!-- <img alt="Silhouette of mountains" src="{{ m.album.images[0].url }}" /> -->
-          <!-- <ion-card-header>
+  <!-- </div> -->
+  <!-- </ion-card> -->
+
+  <!-- <ion-list>
+    <ion-item *ngFor="let result of results">
+      <ion-label>{{ result }}</ion-label>
+    </ion-item>
+  </ion-list> -->
+
+  <ion-card color="next">
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-searchbar [debounce]="1000" showCancelButton="never" class="custom" (ionChange)="handleChange($event)" [(ngModel)]="searchTerm">
+        </ion-searchbar>
+        <ion-button color="next" (click)="searchMusicTest()">Search</ion-button>
+      </ion-item>
+      <ion-list color="next" lines="none" *ngFor="let m of music">
+        <!-- <ion-card *ngFor="let m of music"> -->
+        <!-- <ion-chip> -->
+        <ion-item [routerLink]="['/socialvibez/artist']">
+          <ion-avatar>
+            <img src="{{ m.album.images[0].url }}" />
+          </ion-avatar>
+          <ion-label>{{ m.album.artists[0].name }}</ion-label>
+          <a href="{{ m.album.preview_url }}">{{ m.album.preview_url }}</a>
+        </ion-item>
+        <!-- </ion-chip> -->
+        <!-- <img alt="Silhouette of mountains" src="{{ m.album.images[0].url }}" /> -->
+        <!-- <ion-card-header>
               <ion-card-title>{{ m.name }}</ion-card-title>
               <ion-card-subtitle>{{ m.album.artists[0].name }}</ion-card-subtitle>
             </ion-card-header> -->
 
-          <!-- <ion-card-content> Here's a small text description for the card content. Nothing more, nothing less. </ion-card-content> -->
-          <!-- </ion-card> -->
-        </ion-list>
-      </ion-card-content>
-    </ion-item>
-  </ion-card>
-  <ion-card color="primary" [routerLink]="['/socialvibez/artist']">
-    <ion-card-header>
-      <ion-thumbnail slot="start">
-        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-      </ion-thumbnail>
-      <ion-card-title>Card Title</ion-card-title>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-    </ion-card-header>
+        <!-- <ion-card-content> Here's a small text description for the card content. Nothing more, nothing less. </ion-card-content> -->
+        <!-- </ion-card> -->
+      </ion-list>
+    </ion-card-content>
   </ion-card>
 </ion-content>

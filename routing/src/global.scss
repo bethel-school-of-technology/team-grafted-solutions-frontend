@@ -31,7 +31,12 @@ ion-thumbnail {
     --border-radius: 14px;
   }
 
-  ion-background{
-    background:var(--ion-color-1);
-    --ion-background-color:var(--ion-color-1);
+//   ion-background{
+//     background:var(--ion-color-1);
+//     --ion-background-color:var(--ion-color-1);
+// }
+
+ion-card{
+  --background:var(--ion-color-second);
+
 }
