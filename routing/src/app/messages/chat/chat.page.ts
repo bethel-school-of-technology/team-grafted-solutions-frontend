@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OverlayEventDetail } from '@ionic/core';
 
 @Component({
   selector: 'app-chat',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatPage implements OnInit {
 
+          //replace 'sender' w/ the users name
   name: string = 'Sender';
   message: string;
   isLoading = false;
@@ -23,6 +25,7 @@ export class ChatPage implements OnInit {
   ngOnInit() {
   }
 
-  sendMessage () {}
+  sendMessage () {
 
+  }
 }

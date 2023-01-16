@@ -1,9 +1,11 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { NavigationExtras, Route, Router } from '@angular/router';
 import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core';
 import { Observable } from 'rxjs';
 import { ChatService } from '../service/chat/chat.service';
+import { HttpClient } from '@angular/common/http';
+import { User } from '../models/user';
 
 
 @Component({
@@ -12,6 +14,27 @@ import { ChatService } from '../service/chat/chat.service';
   styleUrls: ['./messages.page.scss'],
 })
 export class MessagesPage implements OnInit {
+
+private usersRoute='http://localhost:3001/users/currentUser'
+public currentUser: User[];
+  global: any;
+
+constructor(
+  private chatService: ChatService,
+  private router: Router,
+  private http: HttpClient
+) {}
+
+getCurrentUser(){
+  this.http.get<User[]>(this.usersRoute).subscribe(User => {
+    this.currentUser = this.currentUser;
+    console.log('User', this.users)
+  })
+}
+ngOnInit() {}
+
+
+
   @ViewChild(IonModal)
   modal!: IonModal
 selectTabs = ""
@@ -21,11 +44,17 @@ post: any[] = [];
 open_new_chat = false;
 @Input() item: any;
 segment = 'chats'
-users: Observable<any[]>;
+// users: Observable<any[]>;
+
+users = [
+  {id: 1, name: 'User1', photo:'https://i.pravatar.cc/325'},
+  {id: 2, name: 'User2', photo:'https://i.pravatar.cc/315'},
 
 
-User = [
-  {id:1, name: 'User1', photo:'https://i.pravatar.cc/325'},
+];
+chatRooms = [
+  {id: 1, name: 'User1', photo:'https://i.pravatar.cc/325'},
+  {id: 2, name: 'User2', photo:'https://i.pravatar.cc/315'},
 
 ]
 
@@ -47,9 +76,31 @@ User = [
     }
   }
 
-  newChat() {
+  newChat(item) {
     this.open_new_chat=true;
-    if(!this.users) this.getUsers();
+    // if(!this.users) this.getUsers();
+        this.router.navigate(['/', 'socialvibez', 'messages', 'chats', item?.id])
+
+  }
+
+  async startChat(item) {
+    try {
+      // this.global.showLoader();
+      //create chatroom
+      const room = await this.chatService.createChatRoom(item?.uid);
+      console.log('room: ',room);
+      this.cancel();
+      const navData: NavigationExtras = {
+        queryParams: {
+          name: item?.name
+        }
+      };
+      this.router.navigate(['/', 'socialvibez', 'chats', room?.id], navData);
+      this.global.hideLoader();
+    } catch(e) {
+      console.log(e);
+      this.global.hideLoader();
+    }
   }
 
   getUsers() {
@@ -64,8 +115,4 @@ User = [
 
   }
 
-  constructor(
-    private router: Router
-  ) {}
-  ngOnInit() {}
 }
