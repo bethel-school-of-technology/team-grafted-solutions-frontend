@@ -16,7 +16,8 @@
 // };
 
 ion-tab-bar{
-    --background:var(--ion-color-dark);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);    
 }
 
 // ion-tab-button {

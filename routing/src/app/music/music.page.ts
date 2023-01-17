@@ -13,12 +13,12 @@ export class MusicPage implements OnInit {
   music: any[] = [];
   code: any;
   searchTerm: string = '';
-  public data = [`${this.music}`];
+  public data = [this.music];
   public results = [...this.data];
 
   handleChange(event: any) {
     const query = event.target.value.toLowerCase();
-    this.results = this.data.filter((d) => d.toLowerCase().indexOf(query) > -1);
+    this.results = this.data.filter((d) => d.indexOf(query) > -1);
   }
 
   constructor(private service: MusicService) {}
@@ -33,6 +33,18 @@ export class MusicPage implements OnInit {
   //   this.service.searchMusic(this.searchTerm).subscribe((m) => (this.music = m));
   // }
 
+  // getSong() {
+  //   let token = { token: JSON.parse(this.accessToken) };
+
+  //   this.service.getSong(this.searchTerm, token).subscribe((m) => (this.music = m));
+  // }
+
+  // getArtist() {
+  //   let token = { token: JSON.parse(this.accessToken) };
+
+  //   this.service.getSong(this.searchTerm, token).subscribe((m) => (this.music = m));
+  // }
+
   searchMusicTest() {
     let token = { token: JSON.parse(this.accessToken) };
 
@@ -41,11 +53,11 @@ export class MusicPage implements OnInit {
     });
   }
 
-  getMusic() {
-    let token = { token: JSON.parse(this.accessToken) };
+  // getMusic() {
+  //   let token = { token: JSON.parse(this.accessToken) };
 
-    this.service.getMusic(this.searchTerm).subscribe((m) => (this.music = m));
-  }
+  //   this.service.getMusic(this.searchTerm).subscribe((m) => (this.music = m));
+  // }
 
   sortArtist() {
     this.service.sortArtist().subscribe((m) => (this.music = m));
