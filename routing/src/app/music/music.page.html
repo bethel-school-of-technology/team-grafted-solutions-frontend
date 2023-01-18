@@ -6,8 +6,40 @@
   </ion-card>
   <app-profile1></app-profile1>
 </ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-title>Find Artist</ion-card-title>
+    <ion-item lines="none">
+      <!-- <ion-searchbar showCancelButton="focus" class="custom" [(ngModel)]="searchTerm"></ion-searchbar> -->
 
-<ion-content [fullscreen]="true">
+      <ion-card-content>
+        <div class="search">
+          <input type="text" placeholder="Search.." [(ngModel)]="searchTerm" />
+          <ion-button (click)="searchMusicTest()">Search</ion-button>
+        </div>
+        <ion-list lines="none" *ngFor="let m of music">
+          <!-- <ion-card *ngFor="let m of music"> -->
+          <!-- <ion-chip> -->
+          <ion-item>
+            <ion-avatar>
+              <img src="{{ m.album.images[0].url }}" />
+            </ion-avatar>
+            <ion-label>{{ m.album.artists[0].name }}</ion-label>
+            <a href="{{ m.album.preview_url }}">{{ m.album.preview_url }}</a>
+          </ion-item>
+          <!-- </ion-chip> -->
+          <!-- <img alt="Silhouette of mountains" src="{{ m.album.images[0].url }}" /> -->
+          <!-- <ion-card-header>
+              <ion-card-title>{{ m.name }}</ion-card-title>
+              <ion-card-subtitle>{{ m.album.artists[0].name }}</ion-card-subtitle>
+            </ion-card-header> -->
+
+          <!-- <ion-card-content> Here's a small text description for the card content. Nothing more, nothing less. </ion-card-content> -->
+          <!-- </ion-card> -->
+        </ion-list>
+      </ion-card-content>
+    </ion-item>
+  </ion-card>
   <ion-card color="primary" [routerLink]="['/socialvibez/artist']">
     <ion-card-header>
       <ion-thumbnail slot="start">
@@ -18,27 +50,3 @@
     </ion-card-header>
   </ion-card>
 </ion-content>
-
-<ion-card>
-  <ion-item lines="none">
-    <ion-card-content>
-      <h1>Find Artist</h1>
-      <div class="search">
-        <input type="text" placeholder="Search.." [(ngModel)]="searchTerm" />
-        <button style="margin-left: 3vw; font-size: 2vh" (click)="searchMusicTest()" mat-raised-button>Search</button>
-      </div>
-      <div *ngFor="let m of music">
-        <ion-card> {{m.body}} </ion-card>
-      </div>
-    </ion-card-content>
-  </ion-item>
-</ion-card>
-
-
-
-
-
-
-
-
-

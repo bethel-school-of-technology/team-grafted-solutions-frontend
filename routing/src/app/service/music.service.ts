@@ -6,7 +6,6 @@ import { Music } from '../models/music';
 @Injectable({
   providedIn: 'root',
 })
-
 export class MusicService implements OnInit {
   accessToken: any;
 
@@ -16,8 +15,7 @@ export class MusicService implements OnInit {
     this.accessToken = localStorage.getItem('accessToken');
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   getMusic(searchTerm: string): Observable<Music[]> {
     return this.http.get<Music[]>(this.dataSource + '?q=' + searchTerm + '&type=album', {
@@ -34,6 +32,13 @@ export class MusicService implements OnInit {
       headers: { Authorization: 'Bearer' + ' ' + this.accessToken },
     });
   }
+
+  // Below will try to adjust the code to search for images
+  // searchImage(searchTerm: string): Observable<Music[]> {
+  //   return this.http.get<Music[]>(this.dataSource + '?q=' + searchTerm + '&type=album', {
+  //     headers: { Authorization: 'Bearer' + ' ' + this.accessToken },
+  //   });
+  // }
 
   getMusicByID(id: number): Observable<Music> {
     return this.http.get<Music>(this.dataSource + '/' + id);

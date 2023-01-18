@@ -34,7 +34,8 @@ export class LogInPage implements OnInit {
     this.name=[];
   }
 
-  ngOnInit() {
-  }
+  swLogo = '../src/assets/icon/swLogo.svg';
 
+
+  ngOnInit() {}
 }
