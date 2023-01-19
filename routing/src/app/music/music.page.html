@@ -23,11 +23,11 @@
   </ion-header>
 
   <ion-list lines="none" *ngFor="let m of music">
-    <ion-item>
-      <ion-avatar [routerLink]="['/socialvibez/artist']">
+    <ion-item style="margin-bottom: 5px;">
+      <ion-avatar style="height: 100px; width: 100px;" [routerLink]="['/socialvibez/artist']">
         <img src="{{ m.album.images[0].url }}" />
       </ion-avatar>
-      <ion-label>{{ m.album.artists[0].name }}</ion-label>
+      <ion-label style="margin-left: 10px; font-size: 15px;">{{ m.album.name }} <br> {{ m.name }}</ion-label>
       <a href="{{ m.album.preview_url }}">{{ m.album.preview_url }}</a>
     </ion-item>
   </ion-list>
