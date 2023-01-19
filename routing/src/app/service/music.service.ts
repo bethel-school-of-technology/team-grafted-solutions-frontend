@@ -2,23 +2,31 @@ import { Injectable, OnChanges, OnInit, DoCheck } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Music } from '../models/music';
+import { stringify } from 'querystring';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MusicService implements OnInit {
   accessToken: any;
-
+  tokken: string = '';
   dataSource: string = 'https://api.spotify.com/v1/search';
 
   constructor(private http: HttpClient) {
     this.accessToken = localStorage.getItem('accessToken');
+    // this.tokken = this.accessToken;
   }
 
   ngOnInit() {}
 
-  getMusic(searchTerm: string): Observable<Music[]> {
-    return this.http.get<Music[]>(this.dataSource + '?q=' + searchTerm + '&type=album', {
+  getArtist(searchTerm: string, tokken: string): Observable<Music[]> {
+    return this.http.get<Music[]>(this.dataSource + '?q=' + searchTerm + '&type=artist&market=ES&limit=10', {
+      headers: { Authorization: 'Bearer' + tokken },
+    });
+  }
+
+  getSong(searchTerm: string): Observable<Music[]> {
+    return this.http.get<Music[]>(this.dataSource + '?q=' + searchTerm + '&type=track&market=ES&limit=10', {
       headers: { Authorization: 'Bearer' + ' ' + this.accessToken },
     });
   }
@@ -27,9 +35,9 @@ export class MusicService implements OnInit {
     return this.http.post<Music[]>('http://localhost:3001/songs/search/' + searchTerm, token);
   }
 
-  searchMusic(searchTerm: string): Observable<Music[]> {
+  searchMusic(searchTerm: string, token: any): Observable<Music[]> {
     return this.http.get<Music[]>(this.dataSource + '?q=' + searchTerm + '&type=album', {
-      headers: { Authorization: 'Bearer' + ' ' + this.accessToken },
+      headers: { Authorization: 'Bearer' + this.accessToken },
     });
   }
 

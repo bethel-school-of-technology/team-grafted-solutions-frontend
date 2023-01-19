@@ -45,6 +45,8 @@ open_new_chat = false;
 @Input() item: any;
 segment = 'chats'
 // users: Observable<any[]>;
+userData;
+
 
 users = [
   {id: 1, name: 'User1', photo:'https://i.pravatar.cc/325'},
