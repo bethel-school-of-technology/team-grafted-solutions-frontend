@@ -12,6 +12,7 @@
       <ion-header [translucent]="true">
         <ion-toolbar>
           <ion-chip>
+            <!-- add a ng directive for if the user does not have a profile pic make a default one -->
             <ion-avatar>
               <img *ngIf="userData.images" 
                 alt="Silhouette of a person's head"
