@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArtistPage implements OnInit {
 
+  music: any[] = [];
+
+
   constructor() { }
 
   ngOnInit() {
