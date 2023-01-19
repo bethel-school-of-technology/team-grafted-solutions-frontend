@@ -1,47 +1,64 @@
-<ion-header>
-  <ion-card>
-    <ion-item lines="none">
-      <ion-card-title class="ion-padding"> Friends </ion-card-title>
-    </ion-item>
-  </ion-card>
-  <app-profile1></app-profile1>
+<div><app-profile1></app-profile1></div>
+
+<!-- <ion-header> -->
+<!-- <ion-card> -->
+<!-- <ion-item lines="none"> -->
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Friends</ion-title>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <div class="ion-text-end"><ion-label>Recent</ion-label></div>
-  <ion-card>
-    <ion-card-content>
-      <ion-item lines="none">
-        <ion-thumbnail slot="start" [routerLink]="['/socialvibez/friends-profile']">
-          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-        </ion-thumbnail>
-        <ion-label>
-          Friends
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-header collapse="condense">
+    <ion-toolbar ion-padding="10px">
+      <ion-title size="large">Friends</ion-title>
+    </ion-toolbar>
+    <ion-toolbar>
+      <ion-searchbar
+        placeholder="Find Friends"
+        [debounce]="500"
+        showCancelButton="focus"
+        (ionChange)="searchFriends()"
+        [(ngModel)]="searchTerm"
+      ></ion-searchbar>
+    </ion-toolbar>
+  </ion-header>
+  <ion-list *ngFor="let f of friends">
+    <ion-item outline="true" color="second">
+      <ion-avatar [routerLink]="['/socialvibez/friends-profile']">
+        <!-- <img alt="" src="{{ profile_pic }}" />  string interpolation for img    -->
+      </ion-avatar>
+    </ion-item>
+    <ion-label>Name is {{f.display_name}} friend ID is {{f.friendId}}</ion-label>
+  </ion-list>
 
-          <p>comments</p>
-        </ion-label>
-      </ion-item>
-    </ion-card-content>
+  <!-- <div class="ion-text-end"><ion-label>Recent</ion-label></div> -->
+  <ion-card>
+    <ion-item lines="none">
+      <ion-avatar slot="start" [routerLink]="['/socialvibez/friends-profile']">
+        <img
+          alt="Silhouette"
+          src="https://images.unsplash.com/photo-1618265341355-d0e2d1fdf26b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGZ1bm55JTIwcGV0c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+        />
+      </ion-avatar>
+      <ion-label>Bruiser</ion-label>
+      <ion-text> I will destroy.... </ion-text>
+    </ion-item>
   </ion-card>
 
   <!-- <button (click)="getFriends()" mat-raised-button>Friend List</button> -->
 
-  <div class="search">
+  <!-- <div class="search">
     <input type="text" placeholder="Search.." [(ngModel)]="searchTerm" />
-    <ion-button (click)="searchFriends()" mat-raised-button>Search</ion-button>
-    <!-- <p *ngFor="let f of friends">
+    <ion-button (click)="searchFriends()" mat-raised-button>Search</ion-button> -->
+  <!-- <p *ngFor="let f of friends">
       <ion-card> {{f.display_name}} </ion-card>
       <ion-content> </ion-content>
       <ion-footer></ion-footer>
     </p> -->
-
-    <ul>
-      <li  *ngFor="let f of friends">
-        Name is {{f.display_name}}
-        friend ID is {{f.friendId}}
-      </li>
-    </ul>
-
-  </div>
-
+  <!-- </ion-content> -->
+  <!-- </ion-item> -->
+  <!-- </ion-card> -->
+  <!-- </ion-header> -->
 </ion-content>

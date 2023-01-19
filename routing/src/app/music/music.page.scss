@@ -3,24 +3,29 @@ ion-card-header {
     flex-flow: column-reverse;
   }
 
-  ion-searchbar.custom {
-    --background: #19422d;
-    --color: #fff;
-    --placeholder-color: #fff;
-    --icon-color: #fff;
-    --clear-button-color: #fff;
+  // ion-searchbar.custom {
+  //   --background: #82D3C0;
+  //   --color: #fff;
+  //   --placeholder-color: #fff;
+  //   --icon-color: #fff;
+  //   --clear-button-color: #fff;
   
-    --border-radius: 4px;
-  }
+  //   --border-radius: 10px;
+  // }
   
   ion-searchbar.ios.custom {
-    --cancel-button-color: #19422d;
+    --cancel-button-color: #f30b07;
   }
   
   ion-searchbar.md.custom {
-    --cancel-button-color: #fff;
+    --cancel-button-color: rgb(251, 246, 246);
   }
 
   ion-avatar {
     --border-radius: 5px;
   }
+ion-button {
+  --background:var(--ion-color-middle)
+}
+
+  
