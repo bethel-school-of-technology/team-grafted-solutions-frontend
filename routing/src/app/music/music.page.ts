@@ -53,6 +53,11 @@ export class MusicPage implements OnInit {
     });
   }
 
+  cancel() {
+    console.log('cancel called');
+    this.music = [];
+  }
+
   // getMusic() {
   //   let token = { token: JSON.parse(this.accessToken) };
 

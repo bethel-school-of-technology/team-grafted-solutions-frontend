@@ -18,6 +18,8 @@
         showCancelButton="focus"
         (ionChange)="searchMusicTest()"
         [(ngModel)]="searchTerm"
+        (ionCancel)="cancel()"
+        (ionClear)="cancel()"
       ></ion-searchbar>
     </ion-toolbar>
   </ion-header>
