@@ -1,7 +1,9 @@
 <ion-fab horizontal="end" vertical="top" class="ion-padding">
   <ion-fab-button size="small" expand="block" (click)="setOpen(true)">
-    <ion-avatar *ngFor="let u of user ">
-      <img alt="Silhouette of a person's head" src="" />
+    <ion-avatar>
+      <img alt="Silhouette of a person's head" 
+       src='{{userData.images[0].url}}'
+      />
     </ion-avatar>
   </ion-fab-button>
   <!-- <app-edit-profile></app-edit-profile> -->
@@ -10,13 +12,14 @@
       <ion-header [translucent]="true">
         <ion-toolbar>
           <ion-chip>
+            <!-- add a ng directive for if the user does not have a profile pic make a default one -->
             <ion-avatar>
-              <img
+              <img *ngIf="userData.images" 
                 alt="Silhouette of a person's head"
-                src="https://images.unsplash.com/photo-1517231461833-7301fb461719?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2471&q=80"
+                src='{{userData.images[0].url}}'
               />
             </ion-avatar>
-            <ion-label>James Avatar</ion-label>
+            <ion-label>{{userData.display_name}}</ion-label>
           </ion-chip>
 
           <ion-buttons slot="end">
@@ -27,7 +30,7 @@
       <ion-card>
         <ion-card-subtitle> About Me </ion-card-subtitle>
         <ion-card-content>
-          <p>{{ message }}</p>
+          <p>{{userData.email}}</p>
           <p>{{ bio }}</p>
         </ion-card-content>
       </ion-card>

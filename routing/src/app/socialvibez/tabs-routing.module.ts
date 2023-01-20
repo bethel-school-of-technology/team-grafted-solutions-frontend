@@ -31,7 +31,7 @@ const routes: Routes = [
       {
         path: '',
         redirectTo: '/socialvibez/music',
-        pathMatch: 'full',
+        pathMatch: 'full',      
       },
     ],
   },

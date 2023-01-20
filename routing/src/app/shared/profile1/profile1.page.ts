@@ -9,6 +9,7 @@ import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 })
 export class Profile1Page implements OnInit {
   isModalOpen = false;
+  userData;
   user: any[] = [];
 
   setOpen(isOpen: boolean) {
@@ -34,5 +35,9 @@ export class Profile1Page implements OnInit {
       this.bio = `${data}`;
     }
   }
-  ngOnInit() {}
+  ngOnInit() {
+    let data = JSON.parse(localStorage.getItem('accessToken'));
+    this.userData = data.userData;
+    console.log(this.userData);
+  }
 }

@@ -6,7 +6,8 @@ import { MessagesPageRoutingModule } from './messages-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 import { MessagesPage } from './messages.page';
-
+import { HttpClientModule } from '@angular/common/http';
+import { UserListComponent } from '../components/user-list/user-list.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -15,7 +16,8 @@ import { MessagesPage } from './messages.page';
     ExploreContainerComponentModule,
     MessagesPageRoutingModule,
     SharedModule,
+    HttpClientModule
   ],
-  declarations: [MessagesPage],
+  declarations: [MessagesPage,UserListComponent],
 })
 export class MessagesPageModule {}
