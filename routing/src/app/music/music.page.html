@@ -21,16 +21,20 @@
       ></ion-searchbar>
     </ion-toolbar>
   </ion-header>
-
-  <ion-list lines="none" *ngFor="let m of music">
+<ion-row>
+  <ion-col lines="none" *ngFor="let m of music">
     <ion-item>
       <ion-avatar [routerLink]="['/socialvibez/artist']">
         <img src="{{ m.album.images[0].url }}" />
       </ion-avatar>
       <ion-label>{{ m.album.artists[0].name }}</ion-label>
-      <a href="{{ m.album.preview_url }}">{{ m.album.preview_url }}</a>
+      <!-- <button ion-button icon-left(click)="play(m.album.preview_url)" clear small> Preview </button> -->
+      <!-- <a href="{{ m.album.preview_url }}"> Test Me</a> -->
+      <a href="{{m.album.preview_url}}" class="button play"> Play Preview</a>
+
     </ion-item>
-  </ion-list>
+  </ion-col>
+</ion-row>
 </ion-content>
 <ion-button [routerLink]="['/socialvibez/artist']">Go to artist button</ion-button>
 <!-- Might neeed the code below -->
