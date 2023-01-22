@@ -24,13 +24,24 @@
   </ion-chip>
   <ion-label> Artist Bio </ion-label>
   
-  
-<!-- <ion-card lines="none" *ngFor="let m of music">  -->
-    <!-- <a href="{{ m.album.preview_url }}"> -->
-      <button class="button play"> Play Preview</button>
-    <!-- </a> -->
+  <ion-button lines="none" *ngFor="let m of music"> 
+<!-- <ion-row>
+  <ion-col *ngIf="m.album.preview_url">
+    <button ion-button icon-left (click)"play(m.album.preview_url)" clear small>
+    <ion-icon name='play'></ion-icon>
+    Preview
+  </button>
+  </ion-col>
+</ion-row> -->
+<!-- <link lines="none" *ngFor="let m of music">  -->
+<!-- <a href="{{m.album.preview_url}}">{{m.album.preview_url}} -->
+  <!-- <a href="{{m.album.preview_url}}">Here!</a>  -->
 
-<!-- </ion-card>  -->
+
+      <a href="{{m.album.preview_url}}" class="button play"> Play Preview
+    </a>
+</ion-button>
+  <!-- </link>  -->
 
 
   <ion-card>

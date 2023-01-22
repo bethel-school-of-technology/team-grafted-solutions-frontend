@@ -1,7 +1,11 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { Music } from '../models/music';
 import { MusicService } from '../service/music.service';
+import SpotifyWebApi from 'spotify-web-api-js'
+// import { LoadingController, Loading } from '@ionic/angular';
 
+
+declare var cordova: any
 @Component({
   selector: 'app-music',
   templateUrl: './music.page.html',
@@ -9,12 +13,13 @@ import { MusicService } from '../service/music.service';
 })
 export class MusicPage implements OnInit {
   accessToken: any;
-  // music: Music[] = [];
+  spotifyApi = new SpotifyWebApi();
   music: any[] = [];
   code: any;
   searchTerm: string = '';
   public data = [this.music];
   public results = [...this.data];
+  // loading: Loading;
 
   handleChange(event: any) {
     const query = event.target.value.toLowerCase();
@@ -73,4 +78,17 @@ export class MusicPage implements OnInit {
       this.accessToken = localStorage.getItem('accessToken');
     });
   }
+
+  // getUserPlaylist(){
+  //   this.loading = this.loadingCtrl.create({
+  //     content: 'loading Playlist...'
+  //   });
+  //   this.loading.present();
+
+  //   this.spotifyApi.getUserPlaylists().then(data => {
+  //     if (this.loading) {
+  //       this.loading.dismiss();
+  //     }
+  //   })
+  // }
 }
