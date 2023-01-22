@@ -27,6 +27,9 @@ export class MusicPage implements OnInit {
     this.code = new URLSearchParams(window.location.search).get('code');
 
     this.getAccessToken(this.code);
+
+    window.history.pushState({}, '', "/")
+
   }
 
   // searchMusic() {
