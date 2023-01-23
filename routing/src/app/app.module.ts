@@ -8,7 +8,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { Media } from '@ionic-native/media'
+// import { Media } from '@ionic-native/media'
 // import { IonicStorageModule} from '@ionic/storage'
 
 
@@ -19,7 +19,8 @@ import { Media } from '@ionic-native/media'
     IonicModule.forRoot(),
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    
 
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
