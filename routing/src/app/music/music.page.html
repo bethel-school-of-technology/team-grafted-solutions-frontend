@@ -4,46 +4,60 @@
     <ion-title>Search</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding">
   <ion-header collapse="condense">
     <ion-toolbar ion-padding="10px">
       <ion-title size="large">Search</ion-title>
     </ion-toolbar>
     <ion-toolbar>
-      <ion-searchbar
-        type="search"
-        placeholder="Songs"
-        [debounce]="500"
-        showCancelButton="focus"
-        (ionChange)="searchMusicTest()"
-        [(ngModel)]="searchTerm"
-      ></ion-searchbar>
+      <ion-searchbar type="search" placeholder="Songs" [debounce]="500" showCancelButton="focus"
+        (ionChange)="searchMusicTest()" [(ngModel)]="searchTerm"></ion-searchbar>
     </ion-toolbar>
   </ion-header>
-<ion-row>
-  <ion-col lines="none" *ngFor="let m of music">
-    <ion-item>
-      <ion-avatar [routerLink]="['/socialvibez/artist']">
-        <img src="{{ m.album.images[0].url }}" />
-      </ion-avatar>
-      <ion-label>{{ m.album.artists[0].name }}</ion-label>
-      <!-- <button ion-button icon-left(click)="play(m.album.preview_url)" clear small> Preview </button> -->
-      <!-- <a href="{{ m.album.preview_url }}"> Test Me</a> -->
-      <a href="{{m.album.preview_url}}" class="button play"> Play Preview</a>
+  <ion-row>
+    <ion-col lines="none" *ngFor="let m of music">
+      <ion-item>
+        <ion-avatar [routerLink]="['/socialvibez/artist']">
+          <img src="{{ m.album.images[0].url }}" alt />
+        </ion-avatar>
+        <ion-label>{{ m.album.artists[0].name }}</ion-label>
+        <!-- <a href="{{m.preview_url}}" class="button play"> Play Preview</a> -->
+        <ion-button id="open-modal" expand="block">Open Modal</ion-button>
 
-    </ion-item>
-  </ion-col>
-</ion-row>
+        <ion-modal #modal trigger="open-modal">
+          <ng-template>
+            <ion-content>
+              <ion-toolbar>
+                <ion-title>Modal</ion-title>
+                <a href="{{m.preview_url}}" class="button play"> Play Preview</a>
+                <ion-buttons slot="end">
+                  <ion-button color="light" (click)="modal.dismiss()">Close</ion-button>
+                </ion-buttons>
+              </ion-toolbar>
+            </ion-content>
+          </ng-template>
+        </ion-modal>
+      </ion-item>
+    </ion-col>
+  </ion-row>
 </ion-content>
 <ion-button [routerLink]="['/socialvibez/artist']">Go to artist button</ion-button>
-<!-- Might neeed the code below -->
-<!-- </ion-chip> -->
-<!-- <img alt="Silhouette of mountains" src="{{ m.album.images[0].url }}" /> -->
-<!-- <ion-card-header>
-              <ion-card-title>{{ m.name }}</ion-card-title>
-              <ion-card-subtitle>{{ m.album.artists[0].name }}</ion-card-subtitle>
-            </ion-card-header> -->
 
-<!-- <ion-card-content> Here's a small text description for the card content. Nothing more, nothing less. </ion-card-content> -->
-<!-- </ion-card> -->
+<!-- <ion-content class="ion-padding"> -->
+  <!-- <ion-button id="open-modal" expand="block">Open Modal</ion-button>
+
+  <ion-modal #modal trigger="open-modal">
+    <ng-template>
+      <ion-content>
+        <ion-toolbar>
+          <ion-title>Modal</ion-title>
+          <a href="{{m.preview_url}}" class="button play"> Play Preview</a>
+
+          <ion-buttons slot="end">
+            <ion-button color="light" (click)="modal.dismiss()">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-content>
+    </ng-template>
+  </ion-modal> -->
+<!-- </ion-content> -->

@@ -91,4 +91,10 @@ export class MusicPage implements OnInit {
   //     }
   //   })
   // }
+  getPreviewUrl() {
+    let token = { token: JSON.parse(this.accessToken) };
+      this.service.getPreviewUrl(this.searchTerm, token).subscribe((m) => {
+      this.music = m;
+    });
+  }
 }
