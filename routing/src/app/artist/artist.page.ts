@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MusicService } from '../service/music.service';
 
 @Component({
   selector: 'app-artist',
@@ -8,11 +9,20 @@ import { Component, OnInit } from '@angular/core';
 export class ArtistPage implements OnInit {
 
   music: any[] = [];
+  accessToken: any;
+  code: any;
+  searchTerm: string = '';
 
-
-  constructor() { }
+  constructor(private service: MusicService) {}
 
   ngOnInit() {
+    this.getAccessToken(this.code);
   }
 
+  getAccessToken(code: any) {
+    this.service.getAccessToken(code).subscribe((result) => {
+      localStorage.setItem('accessToken', JSON.stringify(result));
+      this.accessToken = localStorage.getItem('accessToken');
+    });
+  }
 }
