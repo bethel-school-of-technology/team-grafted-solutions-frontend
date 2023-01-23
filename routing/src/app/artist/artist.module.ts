@@ -10,7 +10,7 @@ import { ArtistPage } from './artist.page';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, IonicModule, ArtistPageRoutingModule, SharedModule],
+  imports: [CommonModule, FormsModule, IonicModule, ArtistPageRoutingModule, SharedModule, ],
   declarations: [ArtistPage],
 })
 export class ArtistPageModule {}
