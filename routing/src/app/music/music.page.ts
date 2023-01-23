@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { Music } from '../models/music';
 import { MusicService } from '../service/music.service';
+import { QueryService } from '../service/query.service';
 
 @Component({
   selector: 'app-music',
@@ -21,7 +22,7 @@ export class MusicPage implements OnInit {
     this.results = this.data.filter((d) => d.indexOf(query) > -1);
   }
 
-  constructor(private service: MusicService) {}
+  constructor(private service: MusicService, private qService: QueryService) {}
 
   ngOnInit() {
     this.code = new URLSearchParams(window.location.search).get('code');

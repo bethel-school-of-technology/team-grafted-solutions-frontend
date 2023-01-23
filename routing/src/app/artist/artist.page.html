@@ -5,7 +5,7 @@
         <ion-buttons slot="start">
           <ion-back-button text="" defaultHref="/socialvibez/music"></ion-back-button>
         </ion-buttons>
-        <ion-card-title class="ion-padding">Artist</ion-card-title>
+        <ion-card-title class="ion-padding">Music</ion-card-title>
       </ion-item>
     </ion-toolbar>
   </ion-card>
@@ -18,25 +18,24 @@
   <!-- <ion-card-title>James Avatar</ion-card-title> -->
   <ion-chip>
     <ion-avatar>
-      <img alt="Silhouette of a person's head" src="https://i.scdn.co/image/ab67616d00004851306cfe9dadd57889201c3384" />
+      <img alt="Silhouette of a person's head" [src]="artist.images[1]" />
     </ion-avatar>
-    <ion-label>Elevation Worhip</ion-label>
+    <ion-label>{{ artist.name }}</ion-label>
   </ion-chip>
-  <ion-label> Artist Bio </ion-label>
-  
-<!-- <ion-card lines="none" *ngIf="let m of music"> -->
+  <ion-label>{{ artist.followers.total }} </ion-label>
+
+  <!-- <ion-card lines="none" *ngIf="let m of music"> -->
   <!-- <ion-button>  -->
-    <!-- Song Preview -->
-    <!-- <ion-icon slot="icon-only" name="caret-forward-circle-sharp"></ion-icon> -->
-    <!-- <a href="{{ m.album.preview_url }}">Song Preview</a> -->
+  <!-- Song Preview -->
+  <!-- <ion-icon slot="icon-only" name="caret-forward-circle-sharp"></ion-icon> -->
+  <!-- <a href="{{ m.album.preview_url }}">Song Preview</a> -->
 
-      <!-- </ion-button> -->
-<!-- </ion-card> -->
-
+  <!-- </ion-button> -->
+  <!-- </ion-card> -->
 
   <ion-card>
     <ion-card-content>
-      <ion-text color="primary"> Conversations can go here </ion-text>
+      <ion-text color="primary"> Conversations/posts can go here </ion-text>
     </ion-card-content>
   </ion-card>
 </ion-content>

@@ -12,10 +12,10 @@ const routes: Routes = [
         path: 'friends',
         loadChildren: () => import('../friends/friends.module').then((m) => m.FriendsPageModule),
       },
-      {
-        path: 'music',
-        loadChildren: () => import('../music/music.module').then((m) => m.MusicPageModule),
-      },
+      // {
+      //   path: 'music',
+      //   loadChildren: () => import('../music/music.module').then((m) => m.MusicPageModule),
+      // },
       {
         path: 'messages',
         loadChildren: () => import('../messages/messages.module').then((m) => m.MessagesPageModule),
@@ -29,10 +29,15 @@ const routes: Routes = [
         loadChildren: () => import('../friends-profile/friends-profile.module').then((m) => m.FriendsProfilePageModule),
       },
       {
+        path: 'search',
+        loadChildren: () => import('../search/search.module').then((m) => m.SearchPageModule),
+      },
+      {
         path: '',
-        redirectTo: '/socialvibez/music',
+        redirectTo: '/socialvibez/search',
         pathMatch: 'full',
       },
+      { path: '**', pathMatch: 'full', redirectTo: '/socialvibez/search' },
     ],
   },
   {

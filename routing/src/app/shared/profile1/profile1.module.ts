@@ -9,12 +9,7 @@ import { Profile1PageRoutingModule } from './profile1-routing.module';
 import { Profile1Page } from './profile1.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    Profile1PageRoutingModule
-  ],
-  declarations: [Profile1Page]
+  imports: [CommonModule, FormsModule, IonicModule, Profile1PageRoutingModule],
+  declarations: [Profile1Page],
 })
 export class Profile1PageModule {}

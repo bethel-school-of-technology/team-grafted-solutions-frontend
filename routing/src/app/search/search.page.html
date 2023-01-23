@@ -1,0 +1,75 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Search</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <input #term type="text" (keyup)="search(term.value)" class="form-control" placeholder="Search artist..." />
+  </div>
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-searchbar
+        inputmode="search"
+        #term
+        type="text"
+        placeholder="Songs and artists"
+        [debounce]="500"
+        showCancelButton="focus"
+        (ionCancel)="cancel()"
+        (ionClear)="cancel()"
+      ></ion-searchbar>
+    </ion-toolbar>
+  </ion-header>
+  <ion-list>
+    <ion-card (click)="getArtist(item)" *ngFor="let item of items">
+      <img alt="Silhouette of mountains" [src]="item.images " class="background" />
+      <ion-card-header>
+        <ion-card-title>{{ item.artists.items[0].name }}</ion-card-title>
+        <ion-card-subtitle>Followers{{ item.artists.total }}</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+    <ion-card>
+      <ion-card-content> Here's a small text description for the card content. Nothing more, nothing less. </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>
+<!-- <app-cards [items]="artists"></app-cards> -->
+
+<!--  [(ngModel)]="term"-->
+<!-- <app-loading class="m-5" *ngIf="loading"></app-loading> -->
+
+<!-- <app-tarjetas *ngIf="!loading" [items]="artistas"></app-tarjetas> -->
+
+<!-- <ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar ion-padding="10px">
+      <ion-title size="large">Search</ion-title>
+    </ion-toolbar>
+    <ion-toolbar>
+      <ion-searchbar
+        inputmode="text"
+        type="text"
+        placeholder="Songs"
+        [debounce]="500"
+        showCancelButton="focus"
+        (ionChange)="search('')"
+        [(ngModel)]="term"
+        (ionCancel)="cancel()"
+        (ionClear)="cancel()"
+      ></ion-searchbar>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list lines="none" *ngFor="let a of artists">
+    <ion-item>
+      <ion-avatar [routerLink]="['/socialvibez/artist']">
+        <img src="{{ a.album.images[0].url }}" />
+      </ion-avatar>
+      <ion-label>{{ a.album.artists[0].name }}</ion-label>
+      <a href="{{ a.album.preview_url }}">{{ a.album.preview_url }}</a>
+    </ion-item>
+  </ion-list>
+</ion-content> -->
