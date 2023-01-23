@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@ionic-native/media": "^5.36.0",
+    "cordova-plugin-media": "^6.1.0"
+  }
+}

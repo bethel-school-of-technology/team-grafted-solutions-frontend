@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Music } from '../models/music';
 import { stringify } from 'querystring';
+// import {spotifywebApi} from 'spotify-web-api-js';
+
 
 @Injectable({
   providedIn: 'root',
@@ -40,6 +42,12 @@ export class MusicService implements OnInit {
       headers: { Authorization: 'Bearer' + this.accessToken },
     });
   }
+
+  getPreviewUrl(searchTerm: string, token: any): Observable<Music[]> {
+    return this.http.get<Music[]>(this.dataSource + '?q=' + searchTerm + '&type=album', {
+      headers: { Authorization: 'Bearer' + this.accessToken },
+    });
+}
 
   // Below will try to adjust the code to search for images
   // searchImage(searchTerm: string): Observable<Music[]> {
