@@ -12,12 +12,14 @@
   <ion-header>
     <ion-toolbar>
       <ion-searchbar
-        inputmode="search"
         #term
-        type="text"
-        placeholder="Songs and artists"
+        inputmode="search"
+        type="search"
+        placeholder="Songs"
         [debounce]="500"
         showCancelButton="focus"
+        (ionChange)="getArtist(items)"
+        [(ngModel)]="items"
         (ionCancel)="cancel()"
         (ionClear)="cancel()"
       ></ion-searchbar>
@@ -36,7 +38,7 @@
     </ion-card>
   </ion-list>
 </ion-content>
-<!-- <app-cards [items]="artists"></app-cards> -->
+<app-cards></app-cards>
 
 <!--  [(ngModel)]="term"-->
 <!-- <app-loading class="m-5" *ngIf="loading"></app-loading> -->

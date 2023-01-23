@@ -11,7 +11,7 @@ export class CardsPage {
 
   constructor(private router: Router) {}
 
-  verArtista(item: any) {
+  getArtist(item: any) {
     let artistaId;
 
     if (item.type === 'artist') {

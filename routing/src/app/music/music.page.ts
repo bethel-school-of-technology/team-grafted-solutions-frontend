@@ -1,4 +1,5 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Music } from '../models/music';
 import { MusicService } from '../service/music.service';
 import { QueryService } from '../service/query.service';
@@ -9,6 +10,8 @@ import { QueryService } from '../service/query.service';
   styleUrls: ['./music.page.scss'],
 })
 export class MusicPage implements OnInit {
+  @Input() items: any[] = [];
+
   accessToken: any;
   // music: Music[] = [];
   music: any[] = [];
@@ -22,7 +25,7 @@ export class MusicPage implements OnInit {
     this.results = this.data.filter((d) => d.indexOf(query) > -1);
   }
 
-  constructor(private service: MusicService, private qService: QueryService) {}
+  constructor(private service: MusicService, private qService: QueryService, private router: Router) {}
 
   ngOnInit() {
     this.code = new URLSearchParams(window.location.search).get('code');
@@ -52,6 +55,17 @@ export class MusicPage implements OnInit {
     this.service.searchMusicTest(this.searchTerm, token).subscribe((m) => {
       this.music = m;
     });
+  }
+  getArtist(item: any) {
+    let artistaId;
+
+    if (item.type === 'artist') {
+      artistaId = item.id;
+    } else {
+      artistaId = item.artists[0].id;
+    }
+    console.log(artistaId);
+    this.router.navigate(['/artist', artistaId]);
   }
 
   cancel() {

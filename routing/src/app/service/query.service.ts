@@ -13,7 +13,7 @@ export class QueryService {
     const url = `https://api.spotify.com/v1/${query}`;
 
     const headers = new HttpHeaders({
-      Authorization: 'Bearer BQAQxb3NlheF3h5o2aFY5C8C7JaacYFxkQduDnvVUCuLYaooANrDy4mGO8zCJDq4I1QlaI_8peXlFuhKgU33f9yDmkMFcRsbJC1i9HdKS1jRoZj7x40',
+      Authorization: 'Bearer BQBawx5utAEtvb3eSfLt2T2J1f_1UsRvqwLbX2_hz9qKaPVI7BmiJOpdWNbzkjyf_6uBRK4JZGvlIv4dAUDrqzFIj0oYsC34V2TUDv_IR6dhpqNBGfY',
     });
 
     return this.http.get(url, { headers });
@@ -23,7 +23,7 @@ export class QueryService {
     const url = `https://api.spotify.com/v1/search?q=${query}&type=track%2Cartist&market=es&limit=20`;
 
     const headers = new HttpHeaders({
-      Authorization: 'BearerBQAQxb3NlheF3h5o2aFY5C8C7JaacYFxkQduDnvVUCuLYaooANrDy4mGO8zCJDq4I1QlaI_8peXlFuhKgU33f9yDmkMFcRsbJC1i9HdKS1jRoZj7x40',
+      Authorization: 'Bearer BQBawx5utAEtvb3eSfLt2T2J1f_1UsRvqwLbX2_hz9qKaPVI7BmiJOpdWNbzkjyf_6uBRK4JZGvlIv4dAUDrqzFIj0oYsC34V2TUDv_IR6dhpqNBGfY',
     });
 
     return this.http.get(url, { headers });

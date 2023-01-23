@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-card (click)="verArtista(item)" *ngFor="let item of items">
+  <ion-card (click)="getArtist(item)" *ngFor="let item of items">
     <img alt="Silhouette of mountains" [src]="item.images " class="background" />
     <ion-card-header>
       <ion-card-title>{{ item.name }}</ion-card-title>
