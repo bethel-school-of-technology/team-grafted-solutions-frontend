@@ -1,7 +1,7 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { Music } from '../models/music';
 import { MusicService } from '../service/music.service';
-import SpotifyWebApi from 'spotify-web-api-js'
+// import SpotifyWebApi from 'spotify-web-api-js'
 import { AnimationController } from '@ionic/angular';
 
 
@@ -14,7 +14,7 @@ declare var cordova: any
 export class MusicPage implements OnInit {
   accessToken: any;
   searchToken: any;
-  spotifyApi = new SpotifyWebApi();
+  // spotifyApi = new SpotifyWebApi();
   music: any[] = [];
   code: any;
   searchTerm: string = '';
