@@ -25,7 +25,7 @@
         <ion-button id="open-modal" expand="block">Open Preview</ion-button>
 
         <!-- <ion-modal #modal trigger="open-modal"> -->
-          <ion-modal #modal trigger="open-modal" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
+          <ion-modal #modal trigger="open-modal" [presentingElement]="presentingElement">
 
           <ng-template>
             <ion-content>

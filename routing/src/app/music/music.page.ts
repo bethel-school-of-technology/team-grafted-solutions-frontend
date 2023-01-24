@@ -1,8 +1,9 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { Music } from '../models/music';
 import { MusicService } from '../service/music.service';
-import SpotifyWebApi from 'spotify-web-api-js'
+// import SpotifyWebApi from 'spotify-web-api-js'
 import { AnimationController } from '@ionic/angular';
+import { modalController } from '@ionic/core';
 
 
 declare var cordova: any
@@ -13,7 +14,7 @@ declare var cordova: any
 })
 export class MusicPage implements OnInit {
   accessToken: any;
-  spotifyApi = new SpotifyWebApi();
+  // spotifyApi = new SpotifyWebApi();
   music: any[] = [];
   code: any;
   searchTerm: string = '';
@@ -21,6 +22,8 @@ export class MusicPage implements OnInit {
   public results = [...this.data];
   // loading: Loading;
   isModalOpen = false;
+  presentingElement = null;
+
 
   
 
@@ -35,8 +38,9 @@ export class MusicPage implements OnInit {
 
   ngOnInit() {
     this.code = new URLSearchParams(window.location.search).get('code');
-
     this.getAccessToken(this.code);
+    // this.presentingElement = document.querySelector('.ion-page');
+
   }
   
   
@@ -109,32 +113,38 @@ export class MusicPage implements OnInit {
     this.isModalOpen= isOpen
   }
 
-  enterAnimation = (baseEl: HTMLElement) => {
-    const root = baseEl.shadowRoot;
+  setClose(isOpen: boolean) {
+    this.isModalOpen = !isOpen;
+  }
 
-    const backdropAnimation = this.animationCtrl
-      .create()
-      .addElement(root?.querySelector('ion-backdrop')!)
-      .fromTo('opacity', '0.01', 'var(--backdrop-opacity)');
+  // enterAnimation = (baseEl: HTMLElement) => {
+  //   const root = baseEl.shadowRoot;
 
-    const wrapperAnimation = this.animationCtrl
-      .create()
-      .addElement(root?.querySelector('.modal-wrapper')!)
-      .keyframes([
-        { offset: 0, opacity: '0', transform: 'scale(0)' },
-        { offset: 1, opacity: '0.99', transform: 'scale(1)' },
-      ]);
+  //   const backdropAnimation = this.animationCtrl
+  //     .create()
+  //     .addElement(root?.querySelector('ion-backdrop')!)
+  //     .fromTo('opacity', '0.01', 'var(--backdrop-opacity)');
 
-    return this.animationCtrl
-      .create()
-      .addElement(baseEl)
-      .easing('ease-out')
-      .duration(500)
-      .addAnimation([backdropAnimation, wrapperAnimation]);
-  };
+  //   const wrapperAnimation = this.animationCtrl
+  //     .create()
+  //     .addElement(root?.querySelector('.modal-wrapper')!)
+  //     .keyframes([
+  //       { offset: 0, opacity: '0', transform: 'scale(0)' },
+  //       { offset: 1, opacity: '0.99', transform: 'scale(1)' },
+  //     ]);
 
-  leaveAnimation = (baseEl: HTMLElement) => {
-    return this.enterAnimation(baseEl).direction('reverse');
-  };
-// }
+  //   return this.animationCtrl
+  //     .create()
+  //     .addElement(baseEl)
+  //     .easing('ease-out')
+  //     .duration(500)
+  //     .addAnimation([backdropAnimation, wrapperAnimation]);
+  // };
+
+  // leaveAnimation = (baseEl: HTMLElement) => {
+  //   return this.enterAnimation(baseEl).direction('reverse');
+  // };
+
+
+
 }
