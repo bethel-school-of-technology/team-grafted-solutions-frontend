@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MusicService } from '../service/music.service';
+// import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-artist',
@@ -7,7 +8,7 @@ import { MusicService } from '../service/music.service';
   styleUrls: ['./artist.page.scss'],
 })
 export class ArtistPage implements OnInit {
-
+  user: any[] = [];
   music: any[] = [];
   accessToken: any;
   code: any;

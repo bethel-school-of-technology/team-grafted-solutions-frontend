@@ -1,21 +1,22 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { Music } from '../models/music';
 import { MusicService } from '../service/music.service';
-import SpotifyWebApi from 'spotify-web-api-js'
+import SpotifyWebApi from 'spotify-web-api-js';
 import { AnimationController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
-
-declare var cordova: any
+declare var cordova: any;
 @Component({
   selector: 'app-music',
   templateUrl: './music.page.html',
   styleUrls: ['./music.page.scss'],
 })
 export class MusicPage implements OnInit {
+  @Input() music: any[] = [];
   accessToken: any;
   searchToken: any;
   spotifyApi = new SpotifyWebApi();
-  music: any[] = [];
+  // music: any[] = [];
   code: any;
   searchTerm: string = '';
   public data = [this.music];
@@ -23,24 +24,34 @@ export class MusicPage implements OnInit {
   // loading: Loading;
   isModalOpen = false;
 
-  
+  handleIt(value: string) {
+    this.searchTerm = value;
+  }
 
   handleChange(event: any) {
     const query = event.target.value.toLowerCase();
     this.results = this.data.filter((d) => d.indexOf(query) > -1);
   }
 
-  constructor(private service: MusicService, private animationCtrl: AnimationController) {}
-
-  
+  constructor(private service: MusicService, private animationCtrl: AnimationController, private router: Router) {}
 
   ngOnInit() {
     this.code = new URLSearchParams(window.location.search).get('code');
 
     this.getAccessToken(this.code);
   }
-  
-  
+
+  getArtist(music: any) {
+    let artistaId;
+
+    if (music.type === 'artist') {
+      artistaId = music.id;
+    } else {
+      artistaId = music.artists[0].id;
+    }
+    console.log(artistaId);
+    this.router.navigate(['/artist', artistaId]);
+  }
 
   // searchMusic() {
   //   this.service.searchMusic(this.searchTerm).subscribe((m) => (this.music = m));
@@ -81,11 +92,11 @@ export class MusicPage implements OnInit {
   }
 
   getAccessToken(code: any) {
-    this.service.getAccessToken(code).subscribe((result:any) => {
+    this.service.getAccessToken(code).subscribe((result: any) => {
       localStorage.setItem('accessToken', JSON.stringify(result));
       localStorage.setItem('searchToken', JSON.stringify(result.token));
       this.accessToken = localStorage.getItem('accessToken');
-      this.searchToken = localStorage.getItem('searchToken')
+      this.searchToken = localStorage.getItem('searchToken');
     });
   }
 
@@ -103,13 +114,13 @@ export class MusicPage implements OnInit {
   // }
   getPreviewUrl() {
     let token = { token: JSON.parse(this.accessToken) };
-      this.service.getPreviewUrl(this.searchTerm, token).subscribe((m) => {
+    this.service.getPreviewUrl(this.searchTerm, token).subscribe((m) => {
       this.music = m;
     });
   }
 
-  setOpen(isOpen: boolean){
-    this.isModalOpen= isOpen
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
   }
 
   enterAnimation = (baseEl: HTMLElement) => {
@@ -128,16 +139,11 @@ export class MusicPage implements OnInit {
         { offset: 1, opacity: '0.99', transform: 'scale(1)' },
       ]);
 
-    return this.animationCtrl
-      .create()
-      .addElement(baseEl)
-      .easing('ease-out')
-      .duration(500)
-      .addAnimation([backdropAnimation, wrapperAnimation]);
+    return this.animationCtrl.create().addElement(baseEl).easing('ease-out').duration(500).addAnimation([backdropAnimation, wrapperAnimation]);
   };
 
   leaveAnimation = (baseEl: HTMLElement) => {
     return this.enterAnimation(baseEl).direction('reverse');
   };
-// }
+  // }
 }

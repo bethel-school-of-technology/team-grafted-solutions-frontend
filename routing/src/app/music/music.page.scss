@@ -13,11 +13,20 @@ ion-card-header {
   //   --border-radius: 10px;
   // }
   
-  ion-searchbar.ios.custom {
+  ion-input{
+    --border-radius: 10px;
+    --background:  #808289;
+      --color: #fff;
+      --placeholder-color: #fff;
+      --icon-color: #FCA681;
+      --clear-button-color: #fff;
+  }
+
+  ion-searchbar.ios {
     --cancel-button-color: #f30b07;
   }
   
-  ion-searchbar.md.custom {
+  ion-searchbar.md {
     --cancel-button-color: rgb(251, 246, 246);
   }
 
