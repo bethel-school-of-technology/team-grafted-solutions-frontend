@@ -22,9 +22,11 @@
         </ion-avatar>
         <ion-label>{{ m.album.artists[0].name }}</ion-label>
         <!-- <a href="{{m.preview_url}}" class="button play"> Play Preview</a> -->
-        <ion-button id="open-modal" expand="block">Open Modal</ion-button>
+        <ion-button id="open-modal" expand="block">Open Preview</ion-button>
 
-        <ion-modal #modal trigger="open-modal">
+        <!-- <ion-modal #modal trigger="open-modal"> -->
+          <ion-modal #modal trigger="open-modal" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
+
           <ng-template>
             <ion-content>
               <ion-toolbar>
