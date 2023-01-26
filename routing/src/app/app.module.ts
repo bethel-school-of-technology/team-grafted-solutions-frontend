@@ -8,12 +8,13 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalsComponent } from './components/modals/modals.component';
 // import { Media } from '@ionic-native/media'
 // import { IonicStorageModule} from '@ionic/storage'
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ModalsComponent], 
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

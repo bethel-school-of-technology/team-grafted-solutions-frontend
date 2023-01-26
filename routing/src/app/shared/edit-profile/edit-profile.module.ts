@@ -5,7 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { EditProfileComponent } from './edit-profile.component';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, IonicModule, EditProfileComponent],
-  declarations: [EditProfileComponent],
+  imports: [CommonModule, FormsModule, IonicModule, ],
+  declarations: [],
 })
 export class EditProfileModule {}

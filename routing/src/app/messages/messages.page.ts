@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 import { ChatService } from '../service/chat/chat.service';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
+import { ModalController } from '@ionic/angular';
+import { ModalsComponent } from '../components/modals/modals.component';
 
 
 @Component({
@@ -22,8 +24,24 @@ public currentUser: User[];
 constructor(
   private chatService: ChatService,
   private router: Router,
-  private http: HttpClient
+  private http: HttpClient,
+  private modalCtrl: ModalController
 ) {}
+
+async openModal() {
+  const modal = await this.modalCtrl.create({
+    component: ModalsComponent,
+  });
+  modal.present();
+
+  const { data, role } = await modal.onWillDismiss();
+
+  if (role === 'confirm') {
+    this.post = `${data}`;
+    
+  }
+
+}
 
 getCurrentUser(){
   this.http.get<User[]>(this.usersRoute).subscribe(User => {
@@ -40,7 +58,10 @@ ngOnInit() {}
 selectTabs = ""
 newPost = '';
 newHeadline= '';
-post: any[] = [];
+post: string;
+title: string;
+forms:any[]=[]
+
 open_new_chat = false;
 @Input() item: any;
 segment = 'chats'
@@ -59,6 +80,8 @@ chatRooms = [
   {id: 2, name: 'User2', photo:'https://i.pravatar.cc/315'},
 
 ]
+
+
 
 
   cancel() {

@@ -1,0 +1,34 @@
+<!--************OPEN NEWPOST ************ -->
+        <!-- ******************************* -->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title> New Post</ion-title>
+    <ion-buttons slot="end">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-list *ngIf="items?.length > 0">
+    <li *ngFor="let item of items; let i = index">
+    <ion-input [(ngModel)]="items[i].Title" placeholder="Title"></ion-input>
+    </li>
+  </ion-list>
+  <ion-list *ngIf="items?.length > 0">
+    <li *ngFor="let item of items; let i = index">
+    <ion-input 
+    [(ngModel)]="items[i].Post" 
+    placeholder="Whats on your mind?"
+    (ionChange)="changeInPost($event, i)"
+    (click)="checkEmptyInput()">
+  
+  </ion-input>
+
+</li>
+  </ion-list>
+
+  <ion-button (click)="postMessage()">Post</ion-button>
+</ion-content>
