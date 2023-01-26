@@ -28,12 +28,12 @@
 	--ion-color-next-tint: #c5c3aa;
 
   /** secondary is last of the gradient scale 5 of 5 ( might be the most used hence name convention )**/
-  --ion-color-second: #07FFFF;
-	--ion-color-second-rgb: 7,255,255;
-	--ion-color-second-contrast: #000000;
-	--ion-color-second-contrast-rgb: 0,0,0;
-	--ion-color-second-shade: #06e0e0;
-	--ion-color-second-tint: #20ffff;
+  --ion-color-secondary: #07FFFF;
+	--ion-color-secondary-rgb: 7,255,255;
+	--ion-color-secondary-contrast: #000000;
+	--ion-color-secondary-contrast-rgb: 0,0,0;
+	--ion-color-secondary-shade: #06e0e0;
+	--ion-color-secondary-tint: #20ffff;
 
   /**  Middle color of the grandient scale ( which is the 3rd color of 5 in gradient scale ) **/
 
@@ -328,7 +328,22 @@
     --ion-color-tint: var(--ion-color-fourth-tint);
   }
  
-  
+  .ion-color-bblue {
+    --ion-color-base: var(--ion-color-bblue);
+    --ion-color-base-rgb: var(--ion-color-bblue-rgb);
+    --ion-color-contrast: var(--ion-color-bblue-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-bblue-contrast-rgb);
+    --ion-color-shade: var(--ion-color-bblue-shade);
+    --ion-color-tint: var(--ion-color-bblue-tint);
+  }
+  .ion-color-secondary {
+    --ion-color-base: var(--ion-color-secondary);
+    --ion-color-base-rgb: var(--ion-color-secondary-rgb);
+    --ion-color-contrast: var(--ion-color-secondary-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-secondary-contrast-rgb);
+    --ion-color-shade: var(--ion-color-secondary-shade);
+    --ion-color-tint: var(--ion-color-secondary-tint);
+  }
 
   
 }

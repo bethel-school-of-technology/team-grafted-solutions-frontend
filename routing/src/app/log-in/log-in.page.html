@@ -1,4 +1,4 @@
-<ion-card>
+<ion-card color="primary">
   <ion-card-header style="text-align: center">
     <ion-card-subtitle>Social Vibez</ion-card-subtitle>
   </ion-card-header>
@@ -9,26 +9,70 @@
       <ion-card-title></ion-card-title>
     </ion-card-header>
 
-    <ion-card-content>
-      <div>
-        <ion-button fill="outline" href="https://www.spotify.com/us/signup?forward_url=https%3A%2F%2Fopen.spotify.com%2F">
-          <ion-avatar>
-            <img src="../assets/icon/Spotify_Icon_RGB_White.png" alt="" />
-          </ion-avatar>
-          Sign Up With Spotify
-        </ion-button>
-      </div>
-    </ion-card-content>
-    <!-- <ion-button [routerLink]="['/socialvibez/music']" type="submit" color="danger" expand="block">Sign In</ion-button> -->
-
-    <ion-button
-      fill="outline"
-      style="font-size: 22px; display: flex; margin-bottom: 3vh; margin-top: 3vh"
-      href="https://accounts.spotify.com/authorize?client_id=69372f48d4b24c099e581c69793c1879&response_type=code&redirect_uri=http://localhost:8100/socialvibez/music&show_dialog=true&scope=playlist-read-private%20streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state"
-      type="submit"
-      expand="block"
-      >Login With Spotify</ion-button
-    >
+    <div style="text-align: center">
+      <ion-button size="large" fill="outline" href="https://www.spotify.com/us/signup?forward_url=https%3A%2F%2Fopen.spotify.com%2F">
+        <ion-thumbnail>
+          <img src="../assets/icon/Spotify_Icon_RGB_White.png" alt="" />
+        </ion-thumbnail>
+        Sign Up With Spotify
+      </ion-button>
+    </div>
+  </ion-card>
+  <ion-card>
+    <div style="text-align: center">
+      <ion-button
+        size="large"
+        fill="outline"
+        href="https://accounts.spotify.com/authorize?client_id=69372f48d4b24c099e581c69793c1879&response_type=code&redirect_uri=http://localhost:8100/socialvibez/music&show_dialog=true&scope=playlist-read-private%20streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state"
+        type="submit"
+      >
+        <ion-thumbnail>
+          <img src="../assets/icon/Spotify_Icon_RGB_White.png" alt="" />
+        </ion-thumbnail>
+        Login With Spotify</ion-button
+      >
+    </div>
   </ion-card>
 </ion-content>
-<ion-footer color="light"> </ion-footer>
+<div class="padding">
+  <ion-text color="next"> Log in using below methods coming soon...... </ion-text>
+</div>
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button size="small" fill="clear">
+        <ion-icon color="primary" slot="icon-only" name="logo-reddit"></ion-icon>
+      </ion-button>
+
+      <ion-button size="small" fill="clear">
+        <ion-icon color="secondary" slot="icon-only" name="logo-tiktok"></ion-icon>
+      </ion-button>
+
+      <ion-button size="small" fill="clear">
+        <ion-icon slot="icon-only" name="logo-instagram"></ion-icon>
+      </ion-button>
+
+      <ion-button size="small" fill="clear">
+        <ion-icon color="primary" slot="icon-only" name="logo-snapchat"></ion-icon>
+      </ion-button>
+
+      <ion-button size="small" fill="clear">
+        <ion-icon color="secondary" slot="icon-only" name="logo-twitter"></ion-icon>
+      </ion-button>
+
+      <ion-button size="small" fill="clear">
+        <ion-icon slot="icon-only" name="logo-twitch"></ion-icon>
+      </ion-button>
+
+      <ion-button size="small" fill="clear">
+        <ion-icon color="primary" slot="icon-only" name="logo-youtube"></ion-icon>
+      </ion-button>
+      <ion-button size="small" fill="clear">
+        <ion-icon color="secondary" slot="icon-only" name="logo-discord"> </ion-icon>
+      </ion-button>
+      <ion-button size="small" fill="clear">
+        <ion-icon slot="icon-only" name="logo-linkedin"> </ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

@@ -3,17 +3,27 @@ ion-button{
     --color: #ffffff;
 }
 
+
 ion-thumbnail {
-    --size: 45px;
+    --size: 30px;
     --border-radius: 14px;
+    --padding: 10px;
   }
 
-img {
-    --padding: 100px;
+ion-toolbar{
+    --background: #010101;
+    --color: #07FFFF;
+}
+ion-buttons{
+    --background: #010101;
+    --color: #07FFFF;
 }
 
 ion-avatar {
     --size: 20px;
 
     --padding: 500px;
+}
+ion-text{
+    color: #BFBCA1;
 }
