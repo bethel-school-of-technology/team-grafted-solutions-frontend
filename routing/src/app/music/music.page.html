@@ -1,20 +1,19 @@
 <div>
   <app-profile></app-profile>
-  <app-artist></app-artist>
-  <!-- <app-track [testInput]="test"></app-track> -->
+  <!-- <app-artist></app-artist> -->
 </div>
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar color="primary">
     <ion-title>Search</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true" class="ion-padding">
   <ion-header collapse="condense">
     <ion-toolbar ion-padding="10px">
-      <ion-title size="large">Search</ion-title>
+      <!-- <ion-title size="large">Search</ion-title> -->
     </ion-toolbar>
     <ion-toolbar>
-      <!-- <ion-searchbar
+      <ion-searchbar
         type="search"
         placeholder="Songs"
         [debounce]="500"
@@ -22,64 +21,21 @@
         (ionChange)="searchMusicTest()"
         [(ngModel)]="searchTerm"
         (ngModelChange)="handleIt($event)"
-      ></ion-searchbar> -->
-
-      <ion-input
-        placeholder="Type here to search "
-        [debounce]="500"
-        showCancelButton="focus"
-        (ionChange)="searchMusicTest()"
-        [(ngModel)]="searchTerm"
-      >
-      </ion-input>
+        (ionCancel)="cancel()"
+        (ionClear)="cancel()"
+      ></ion-searchbar>
     </ion-toolbar>
   </ion-header>
   <ion-list lines="none" *ngFor="let m of music">
     <ion-item>
       <ion-avatar (click)="getArtist(m)">
-        <img src="{{ m.album.images[0].url }}" alt />
+        <img src="{{ m.album.images[0].url }}" alt="" />
       </ion-avatar>
       <ion-label>{{ m.album.artists[0].name }}</ion-label>
-      <a href="{{m.preview_url}}" class="button play"> Play Preview</a>
-      <ion-button expand="block">Open Preview</ion-button>
+      <audio size="small">
+        <a color="primary" href="{{m.preview_url}}" class="button play"> Play Preview</a>
+      </audio>
     </ion-item>
   </ion-list>
-  <!-- <ion-modal #modal trigger="open-modal"> -->
-  <!-- <ion-modal #modal trigger="open-modal" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation"> -->
-
-  <!-- <ng-template>
-            <ion-content>
-              <ion-toolbar>
-                <ion-title>Modal</ion-title>
-                <a href="{{m.preview_url}}" class="button play"> Play Preview</a>
-                <ion-buttons slot="end">
-                  <ion-button color="light" (click)="modal.dismiss()">Close</ion-button>
-                </ion-buttons>
-              </ion-toolbar>
-            </ion-content>
-          </ng-template> -->
-  <!-- </ion-modal> -->
-  <!-- </ion-col> -->
-  <!-- </ion-row> -->
-  <!-- </ion-content> -->
-  <!-- <ion-button [routerLink]="['/socialvibez/artist']">Go to artist button</ion-button> -->
-
-  <!-- <ion-content class="ion-padding"> -->
-  <!-- <ion-button id="open-modal" expand="block">Open Modal</ion-button>
-
-  <ion-modal #modal trigger="open-modal">
-    <ng-template>
-      <ion-content>
-        <ion-toolbar>
-          <ion-title>Modal</ion-title>
-          <a href="{{m.preview_url}}" class="button play"> Play Preview</a>
-
-          <ion-buttons slot="end">
-            <ion-button color="light" (click)="modal.dismiss()">Close</ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-content>
-    </ng-template>
-  </ion-modal> -->
-  <!-- </ion-content> -->
+  <!-- <app-track ></app-track> -->
 </ion-content>

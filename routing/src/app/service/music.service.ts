@@ -5,7 +5,6 @@ import { Music } from '../models/music';
 import { stringify } from 'querystring';
 // import {spotifywebApi} from 'spotify-web-api-js';
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -27,9 +26,9 @@ export class MusicService implements OnInit {
     });
   }
 
-  getSong(searchTerm: string): Observable<Music[]> {
+  getTrack(searchTerm: string): Observable<Music[]> {
     return this.http.get<Music[]>(this.dataSource + '?q=' + searchTerm + '&type=track&market=ES&limit=10', {
-      headers: { Authorization: 'Bearer' + ' ' + this.accessToken },
+      headers: { Authorization: 'Bearer' + this.accessToken },
     });
   }
 
@@ -47,7 +46,7 @@ export class MusicService implements OnInit {
     return this.http.get<Music[]>(this.dataSource + '?q=' + searchTerm + '&type=album', {
       headers: { Authorization: 'Bearer' + this.accessToken },
     });
-}
+  }
 
   // Below will try to adjust the code to search for images
   // searchImage(searchTerm: string): Observable<Music[]> {

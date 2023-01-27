@@ -1,8 +1,8 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { Music } from '../models/music';
 import { MusicService } from '../service/music.service';
-import SpotifyWebApi from 'spotify-web-api-js';
-import { AnimationController } from '@ionic/angular';
+// import SpotifyWebApi from 'spotify-web-api-js';
+import { AnimationController, IonPopover } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 declare var cordova: any;
@@ -14,9 +14,11 @@ declare var cordova: any;
 export class MusicPage implements OnInit {
   @Input()
   music: any[] = [];
+  @Input()
+  public m: any;
   accessToken: any;
   searchToken: any;
-  spotifyApi = new SpotifyWebApi();
+  // spotifyApi = new SpotifyWebApi();
   // music: any[] = [];
   code: any;
   searchTerm: string = '';
@@ -147,4 +149,8 @@ export class MusicPage implements OnInit {
     return this.enterAnimation(baseEl).direction('reverse');
   };
   // }
+  cancel() {
+    console.log('cancel called');
+    this.music = [];
+  }
 }

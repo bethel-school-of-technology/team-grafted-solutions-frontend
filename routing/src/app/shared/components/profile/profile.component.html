@@ -8,7 +8,7 @@
   <ion-modal [isOpen]="isModalOpen">
     <ng-template>
       <ion-header>
-        <ion-toolbar>
+        <ion-toolbar color="medium">
           <ion-chip>
             <ion-avatar>
               <img
@@ -16,7 +16,7 @@
                 src="https://images.unsplash.com/photo-1517231461833-7301fb461719?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2471&q=80"
               />
             </ion-avatar>
-            <ion-label>James Avatar</ion-label>
+            <ion-label color="light">James Avatar</ion-label>
           </ion-chip>
 
           <ion-buttons slot="end">
@@ -78,7 +78,7 @@
         </ion-card>
       </ion-content>
       <ion-toolbar>
-        <ion-button (click)="openModal()" fill="clear">
+        <ion-button href="https://www.spotify.com/us/account/overview/" fill="clear">
           <ion-icon slot="start" name="cog"></ion-icon>
         </ion-button>
       </ion-toolbar>

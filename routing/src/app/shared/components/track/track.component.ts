@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MusicService } from 'src/app/service/music.service';
 
 @Component({
   selector: 'app-track',
@@ -6,11 +7,29 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./track.component.scss'],
 })
 export class TrackComponent implements OnInit {
-  @Input()
-  public testInput = '';
-  // @Input()
-  // music: Music = new Music();
-  constructor() {}
+  accessToken: any;
 
-  ngOnInit() {}
+  isModalOpen = false;
+  music: any[] = [];
+  code: any;
+  @Input()
+  public searchTerm: string = '';
+
+  @Input()
+  public t: any;
+  presentingElement = null;
+
+  constructor(private service: MusicService) {}
+
+  ngOnInit() {
+    this.code = new URLSearchParams(window.location.search).get('code');
+    this.getAccessToken(this.code);
+  }
+
+  getAccessToken(code: any) {
+    this.service.getAccessToken(code).subscribe((result) => {
+      localStorage.setItem('accessToken', JSON.stringify(result));
+      this.accessToken = localStorage.getItem('accessToken');
+    });
+  }
 }
