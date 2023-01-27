@@ -1,0 +1,30 @@
+<ion-fab horizontal="end" vertical="top" class="ion-padding">
+  <ion-fab-button size="small" expand="block" (click)="setOpen(true)">
+  </ion-fab-button>
+</ion-fab>
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{m.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-button id="open-modal" expand="block">Open</ion-button>
+  <ion-modal trigger="open-modal" [isOpen]="isModalOpen"s >
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)">Close</ion-button>
+          </ion-buttons>
+          <ion-title>{{m.name}}</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+      <audio controls autoplay>
+          <source src="{{m.preview_url}}" type="audio/mpeg">
+          </audio>        
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

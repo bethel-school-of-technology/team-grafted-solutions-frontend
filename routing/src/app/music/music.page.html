@@ -1,4 +1,7 @@
-<div><app-profile1></app-profile1></div>
+<div>
+  <app-profile1></app-profile1>
+
+</div>
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Search</ion-title>
@@ -20,14 +23,13 @@
         <ion-avatar [routerLink]="['/socialvibez/artist']">
           <img src="{{ m.album.images[0].url }}" alt />
         </ion-avatar>
-        <ion-label>{{ m.album.artists[0].name }}</ion-label>
+        <ion-label>{{m.name}}</ion-label>
+        <app-preview-modal [m]="m"></app-preview-modal>
+
         <!-- <a href="{{m.preview_url}}" class="button play"> Play Preview</a> -->
-        <ion-button id="open-modal" expand="block">Open Preview</ion-button>
-
-        <!-- <ion-modal #modal trigger="open-modal"> -->
-          <ion-modal #modal trigger="open-modal" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
-
-          <ng-template>
+        <!-- <ion-button id="open-modal" expand="block">Open Preview</ion-button>
+          <ion-modal #modal trigger="open-modal" [presentingElement]="presentingElement">
+            <ng-template>
             <ion-content>
               <ion-toolbar>
                 <ion-title>Modal</ion-title>
@@ -38,7 +40,7 @@
               </ion-toolbar>
             </ion-content>
           </ng-template>
-        </ion-modal>
+        </ion-modal> -->
       </ion-item>
     </ion-col>
   </ion-row>
