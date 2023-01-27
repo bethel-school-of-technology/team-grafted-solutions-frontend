@@ -14,6 +14,8 @@ declare var cordova: any
 })
 export class MusicPage implements OnInit {
   accessToken: any;
+
+  searchToken: any;
   // spotifyApi = new SpotifyWebApi();
   music: any[] = [];
   code: any;
@@ -62,7 +64,7 @@ export class MusicPage implements OnInit {
   // }
 
   searchMusicTest() {
-    let token = { token: JSON.parse(this.accessToken) };
+    let token = { token: JSON.parse(this.searchToken) };
 
     this.service.searchMusicTest(this.searchTerm, token).subscribe((m) => {
       this.music = m;
@@ -84,9 +86,11 @@ export class MusicPage implements OnInit {
   }
 
   getAccessToken(code: any) {
-    this.service.getAccessToken(code).subscribe((result) => {
+    this.service.getAccessToken(code).subscribe((result:any) => {
       localStorage.setItem('accessToken', JSON.stringify(result));
+      localStorage.setItem('searchToken', JSON.stringify(result.token));
       this.accessToken = localStorage.getItem('accessToken');
+      this.searchToken = localStorage.getItem('searchToken')
     });
   }
 
