@@ -1,13 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { MusicService } from '../service/music.service';
-// import { FormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { MusicService } from 'src/app/service/music.service';
 
 @Component({
   selector: 'app-artist',
-  templateUrl: './artist.page.html',
-  styleUrls: ['./artist.page.scss'],
+  templateUrl: './artist.component.html',
+  styleUrls: ['./artist.component.scss'],
 })
-export class ArtistPage implements OnInit {
+export class ArtistComponent implements OnInit {
   user: any[] = [];
   music: any[] = [];
   accessToken: any;

@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { FriendsProfilePage } from './friends-profile.page';
+import { TrackComponent } from './track.component';
 
-describe('FriendsProfilePage', () => {
-  let component: FriendsProfilePage;
-  let fixture: ComponentFixture<FriendsProfilePage>;
+describe('TrackComponent', () => {
+  let component: TrackComponent;
+  let fixture: ComponentFixture<TrackComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ FriendsProfilePage ],
+      declarations: [ TrackComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(FriendsProfilePage);
+    fixture = TestBed.createComponent(TrackComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

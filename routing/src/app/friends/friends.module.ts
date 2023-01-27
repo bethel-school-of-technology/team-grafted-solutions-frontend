@@ -4,18 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { FriendsPageRoutingModule } from './friends-routing.module';
 import { FriendsPage } from './friends.page';
-import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    FriendsPageRoutingModule,
-    ExploreContainerComponentModule,
-    SharedModule,
-  ],
+  imports: [CommonModule, FormsModule, IonicModule, FriendsPageRoutingModule, SharedModule],
   declarations: [FriendsPage],
 })
 export class FriendsPageModule {}

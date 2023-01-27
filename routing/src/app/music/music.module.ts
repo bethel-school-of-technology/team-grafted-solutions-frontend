@@ -5,20 +5,9 @@ import { IonicModule } from '@ionic/angular';
 import { MusicPageRoutingModule } from './music-routing.module';
 import { MusicPage } from './music.page';
 import { SharedModule } from '../shared/shared.module';
-import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
-
-
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    MusicPageRoutingModule,
-    ExploreContainerComponentModule,
-    SharedModule,
-
-  ],
+  imports: [CommonModule, FormsModule, IonicModule, MusicPageRoutingModule, SharedModule],
   declarations: [MusicPage],
 })
 export class MusicPageModule {}

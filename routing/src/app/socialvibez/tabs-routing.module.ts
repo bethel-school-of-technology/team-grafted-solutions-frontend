@@ -20,16 +20,22 @@ const routes: Routes = [
         path: 'messages',
         loadChildren: () => import('../messages/messages.module').then((m) => m.MessagesPageModule),
       },
-      {
-        path: 'artist',
-        loadChildren: () => import('../artist/artist.module').then((m) => m.ArtistPageModule),
-      },
-      {
-        path: 'friends-profile',
-        loadChildren: () => import('../friends-profile/friends-profile.module').then((m) => m.FriendsProfilePageModule),
-      },
+      // {
+      //   path: 'artist/:id',
+      //   loadChildren: () => import('../artist/artist.module').then((m) => m.ArtistPageModule),
+      // },
+      // {
+      //   path: 'friends-profile',
+      //   loadChildren: () => import('../friends-profile/friends-profile.module').then((m) => m.FriendsProfilePageModule),
+      // },
+
       {
         path: '',
+        redirectTo: '/socialvibez/music',
+        pathMatch: 'full',
+      },
+      {
+        path: '**',
         redirectTo: '/socialvibez/music',
         pathMatch: 'full',
       },

@@ -12,7 +12,8 @@ declare var cordova: any;
   styleUrls: ['./music.page.scss'],
 })
 export class MusicPage implements OnInit {
-  @Input() music: any[] = [];
+  @Input()
+  music: any[] = [];
   accessToken: any;
   searchToken: any;
   spotifyApi = new SpotifyWebApi();

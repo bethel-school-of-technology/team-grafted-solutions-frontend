@@ -22,7 +22,7 @@
   <ion-label> Artist Bio </ion-label>
 
   <ion-button lines="none" *ngFor="let m of music">
-    <a href="{{m.album.preview_url}}" class="button play"> Play Preview </a>
+    <a href="{{ m.album.preview_url }}" class="button play"> Play Preview </a>
   </ion-button>
   <ion-list lines="none">
     <ion-card *ngFor="let u of user">
@@ -30,7 +30,7 @@
         <img src="u.images[1]" />
       </ion-avatar>
       <ion-card-content>
-        <ion-text color="primary">{{u.display_name}}</ion-text>
+        <ion-text color="primary">{{ u.display_name }}</ion-text>
       </ion-card-content>
     </ion-card>
   </ion-list>

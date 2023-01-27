@@ -1,4 +1,8 @@
-<div><app-profile1></app-profile1></div>
+<div>
+  <app-profile></app-profile>
+  <app-artist></app-artist>
+  <!-- <app-track [testInput]="test"></app-track> -->
+</div>
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Search</ion-title>
@@ -10,7 +14,7 @@
       <ion-title size="large">Search</ion-title>
     </ion-toolbar>
     <ion-toolbar>
-      <ion-searchbar
+      <!-- <ion-searchbar
         type="search"
         placeholder="Songs"
         [debounce]="500"
@@ -18,27 +22,26 @@
         (ionChange)="searchMusicTest()"
         [(ngModel)]="searchTerm"
         (ngModelChange)="handleIt($event)"
-      ></ion-searchbar>
-      <!-- <ion-input
+      ></ion-searchbar> -->
+
+      <ion-input
         placeholder="Type here to search "
         [debounce]="500"
         showCancelButton="focus"
         (ionChange)="searchMusicTest()"
         [(ngModel)]="searchTerm"
       >
-      </ion-input> -->
+      </ion-input>
     </ion-toolbar>
   </ion-header>
-  <!-- <ion-row> -->
-  <!-- <ion-col > -->
   <ion-list lines="none" *ngFor="let m of music">
     <ion-item>
       <ion-avatar (click)="getArtist(m)">
         <img src="{{ m.album.images[0].url }}" alt />
       </ion-avatar>
       <ion-label>{{ m.album.artists[0].name }}</ion-label>
-      <!-- <a href="{{m.preview_url}}" class="button play"> Play Preview</a> -->
-      <!-- <ion-button expand="block">Open Preview</ion-button> -->
+      <a href="{{m.preview_url}}" class="button play"> Play Preview</a>
+      <ion-button expand="block">Open Preview</ion-button>
     </ion-item>
   </ion-list>
   <!-- <ion-modal #modal trigger="open-modal"> -->
@@ -58,11 +61,11 @@
   <!-- </ion-modal> -->
   <!-- </ion-col> -->
   <!-- </ion-row> -->
-</ion-content>
-<ion-button [routerLink]="['/socialvibez/artist']">Go to artist button</ion-button>
+  <!-- </ion-content> -->
+  <!-- <ion-button [routerLink]="['/socialvibez/artist']">Go to artist button</ion-button> -->
 
-<!-- <ion-content class="ion-padding"> -->
-<!-- <ion-button id="open-modal" expand="block">Open Modal</ion-button>
+  <!-- <ion-content class="ion-padding"> -->
+  <!-- <ion-button id="open-modal" expand="block">Open Modal</ion-button>
 
   <ion-modal #modal trigger="open-modal">
     <ng-template>
@@ -78,4 +81,5 @@
       </ion-content>
     </ng-template>
   </ion-modal> -->
-<!-- </ion-content> -->
+  <!-- </ion-content> -->
+</ion-content>
