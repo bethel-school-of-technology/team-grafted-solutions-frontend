@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MusicService } from '../../service/music.service';
 import { AnimationController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
@@ -18,7 +18,12 @@ export class PreviewModalComponent implements OnInit {
   isModalOpen = false;
   music: any[] = [];
   code: any;
-  searchTerm: string = '';
+  @Input()
+  public searchTerm: string = '';
+
+  @Input()
+  public m: any;
+
   public data = [this.music];
   public results = [...this.data];
   presentingElement = null;
@@ -34,6 +39,7 @@ export class PreviewModalComponent implements OnInit {
   ngOnInit() {
     this.code = new URLSearchParams(window.location.search).get('code');
     this.getAccessToken(this.code);
+    
   }
 
   getAccessToken(code: any) {
@@ -51,7 +57,9 @@ export class PreviewModalComponent implements OnInit {
   }
 
   setOpen(isOpen: boolean){
-    this.isModalOpen= isOpen
+    this.isModalOpen= isOpen;
+    console.log(this.searchTerm);
+    console.log(this.m)
   }
 
   setClose(isOpen: boolean) {

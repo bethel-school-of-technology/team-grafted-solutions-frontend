@@ -23,8 +23,8 @@
         <ion-avatar [routerLink]="['/socialvibez/artist']">
           <img src="{{ m.album.images[0].url }}" alt />
         </ion-avatar>
-        <ion-label>{{ m.album.artists[0].name }}</ion-label>
-        <app-preview-modal></app-preview-modal>
+        <ion-label>{{m.name}}</ion-label>
+        <app-preview-modal [m]="m"></app-preview-modal>
 
         <!-- <a href="{{m.preview_url}}" class="button play"> Play Preview</a> -->
         <!-- <ion-button id="open-modal" expand="block">Open Preview</ion-button>
