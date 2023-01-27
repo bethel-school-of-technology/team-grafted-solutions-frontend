@@ -37,8 +37,8 @@ export class PreviewModalComponent implements OnInit {
   constructor(private service: MusicService, private animationCtrl: AnimationController, private modalCtrl: ModalController) {}
 
   ngOnInit() {
-    this.code = new URLSearchParams(window.location.search).get('code');
-    this.getAccessToken(this.code);
+//     this.code = new URLSearchParams(window.location.search).get('code');
+//     this.getAccessToken(this.code);
     
   }
 
