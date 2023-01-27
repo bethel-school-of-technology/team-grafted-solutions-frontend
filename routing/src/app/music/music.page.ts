@@ -41,7 +41,7 @@ export class MusicPage implements OnInit {
   }
 
   searchMusicTest() {
-    let token = { token: JSON.parse(this.accessToken) };
+    let token = { token: JSON.parse(this.searchToken) };
 
     this.service.searchMusicTest(this.searchTerm, token).subscribe((m) => {
       this.music = m;
