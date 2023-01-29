@@ -1,28 +1,28 @@
-<ion-card>
-  <ion-card-header class="ion-text-center">
-    <ion-card-title>Search</ion-card-title>
-  </ion-card-header>
-</ion-card>
-
-<ion-content class="ion-padding">
+<ion-content>
   <ion-header>
-    <!-- <ion-toolbar ion-padding="10px">
-        <ion-title size="large">Search</ion-title>
-      </ion-toolbar> -->
-    <!-- <ion-toolbar> -->
-    <ion-searchbar
-      type="search"
-      placeholder="Songs"
-      [debounce]="500"
-      showCancelButton="focus"
-      (ionChange)="searchMusicTest()"
-      [(ngModel)]="searchTerm"
-      (ngModelChange)="handleIt($event)"
-      (ionCancel)="cancel()"
-      (ionClear)="cancel()"
-    ></ion-searchbar>
+    <ion-toolbar color="primary">
+      <ion-title>Search</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <!-- <ion-content [fullscreen]="true" class="ion-padding"> -->
+  <ion-header collapse="condense">
+    <ion-toolbar ion-padding="10px">
+      <!-- <ion-title size="large">Search</ion-title> -->
+    </ion-toolbar>
+    <ion-toolbar>
+      <ion-searchbar
+        type="search"
+        placeholder="Songs"
+        [debounce]="500"
+        showCancelButton="focus"
+        (ionChange)="searchMusicTest()"
+        [(ngModel)]="searchTerm"
+        (ngModelChange)="handleIt($event)"
+        (ionCancel)="cancel()"
+        (ionClear)="cancel()"
+      ></ion-searchbar>
 
-    <!-- <ion-input
+      <!-- <ion-input
         placeholder="Type here to search "
         [debounce]="500"
         showCancelButton="focus"
@@ -30,7 +30,7 @@
         [(ngModel)]="searchTerm"
       >
       </ion-input> -->
-    <!-- </ion-toolbar> -->
+    </ion-toolbar>
   </ion-header>
 
   <ion-list lines="none" *ngFor="let m of music">
@@ -42,8 +42,10 @@
         >{{ m.album.artists[0].name }}
         <p color="primary">{{ m.name }}</p>
       </ion-label>
+      <audio size="small">
+        <a color="primary" href="{{m.preview_url}}" class="button play"> Play Preview</a>
+      </audio>
     </ion-item>
-    <a href="{{ m.preview_url }}"></a>
   </ion-list>
   <!-- <audio size="small"> -->
   <!-- <a color="primary" href="{{ m.preview_url }}" class="button play"> Play Preview</a> -->

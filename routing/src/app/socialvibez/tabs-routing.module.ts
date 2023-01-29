@@ -14,7 +14,7 @@ const routes: Routes = [
       // },
       {
         path: 'profile',
-        loadChildren: () => import('../pages/profile/profile.module').then((m) => m.ProfilePageModule),
+        loadChildren: () => import('../profile/profile.module').then((m) => m.ProfilePageModule),
       },
       {
         path: 'music',
@@ -24,10 +24,10 @@ const routes: Routes = [
         path: 'messages',
         loadChildren: () => import('../messages/messages.module').then((m) => m.MessagesPageModule),
       },
-      // {
-      //   path: 'artist/:id',
-      //   loadChildren: () => import('../artist/artist.module').then((m) => m.ArtistPageModule),
-      // },
+      {
+        path: ':type/:id',
+        loadChildren: () => import('../details/details.module').then((m) => m.DetailsPageModule),
+      },
       // {
       //   path: 'friends-profile',
       //   loadChildren: () => import('../friends-profile/friends-profile.module').then((m) => m.FriendsProfilePageModule),

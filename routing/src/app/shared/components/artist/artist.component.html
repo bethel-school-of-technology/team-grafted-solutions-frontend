@@ -9,10 +9,9 @@
       </ion-item>
     </ion-toolbar>
   </ion-card>
-  <app-profile></app-profile>
 </ion-header>
 
-<ion-content>
+<ion-content *ngFor="let a of a">
   <ion-thumbnail>
     <img src="{{ a.images[0].url }}" alt="" />
   </ion-thumbnail>
