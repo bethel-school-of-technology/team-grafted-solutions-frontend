@@ -8,9 +8,13 @@ const routes: Routes = [
     path: '',
     component: TabsPage,
     children: [
+      // {
+      //   path: 'friends',
+      //   loadChildren: () => import('../friends/friends.module').then((m) => m.FriendsPageModule),
+      // },
       {
-        path: 'friends',
-        loadChildren: () => import('../friends/friends.module').then((m) => m.FriendsPageModule),
+        path: 'profile',
+        loadChildren: () => import('../pages/profile/profile.module').then((m) => m.ProfilePageModule),
       },
       {
         path: 'music',

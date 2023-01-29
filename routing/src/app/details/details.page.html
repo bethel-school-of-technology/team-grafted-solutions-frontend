@@ -1,0 +1,19 @@
+<!-- <app-artist [a]="m"></app-artist> -->
+
+<ion-label>{{ a.artists[0].name }} </ion-label>
+<ion-text>{{ a.album.name }}</ion-text>
+
+<ion-label> Artist Bio </ion-label> -->
+
+<a href="{{ a.preview_url }}" class="button play"> Play Preview </a>
+<ion-list lines="none">
+  <ion-card>
+    <ion-avatar>
+      <img src="{{a.images[0].url}}" />
+    </ion-avatar>
+    <ion-card-content>
+      <!-- <ion-text color="primary">{{ display_name }}</ion-text> -->
+    </ion-card-content>
+  </ion-card>
+</ion-list>
+<!-- </ion-content> -->

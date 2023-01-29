@@ -4,13 +4,13 @@
 //     song: string = ""
 // }
 
+export class Music {
+  artist: any;
+  title: any;
+  uri: any;
+  albumUrl: any;
+}
+
 // export class Music {
-    //     artist: any
-    //     title: any
-    //     uri: any
-    //     albumUrl: any
-    // }
-    
-    export class Music {
-        body: any
-    }
+//     body: any
+// }

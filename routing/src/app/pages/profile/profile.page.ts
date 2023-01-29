@@ -1,13 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { Music } from 'src/app/models/music';
 
 @Component({
   selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss'],
+  templateUrl: './profile.page.html',
+  styleUrls: ['./profile.page.scss'],
 })
-export class ProfileComponent implements OnInit {
+export class ProfilePage implements OnInit {
   isModalOpen = false;
   @Input()
   public user: any[] = [];
@@ -29,7 +28,7 @@ export class ProfileComponent implements OnInit {
 
   async openModal() {
     const modal = await this.modalCtrl.create({
-      component: ProfileComponent,
+      component: ProfilePage,
     });
     modal.present();
 

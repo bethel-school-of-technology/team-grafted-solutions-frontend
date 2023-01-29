@@ -1,41 +1,52 @@
-<div>
-  <app-profile></app-profile>
-  <!-- <app-artist></app-artist> -->
-</div>
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Search</ion-title>
-  </ion-toolbar>
-</ion-header>
-<ion-content [fullscreen]="true" class="ion-padding">
-  <ion-header collapse="condense">
-    <ion-toolbar ion-padding="10px">
-      <!-- <ion-title size="large">Search</ion-title> -->
-    </ion-toolbar>
-    <ion-toolbar>
-      <ion-searchbar
-        type="search"
-        placeholder="Songs"
+<ion-card>
+  <ion-card-header class="ion-text-center">
+    <ion-card-title>Search</ion-card-title>
+  </ion-card-header>
+</ion-card>
+
+<ion-content class="ion-padding">
+  <ion-header>
+    <!-- <ion-toolbar ion-padding="10px">
+        <ion-title size="large">Search</ion-title>
+      </ion-toolbar> -->
+    <!-- <ion-toolbar> -->
+    <ion-searchbar
+      type="search"
+      placeholder="Songs"
+      [debounce]="500"
+      showCancelButton="focus"
+      (ionChange)="searchMusicTest()"
+      [(ngModel)]="searchTerm"
+      (ngModelChange)="handleIt($event)"
+      (ionCancel)="cancel()"
+      (ionClear)="cancel()"
+    ></ion-searchbar>
+
+    <!-- <ion-input
+        placeholder="Type here to search "
         [debounce]="500"
         showCancelButton="focus"
         (ionChange)="searchMusicTest()"
         [(ngModel)]="searchTerm"
-        (ngModelChange)="handleIt($event)"
-        (ionCancel)="cancel()"
-        (ionClear)="cancel()"
-      ></ion-searchbar>
-    </ion-toolbar>
+      >
+      </ion-input> -->
+    <!-- </ion-toolbar> -->
   </ion-header>
+
   <ion-list lines="none" *ngFor="let m of music">
-    <ion-item>
-      <ion-avatar (click)="getArtist(m)">
-        <img src="{{ m.album.images[0].url }}" alt="" />
+    <ion-item (click)="getArtistDetails(m)">
+      <ion-avatar>
+        <img src="{{ m.album.images[0].url }}" />
       </ion-avatar>
-      <ion-label>{{ m.album.artists[0].name }}</ion-label>
-      <audio size="small">
-        <a color="primary" href="{{m.preview_url}}" class="button play"> Play Preview</a>
-      </audio>
+      <ion-label class="ion-padding-start"
+        >{{ m.album.artists[0].name }}
+        <p color="primary">{{ m.name }}</p>
+      </ion-label>
     </ion-item>
+    <a href="{{ m.preview_url }}"></a>
   </ion-list>
-  <!-- <app-track ></app-track> -->
+  <!-- <audio size="small"> -->
+  <!-- <a color="primary" href="{{ m.preview_url }}" class="button play"> Play Preview</a> -->
+  <!-- </audio> -->
+  <!-- </ion-content> -->
 </ion-content>

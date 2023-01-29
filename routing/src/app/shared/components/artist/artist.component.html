@@ -12,17 +12,17 @@
   <app-profile></app-profile>
 </ion-header>
 
-<ion-content *ngFor="let m of music">
+<ion-content>
   <ion-thumbnail>
-    <img src="{{ m.album.images[0].url }}" alt="" />
+    <img src="{{ a.images[0].url }}" alt="" />
   </ion-thumbnail>
-  <ion-label>{{ m.artists[0].name }} </ion-label>
-  <ion-text>{{ m.album.name }}</ion-text>
+  <ion-label>{{ a.name }} </ion-label>
+  <ion-text>{{ a.followers }}</ion-text>
 
   <ion-label> Artist Bio </ion-label>
 
-  <ion-button lines="none" *ngFor="let m of music">
-    <a href="{{ m.album.preview_url }}" class="button play"> Play Preview </a>
+  <ion-button lines="none">
+    <a href="{{ a.preview_url }}" class="button play"> Play Preview </a>
   </ion-button>
   <ion-list lines="none">
     <ion-card *ngFor="let u of user">

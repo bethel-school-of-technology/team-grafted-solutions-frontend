@@ -21,15 +21,19 @@ export class MusicService implements OnInit {
   ngOnInit() {}
 
   getArtist(searchTerm: string, tokken: string): Observable<Music[]> {
-    return this.http.get<Music[]>(this.dataSource + '?q=' + searchTerm + '&type=artist&market=ES&limit=10', {
+    return this.http.get<any[]>(this.dataSource + '?q=' + searchTerm + '&type=artist&market=ES&limit=10', {
       headers: { Authorization: 'Bearer' + tokken },
     });
   }
 
   getTrack(searchTerm: string): Observable<Music[]> {
-    return this.http.get<Music[]>(this.dataSource + '?q=' + searchTerm + '&type=track&market=ES&limit=10', {
+    return this.http.get<any[]>(this.dataSource + '?q=' + searchTerm + '&type=track&market=ES&limit=10', {
       headers: { Authorization: 'Bearer' + this.accessToken },
     });
+  }
+
+  getArtistByID(id: number): Observable<Music> {
+    return this.http.get<Music>(this.dataSource + '/' + id);
   }
 
   searchMusicTest(searchTerm: string, token: any): Observable<Music[]> {
@@ -37,6 +41,12 @@ export class MusicService implements OnInit {
   }
 
   searchMusic(searchTerm: string, token: any): Observable<Music[]> {
+    return this.http.get<Music[]>(this.dataSource + '?q=' + searchTerm + '&type=album', {
+      headers: { Authorization: 'Bearer' + this.accessToken },
+    });
+  }
+
+  getDetails(searchTerm: string, token: any): Observable<Music[]> {
     return this.http.get<Music[]>(this.dataSource + '?q=' + searchTerm + '&type=album', {
       headers: { Authorization: 'Bearer' + this.accessToken },
     });

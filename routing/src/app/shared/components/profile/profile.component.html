@@ -1,23 +1,25 @@
 <ion-fab horizontal="end" vertical="top" class="ion-padding">
   <ion-fab-button size="small" expand="block" (click)="setOpen(true)">
-    <ion-avatar *ngFor="let u of user">
-      <img alt="Silhouette of a person's head" src="" />
+    <ion-avatar>
+      <img
+        alt="Silhouette of a person's head"
+        src="https://images.unsplash.com/photo-1547434836-398fc5a73e91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+      />
     </ion-avatar>
   </ion-fab-button>
   <!-- <app-edit-profile></app-edit-profile> -->
   <ion-modal [isOpen]="isModalOpen">
     <ng-template>
       <ion-header>
-        <ion-toolbar color="medium">
-          <ion-chip>
-            <ion-avatar>
-              <img
-                alt="Silhouette of a person's head"
-                src="https://images.unsplash.com/photo-1517231461833-7301fb461719?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2471&q=80"
-              />
-            </ion-avatar>
-            <ion-label color="light">James Avatar</ion-label>
-          </ion-chip>
+        <ion-toolbar color="primary">
+          <ion-avatar>
+            <!-- <img *ngIf="userData.images" alt="Silhouette of a person's head" src="{{ userData.images[0].url }}" /> -->
+            <img
+              alt="Silhouette of a person's head"
+              src="https://images.unsplash.com/photo-1547434836-398fc5a73e91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+            />
+          </ion-avatar>
+          <ion-label color="primary" *ngFor="let uD of userData" color="light">{{ uD.display_name }}</ion-label>
 
           <ion-buttons slot="end">
             <ion-button (click)="setOpen(false)">Close</ion-button>
@@ -26,30 +28,31 @@
       </ion-header>
       <ion-card>
         <ion-card-subtitle> About Me </ion-card-subtitle>
-        <ion-card-content>
-          <p>{{ message }}</p>
-          <p>{{ bio }}</p>
-        </ion-card-content>
+        <ion-card-content> </ion-card-content>
       </ion-card>
 
-      <ion-segment value="default">
-        <ion-segment-button value="default">
-          <ion-label>Default</ion-label>
+      <ion-segment value="=comments">
+        <ion-segment-button type="button" value="comments">
+          <ion-label>Comments</ion-label>
         </ion-segment-button>
-        <ion-segment-button value="segment">
+
+        <ion-segment-button type="button" value="segment">
           <ion-label>Segment</ion-label>
         </ion-segment-button>
       </ion-segment>
 
-      <div class="ion-text-start"><ion-label> Recent Activity </ion-label></div>
       <ion-content class="ion-padding">
         <div class="ion-text-end"><ion-label>Recent Songs</ion-label></div>
+        <div class="ion-text-start"><ion-label> Recent Activity </ion-label></div>
 
         <ion-card>
           <ion-card-content>
             <ion-item lines="none">
               <ion-thumbnail slot="start">
-                <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                <img
+                  alt="Silhouette of mountains"
+                  src="https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80"
+                />
               </ion-thumbnail>
               <ion-label>
                 Song Title
@@ -67,11 +70,14 @@
           <ion-card-content>
             <ion-item lines="none">
               <ion-thumbnail slot="start">
-                <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                <img
+                  alt="Silhouette of mountains"
+                  src="https://images.unsplash.com/photo-1533206601904-1a399c3479ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80s"
+                />
               </ion-thumbnail>
               <ion-label>
-                Name
-                <p>Comments</p>
+                Jacob Solares
+                <p>Dude that was the first time I heard that song!!</p>
               </ion-label>
             </ion-item>
           </ion-card-content>
@@ -85,10 +91,3 @@
     </ng-template>
   </ion-modal>
 </ion-fab>
-
-<!-- <ion-grid>
-  <ion-row>
-    <ion-col size="9" push="3">1</ion-col>
-    <ion-col size="3" pull="9">2</ion-col>
-  </ion-row>
-</ion-grid> -->

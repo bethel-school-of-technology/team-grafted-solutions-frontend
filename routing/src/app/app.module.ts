@@ -8,20 +8,15 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { Media } from '@ionic-native/media'
+import { Media } from '@ionic-native/media';
+// import { NoimagePipe } from './pipe/noimage.pipe';
+import { NoavatarPipe } from './pipes/noavatar.pipe';
+import { NoimagePipe } from './pipes/noimage.pipe';
 // import { IonicStorageModule} from '@ionic/storage'
 
-
 @NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(),
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-
-  ],
+  declarations: [AppComponent, NoavatarPipe, NoimagePipe],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MusicService } from 'src/app/service/music.service';
 
 @Component({
@@ -11,12 +11,24 @@ export class ArtistComponent implements OnInit {
   music: any[] = [];
   accessToken: any;
   code: any;
-  searchTerm: string = '';
+
+  @Input()
+  public searchTerm: string = '';
+
+  @Input()
+  public a: any;
 
   constructor(private service: MusicService) {}
 
   ngOnInit() {
     this.getAccessToken(this.code);
+  }
+
+  getDetails() {
+    let token = { token: JSON.parse(this.accessToken) };
+    this.service.getDetails(this.searchTerm, token).subscribe((m) => {
+      this.music = m;
+    });
   }
 
   getAccessToken(code: any) {

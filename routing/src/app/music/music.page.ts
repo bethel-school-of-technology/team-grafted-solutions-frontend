@@ -1,7 +1,5 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
-import { Music } from '../models/music';
 import { MusicService } from '../service/music.service';
-// import SpotifyWebApi from 'spotify-web-api-js';
 import { AnimationController, IonPopover } from '@ionic/angular';
 import { Router } from '@angular/router';
 
@@ -16,6 +14,7 @@ export class MusicPage implements OnInit {
   music: any[] = [];
   @Input()
   public m: any;
+
   accessToken: any;
   searchToken: any;
   // spotifyApi = new SpotifyWebApi();
@@ -44,7 +43,7 @@ export class MusicPage implements OnInit {
     this.getAccessToken(this.code);
   }
 
-  getArtist(music: any) {
+  getArtistDetails(music: any) {
     let artistaId;
 
     if (music.type === 'artist') {
@@ -53,7 +52,7 @@ export class MusicPage implements OnInit {
       artistaId = music.artists[0].id;
     }
     console.log(artistaId);
-    this.router.navigate(['/artist', artistaId]);
+    this.router.navigate(['/details', music.type, artistaId]);
   }
 
   // searchMusic() {
@@ -89,7 +88,12 @@ export class MusicPage implements OnInit {
   sortArtist() {
     this.service.sortArtist().subscribe((m) => (this.music = m));
   }
-
+  getDetails() {
+    let token = { token: JSON.parse(this.accessToken) };
+    this.service.getDetails(this.searchTerm, token).subscribe((m) => {
+      this.music = m;
+    });
+  }
   sortSong() {
     this.service.sortSong().subscribe((m) => (this.music = m));
   }
