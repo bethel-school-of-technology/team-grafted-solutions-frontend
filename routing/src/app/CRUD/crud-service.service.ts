@@ -28,7 +28,7 @@ baseURL: string = "http://localhost:3001/messages";
     return this.http.get<Message[]>(this.baseURL);
   }
 
-  createNewMessage(newMessage: Message): Observable<Message>{
+  createNewMessage(newMessage: any): Observable<Message>{
     return this.http.post<Message>(this.baseURL, newMessage);
 }
 

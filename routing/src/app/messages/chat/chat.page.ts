@@ -20,7 +20,7 @@ export class ChatPage implements OnInit {
   accessToken: any;
           //replace 'sender' w/ the users name
   name: string = 'Sender';
-  newMessage: Message;
+  newMessage: any;
   isLoading = false;
   messageInfo: any = {
     mInfo:" ",  
@@ -44,7 +44,8 @@ export class ChatPage implements OnInit {
     private service: MusicService,
 
   ) {
-    this.accessToken = localStorage.getItem('accessToken');
+    let data: any = JSON.parse(localStorage.getItem('accessToken'));
+    this.accessToken = data.token;
 
    }
   title: string = '';
@@ -53,7 +54,7 @@ export class ChatPage implements OnInit {
   ngOnInit(): void {
     this.code = new URLSearchParams(window.location.search).get('code');
 
-    this.getAccessToken(this.code);
+    // this.getAccessToken(this.code);
 
     this.title = this.crud.title;
     this.crud.getAllMessages() 
@@ -85,16 +86,18 @@ getAccessToken(code: any) {
 
 onSubmit() {
   
-  let token = { token: JSON.parse(this.accessToken) };
+  // let token = { token: JSON.parse(this.accessToken) };
 
   // this.crud.createNewMessage(this.newMessage).subscribe(response => {
   //   console.log(response);
 
-    this.crud.createNewMessage(this.searchTerm).subscribe((m) => {
-      this.newMessage = m;
-  
+  // this.searchTerm
 
-  });
+  this.crud.createNewMessage({message: this.searchTerm, token: this.accessToken }).subscribe((m) => {
+    this.newMessage = m;
+
+
+});
 }
 
 }
