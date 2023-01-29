@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title> Test Post</ion-title>
+    <ion-buttons slot="end">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+<ion-input [(ngModel)]="newPost.title" placeholder="title"> </ion-input>
+
+<ion-input [(ngModel)]="newPost.message" placeholder="Message" ></ion-input>
+
+  <p id="userName"> User: {{userData.display_name}}</p>
+
+  <ion-button (click)="createPost(this.newPost)">CreatePost</ion-button>
+</ion-content>

@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { OverlayEventDetail } from '@ionic/core';
+import { Observable } from 'rxjs';
+import { Message } from 'src/app/models/message';
+import { HttpClient } from '@angular/common/http';
+import { ChatService } from 'src/app/service/chat/chat.service';
+import { CreateMComponent } from 'src/app/shared/create-m/create-m.component';
+import { CrudServiceService } from 'src/app/CRUD/crud-service.service';
+import { MusicService } from 'src/app/service/music.service';
+
+
 
 @Component({
   selector: 'app-chat',
@@ -8,24 +16,85 @@ import { OverlayEventDetail } from '@ionic/core';
 })
 export class ChatPage implements OnInit {
 
+  baseURL = "http://localhost:3001/messages" 
+  accessToken: any;
           //replace 'sender' w/ the users name
   name: string = 'Sender';
-  message: string;
+  newMessage: Message;
   isLoading = false;
+  messageInfo: any = {
+    mInfo:" ",  
+  }
+  searchToken: any;
+  makeMessage: Message = new Message();
+  code: any;
   currentUserId = 1
   chats = [
-    {id: 1, sender: 1, message: 'hi how are you'},
-    {id: 2, sender: 2, message: 'hello there'},
+    // {id: 1, sender: 1, message: 'hi how are you'},
+    // {id: 2, sender: 2, message: 'hello there'},
 
   ];
+  searchTerm: any;
 
 
-  constructor() { }
+  constructor(
+    private c: ChatService,
+    private http: HttpClient,
+    private crud: CrudServiceService,
+    private service: MusicService,
 
-  ngOnInit() {
+  ) {
+    this.accessToken = localStorage.getItem('accessToken');
+
+   }
+  title: string = '';
+  messageLists: Message[] = [];
+
+  ngOnInit(): void {
+    this.code = new URLSearchParams(window.location.search).get('code');
+
+    this.getAccessToken(this.code);
+
+    this.title = this.crud.title;
+    this.crud.getAllMessages() 
+    .subscribe(response => this.messageLists = response);  
+
   }
 
-  sendMessage () {
+
+  createMessage (newMessage: Message): Observable<Message[]> {
+    console.log(newMessage)
+    return this.http.post<Message[]>(this.baseURL, newMessage)
+    
 
   }
+
+  createNewMessage(newMessage: Message): Observable<Message>{
+    return this.http.post<Message>(this.baseURL, newMessage);
+}
+
+getAccessToken(code: any) {
+  this.service.getAccessToken(code).subscribe((result:any) => {
+    localStorage.setItem('accessToken', JSON.stringify(result));
+    localStorage.setItem('searchToken', JSON.stringify(result.token));
+    this.accessToken = localStorage.getItem('accessToken');
+    this.searchToken = localStorage.getItem('searchToken')
+  });
+}
+
+
+onSubmit() {
+  
+  let token = { token: JSON.parse(this.accessToken) };
+
+  // this.crud.createNewMessage(this.newMessage).subscribe(response => {
+  //   console.log(response);
+
+    this.crud.createNewMessage(this.searchTerm).subscribe((m) => {
+      this.newMessage = m;
+  
+
+  });
+}
+
 }

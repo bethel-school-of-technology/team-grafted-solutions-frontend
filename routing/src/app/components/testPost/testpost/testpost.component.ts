@@ -1,62 +1,39 @@
-import { Component, OnInit } from '@angular/core';
-import { TestpostComponent } from '../components/testPost/testpost/testpost.component';
-import { MusicService } from '../service/music.service';
-import { ModalController } from '@ionic/angular';
-import { Post } from '../models/post';
 import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { Observable } from 'rxjs';
-
+import { Post } from 'src/app/models/post';
+import { PostService } from 'src/app/service/post.service';
 
 @Component({
-  selector: 'app-artist',
-  templateUrl: './artist.page.html',
-  styleUrls: ['./artist.page.scss'],
+  selector: 'app-testpost',
+  templateUrl: './testpost.component.html',
+  styleUrls: ['./testpost.component.scss'],
 })
-export class ArtistPage implements OnInit {
+export class TestpostComponent implements OnInit {
   baseURL = "http://localhost:3001/posts" 
 
-  music: any[] = [];
-  accessToken: any;
-  code: any;
-  searchTerm: string = '';
-  post: string;
-  postData;
-  artistId: string;
-  newPost: Post;
-  
-
-
-  constructor(private service: MusicService,
+  constructor(private service: PostService,
     private modalCtrl: ModalController,
     private http: HttpClient
-
-    ) {
+    ) { 
       this.accessToken = localStorage.getItem('accessToken');
-
     }
+    accessToken: any;
+    userData;
+    newPost: Post;
+    artistId: string;
+
+
+
 
 
 
   ngOnInit() {
     let data = JSON.parse(localStorage.getItem('accessToken'));
-    this.postData = data.postData;
-    console.log(this.postData);
-  
-    this.getAccessToken(this.code);
-  }
+    this.userData = data.userData;
+    console.log(this.userData);
 
-
-  async opentestPostModal() {
-    const modal = await this.modalCtrl.create ({
-      component: TestpostComponent,
-    });
-    modal.present();
-  
-    const { data, role } = await modal.onWillDismiss();
-  
-    if (role === 'confirm') {
-      this.post = `${data}`;
-    }
   }
 
   testPostMessage() {
@@ -64,9 +41,11 @@ export class ArtistPage implements OnInit {
 
   }
 
+
   cancel() {
     return this.modalCtrl.dismiss(null, 'cancel');
   }
+
 
   createPost(newPost: Post): Observable<Post> {
     let token = { token: JSON.parse(this.accessToken)}
@@ -80,12 +59,13 @@ export class ArtistPage implements OnInit {
      return this.http.post<Post>(this.baseURL, newPost)
   }
 
-  
 
   getAccessToken(code: any) {
-    this.service.getAccessToken(code).subscribe((result) => {
+    this.service.getAccessToken(code).subscribe((result:any) => {
       localStorage.setItem('accessToken', JSON.stringify(result));
       this.accessToken = localStorage.getItem('accessToken');
     });
   }
+
+
 }

@@ -38,19 +38,17 @@
 
       <div class="ion-text-start"><ion-label> Recent Activity </ion-label></div>
       <ion-content class="ion-padding">
-        <div class="ion-text-end"><ion-label>Recent Songs</ion-label></div>
+        <div class="ion-text-end"><ion-label>Liked Songs</ion-label></div>
 
         <ion-card>
           <ion-card-content>
-            <ion-item lines="none">
-              <ion-thumbnail slot="start">
-                <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-              </ion-thumbnail>
-              <ion-label>
-                Song Title
-                <p>Album</p>
-              </ion-label>
-            </ion-item>
+            <ion-col lines="none" *ngFor="let m of music"> 
+              <ion-label>{{ m.album.name }}</ion-label>
+
+
+            </ion-col>
+
+
           </ion-card-content>
         </ion-card>
       </ion-content>

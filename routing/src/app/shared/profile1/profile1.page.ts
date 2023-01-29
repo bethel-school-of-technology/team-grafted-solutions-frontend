@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { EditProfileComponent } from '../edit-profile/edit-profile.component';
+import { MusicPage } from 'src/app/music/music.page';
 
 @Component({
   selector: 'app-profile1',
@@ -11,6 +12,11 @@ export class Profile1Page implements OnInit {
   isModalOpen = false;
   userData;
   user: any[] = [];
+  music: any[] = [];
+
+likedSongs() {
+
+}
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
@@ -39,5 +45,7 @@ export class Profile1Page implements OnInit {
     let data = JSON.parse(localStorage.getItem('accessToken'));
     this.userData = data.userData;
     console.log(this.userData);
+    
+    this.likedSongs();
   }
 }

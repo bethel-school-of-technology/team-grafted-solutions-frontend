@@ -18,7 +18,7 @@ const routes: Routes = [
       },
       {
         path: 'messages',
-        loadChildren: () => import('../messages/messages.module').then((m) => m.MessagesPageModule),
+        loadChildren: () => import('../messages/chat/chat.module').then((m) => m.ChatPageModule),
       },
       {
         path: 'artist',

@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { NewPostComponent } from './new-post.component';
+import { CreateMComponent } from './create-m.component';
 
-describe('NewPostComponent', () => {
-  let component: NewPostComponent;
-  let fixture: ComponentFixture<NewPostComponent>;
+describe('CreateMComponent', () => {
+  let component: CreateMComponent;
+  let fixture: ComponentFixture<CreateMComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewPostComponent ],
+      declarations: [ CreateMComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(NewPostComponent);
+    fixture = TestBed.createComponent(CreateMComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

@@ -7,8 +7,10 @@ import { ChatService } from '../service/chat/chat.service';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
 import { ModalController } from '@ionic/angular';
-import { ModalsComponent } from '../components/modals/modals.component';
-
+import { ModalsComponent } from '../components/MODALS/PostModal/modals.component';
+import { TestpostComponent } from '../components/testPost/testpost/testpost.component';
+import { Message } from '../models/message';
+import { CrudServiceService } from '../CRUD/crud-service.service';
 
 @Component({
   selector: 'app-messages',
@@ -16,7 +18,7 @@ import { ModalsComponent } from '../components/modals/modals.component';
   styleUrls: ['./messages.page.scss'],
 })
 export class MessagesPage implements OnInit {
-
+postData;
 private usersRoute='http://localhost:3001/users/currentUser'
 public currentUser: User[];
   global: any;
@@ -25,8 +27,26 @@ constructor(
   private chatService: ChatService,
   private router: Router,
   private http: HttpClient,
-  private modalCtrl: ModalController
-) {}
+  private modalCtrl: ModalController,
+  private my: CrudServiceService
+) { }
+
+
+
+
+async opentestPostModal() {
+  const modal = await this.modalCtrl.create ({
+    component: TestpostComponent,
+  });
+  modal.present();
+
+  const { data, role } = await modal.onWillDismiss();
+
+  if (role === 'confirm') {
+    this.post = `${data}`;
+  }
+}
+
 
 async openModal() {
   const modal = await this.modalCtrl.create({
@@ -49,18 +69,32 @@ getCurrentUser(){
     console.log('User', this.users)
   })
 }
-ngOnInit() {}
+ngOnInit() {
+  let data = JSON.parse(localStorage.getItem('accessToken'));
+  this.postData = data.postData;
+  console.log(this.postData);
+
+  this.title = this.my.title;
+  this.my.getAllMessages()
+  .subscribe(response => {
+    this.messageList = response
+  })
+
+}
 
 
 
   @ViewChild(IonModal)
   modal!: IonModal
 selectTabs = ""
-newPost = '';
 newHeadline= '';
 post: string;
-title: string;
-forms:any[]=[]
+title: string = '';
+messageList: Message[]=[];
+items:any[]=[];
+postMessage: string;
+
+
 
 open_new_chat = false;
 @Input() item: any;
@@ -96,7 +130,6 @@ chatRooms = [
   onWillDismiss(event: Event) {
     const ev = event as CustomEvent<OverlayEventDetail<string>>;
     if (ev.detail.role === 'confirm') {
-      this.newPost = ` ${ev.detail.data}`,
       this.newHeadline = ` ${ev.detail.data}`
     }
   }
@@ -108,25 +141,25 @@ chatRooms = [
 
   }
 
-  async startChat(item) {
-    try {
-      // this.global.showLoader();
-      //create chatroom
-      const room = await this.chatService.createChatRoom(item?.uid);
-      console.log('room: ',room);
-      this.cancel();
-      const navData: NavigationExtras = {
-        queryParams: {
-          name: item?.name
-        }
-      };
-      this.router.navigate(['/', 'socialvibez', 'chats', room?.id], navData);
-      this.global.hideLoader();
-    } catch(e) {
-      console.log(e);
-      this.global.hideLoader();
-    }
-  }
+  // async startChat(item) {
+  //   try {
+  //     // this.global.showLoader();
+  //     //create chatroom
+  //     const room = await this.chatService.createChatRoom(item?.uid);
+  //     console.log('room: ',room);
+  //     this.cancel();
+  //     const navData: NavigationExtras = {
+  //       queryParams: {
+  //         name: item?.name
+  //       }
+  //     };
+  //     this.router.navigate(['/', 'socialvibez', 'chats', room?.id], navData);
+  //     this.global.hideLoader();
+  //   } catch(e) {
+  //     console.log(e);
+  //     this.global.hideLoader();
+  //   }
+  // }
 
   getUsers() {
   }

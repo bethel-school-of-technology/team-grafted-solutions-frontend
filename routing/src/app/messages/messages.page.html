@@ -9,17 +9,12 @@
 
 <ion-content [fullscreen]="true">
 
-  <!-- <ion-segment [(ngModel)]="selectTabs">
-    <ion-segment-button value="Feed">Feed</ion-segment-button>
+  <ion-segment [(ngModel)]="selectTabs">
     <ion-segment-button value="directMessages">My Messages</ion-segment-button>
-  </ion-segment> -->
+  </ion-segment>
 
-  <!-- *ngIf="selectTabs == 'Feed'" -->
+  <!-- *ngIf="selectTabs == 'Feed'"
   <ion-content class="ion-padding">
-    <ion-button (click)="openModal()"><ion-icon name="create"></ion-icon> Post</ion-button>
-    <p>{{ post }}
-      Posts are showing up in console but not here :(
-    </p>
 
   </ion-content>
   
@@ -31,7 +26,7 @@
   </ion-fab>
 
 
-<!-- <p>RECENT CHATS</p>
+<p>RECENT CHATS</p>
 <ion-card>
   <ion-card-content>
       <ion-list *ngIf="segment == 'chats' && (users) as user$">
@@ -53,7 +48,7 @@
         </ion-toolbar>
       </ion-list>
       </ion-card-content>
-     </ion-card>  -->
+     </ion-card> 
      
   
 
@@ -74,11 +69,11 @@
             </ion-header>
             <ion-content color="light" *ngIf="(users) as user$">
               <ion-list class="ion-margin-top" [style.background]="'transparent'" lines="none">
-                <app-user-list
+                <!-- <app-user-list
                 *ngFor="let item of user$" 
                 [item]="item"
                 (onclick)="startChat($event)">
-              </app-user-list>
+              </app-user-list> -->
               </ion-list>
             </ion-content>
           </ng-template>
