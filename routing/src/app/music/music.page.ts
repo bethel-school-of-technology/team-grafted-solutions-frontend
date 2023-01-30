@@ -17,8 +17,7 @@ export class MusicPage implements OnInit {
 
   accessToken: any;
   searchToken: any;
-  // spotifyApi = new SpotifyWebApi();
-  // music: any[] = [];
+
   code: any;
   searchTerm: string = '';
   public data = [this.music];
