@@ -7,10 +7,19 @@ import { ArtistComponent } from './components/artist/artist.component';
 import { FriendsProfileComponent } from './components/friends-profile/friends-profile.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AlbumComponent } from './components/album/album.component';
+import { PreviewModalComponent } from './preview-modal/preview-modal.component';
 
 @NgModule({
-  declarations: [ProfileComponent, EditProfileComponent, TrackComponent, ArtistComponent, FriendsProfileComponent, AlbumComponent],
+  declarations: [
+    ProfileComponent,
+    EditProfileComponent,
+    TrackComponent,
+    ArtistComponent,
+    FriendsProfileComponent,
+    AlbumComponent,
+    PreviewModalComponent,
+  ],
   imports: [CommonModule, IonicModule],
-  exports: [ProfileComponent, EditProfileComponent, TrackComponent, ArtistComponent, FriendsProfileComponent, AlbumComponent],
+  exports: [ProfileComponent, EditProfileComponent, TrackComponent, ArtistComponent, FriendsProfileComponent, AlbumComponent, PreviewModalComponent],
 })
 export class SharedModule {}

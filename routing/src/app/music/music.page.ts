@@ -23,7 +23,6 @@ export class MusicPage implements OnInit {
   searchTerm: string = '';
   public data = [this.music];
   public results = [...this.data];
-  // loading: Loading;
   isModalOpen = false;
 
   handleIt(value: string) {
@@ -39,7 +38,6 @@ export class MusicPage implements OnInit {
 
   ngOnInit() {
     this.code = new URLSearchParams(window.location.search).get('code');
-
     this.getAccessToken(this.code);
   }
 
@@ -79,12 +77,6 @@ export class MusicPage implements OnInit {
     });
   }
 
-  // getMusic() {
-  //   let token = { token: JSON.parse(this.accessToken) };
-
-  //   this.service.getMusic(this.searchTerm).subscribe((m) => (this.music = m));
-  // }
-
   sortArtist() {
     this.service.sortArtist().subscribe((m) => (this.music = m));
   }
@@ -106,19 +98,6 @@ export class MusicPage implements OnInit {
       this.searchToken = localStorage.getItem('searchToken');
     });
   }
-
-  // getUserPlaylist(){
-  //   this.loading = this.loadingCtrl.create({
-  //     content: 'loading Playlist...'
-  //   });
-  //   this.loading.present();
-
-  //   this.spotifyApi.getUserPlaylists().then(data => {
-  //     if (this.loading) {
-  //       this.loading.dismiss();
-  //     }
-  //   })
-  // }
   getPreviewUrl() {
     let token = { token: JSON.parse(this.accessToken) };
     this.service.getPreviewUrl(this.searchTerm, token).subscribe((m) => {
