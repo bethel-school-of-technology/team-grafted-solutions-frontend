@@ -32,5 +32,10 @@ baseURL: string = "http://localhost:3001/messages";
     return this.http.post<Message>(this.baseURL, newMessage);
 }
 
+  deleteMessage(messageId: number): Observable<any>{
+  return this.http.delete<any>(this.baseURL + "/" + messageId);
+
+}
+
 
 }

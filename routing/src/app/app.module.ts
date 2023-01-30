@@ -10,12 +10,13 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalsComponent } from './components/MODALS/PostModal/modals.component';
 import { TestpostComponent } from './components/testPost/testpost/testpost.component';
+import { DeleteMComponent } from './delete-m/delete-m.component';
 // import { Media } from '@ionic-native/media'
 // import { IonicStorageModule} from '@ionic/storage'
 
 
 @NgModule({
-  declarations: [AppComponent, ModalsComponent, TestpostComponent], 
+  declarations: [AppComponent, ModalsComponent, TestpostComponent, DeleteMComponent], 
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
