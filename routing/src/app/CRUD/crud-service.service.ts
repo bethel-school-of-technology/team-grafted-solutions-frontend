@@ -4,38 +4,36 @@ import { Observable, of } from 'rxjs';
 import { Message } from '../models/message';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CrudServiceService {
-baseURL: string = "http://localhost:3001/messages";
+  baseURL: string = 'http://localhost:3001/messages';
 
-
-
-  listOfMessages: Message[] = [{
-    message: "this is my newest message"
-  }];
-  title: string = "my messages";
-  constructor(
-    private http: HttpClient
-  ) { }
+  listOfMessages: Message[] = [
+    {
+      message: 'this is my newest message',
+    },
+  ];
+  title: string = 'my messages';
+  constructor(private http: HttpClient) {}
 
   // getAllMessages(): Observable<Message[]> {
   //   return of (this.listOfMessages);
   // }
 
-
   getAllMessages(): Observable<Message[]> {
     return this.http.get<Message[]>(this.baseURL);
   }
 
-  createNewMessage(newMessage: any): Observable<Message>{
+  createNewMessage(newMessage: any): Observable<Message> {
     return this.http.post<Message>(this.baseURL, newMessage);
-}
+  }
 
-  deleteMessage(messageId: number): Observable<any>{
-  return this.http.delete<any>(this.baseURL + "/" + messageId);
+  deleteMessage(messageId: number): Observable<any> {
+    return this.http.delete<any>(this.baseURL + '/' + messageId);
+  }
 
-}
-
-
+  editMessageByID(messageId: number, edittedMessage: Message): Observable<Message> {
+    return this.http.put<Message>(this.baseURL + '/' + messageId, edittedMessage);
+  }
 }

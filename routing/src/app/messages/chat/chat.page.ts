@@ -18,6 +18,9 @@ export class ChatPage implements OnInit {
   //replace 'sender' w/ the users name
   name: string = 'Sender';
   newMessage: any;
+  messageId: number;
+  edittedMessage: Message;
+
   isLoading = false;
   messageInfo: any = {
     mInfo: ' ',
@@ -58,7 +61,13 @@ export class ChatPage implements OnInit {
 
     return this.http.post<Message>(this.baseURL, newMessage);
   }
+  deleteMessage(messageId: number): Observable<any> {
+    return this.http.delete<any>(this.baseURL + '/' + messageId);
+  }
 
+  editMessageByID(messageId: number, edittedMessage: Message): Observable<Message> {
+    return this.http.put<Message>(this.baseURL + '/' + messageId, edittedMessage);
+  }
   getAccessToken(code: any) {
     this.service.getAccessToken(code).subscribe((result: any) => {
       localStorage.setItem('accessToken', JSON.stringify(result));
@@ -79,7 +88,6 @@ export class ChatPage implements OnInit {
     this.crud.createNewMessage({ message: this.messageInfo, token: this.accessToken }).subscribe((m) => {
       this.newMessage = m;
       console.log(this.messageInfo);
-      this.ngOnInit();
     });
   }
 }

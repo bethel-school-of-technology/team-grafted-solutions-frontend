@@ -6,34 +6,42 @@
     <ion-title>{{name}}</ion-title>
   </ion-toolbar>
 </ion-header>
-<div> <app-create-m> </app-create-m>
-</div>
+<div><app-create-m> </app-create-m></div>
 <ion-content [scrollEvents]="true">
-  <form>
-  <ion-list lines="none" *ngIf="(chats) as chat$">
-    <ion-item-group class="chats-group" *ngFor="let chat of chat$">
-      <app-chat-box [chat]="chat" [current_user_id]="currentUserId"></app-chat-box>
-    </ion-item-group>
+  <!-- <form>
+    <ion-list color="secondary" lines="none" *ngIf="(chats) as chat$">
+      <ion-item-group class="chats-group" *ngFor="let chat of chat$">
+        <app-chat-box [chat]="chat" [current_user_id]="currentUserId"></app-chat-box>
+      </ion-item-group>
+    </ion-list>
+    <ion-item>
+      {{newMessage}}
+
+      <ion-button (click)="deleteMessage(messageId)">Delete</ion-button>
+
+      <ion-button size="small" (click)="editMessageByID(messageId, edittedMessage)"> <ion-icon name="pencil-outline"></ion-icon> </ion-button>
+    </ion-item>
+  </form>
+   -->
+
+  <ion-list>
+    <ion-item>
+      {{newMessage}}
+
+      <ion-button (click)="deleteMessage(newMessage.messageId)">Delete</ion-button>
+
+      <ion-button size="small" (click)="editMessageByID(messageId, edittedMessage)"> <ion-icon name="pencil-outline"></ion-icon> </ion-button>
+    </ion-item>
   </ion-list>
-  {{newMessage}}
-</form>
-<ion-item>
-<button (click)="deleteMessage(messageId)">Delete</button>
-</ion-item>
-
-
 </ion-content>
 
 <ion-footer>
   <ion-toolbar>
     <form #form="ngForm" (ngSubmit)="onSubmit()">
-    <ion-textarea type="text" autoGrow rows="1" placeholder="Send message" class="ion-text-center" [(ngModel)]="messageInfo">
-    </ion-textarea>
+      <ion-textarea type="text" autoGrow rows="1" placeholder="Send message" class="ion-text-center" [(ngModel)]="messageInfo"> </ion-textarea>
 
-    <ion-button type="submit" >
-      To send
-    </ion-button>
-    <!-- <ion-buttons slot="end">
+      <ion-button type="submit"> To send </ion-button>
+      <!-- <ion-buttons slot="end">
       <ion-fab-button *ngIf="!isLoading" size="small" color="primary" (click)="createMessage(newMessage)">
         <ion-icon name="send"></ion-icon>
       </ion-fab-button>
@@ -41,6 +49,6 @@
         <ion-spinner name="crescent" color="white"></ion-spinner>
       </ion-fab-button>
     </ion-buttons> -->
-  </form>
+    </form>
   </ion-toolbar>
 </ion-footer>

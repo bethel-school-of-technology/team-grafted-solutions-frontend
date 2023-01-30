@@ -8,24 +8,15 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ModalsComponent } from './components/MODALS/PostModal/modals.component';
+// import { ModalsComponent } from './components/MODALS/PostModal/modals.component';
 import { TestpostComponent } from './components/testPost/testpost/testpost.component';
-import { DeleteMComponent } from './delete-m/delete-m.component';
+// import { DeleteMComponent } from './delete-m/delete-m.component';
 // import { Media } from '@ionic-native/media'
 // import { IonicStorageModule} from '@ionic/storage'
 
-
 @NgModule({
-  declarations: [AppComponent, ModalsComponent, TestpostComponent, DeleteMComponent], 
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(),
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    
-
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
