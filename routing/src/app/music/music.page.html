@@ -1,31 +1,22 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Search</ion-title>
+  </ion-toolbar>
+  <ion-searchbar
+    type="search"
+    placeholder="Songs"
+    [debounce]="500"
+    showCancelButton="focus"
+    (ionChange)="searchMusicTest()"
+    [(ngModel)]="searchTerm"
+    (ngModelChange)="handleIt($event)"
+    (ionCancel)="cancel()"
+    (ionClear)="cancel()"
+  ></ion-searchbar>
+</ion-header>
 <ion-content>
-  <ion-header>
-    <ion-toolbar color="primary">
-      <ion-title>Search</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <!-- <ion-content [fullscreen]="true" class="ion-padding"> -->
-  <ion-header collapse="condense">
-    <ion-toolbar ion-padding="10px">
-      <!-- <ion-title size="large">Search</ion-title> -->
-    </ion-toolbar>
-    <ion-toolbar>
-      <ion-searchbar
-        type="search"
-        placeholder="Songs"
-        [debounce]="500"
-        showCancelButton="focus"
-        (ionChange)="searchMusicTest()"
-        [(ngModel)]="searchTerm"
-        (ngModelChange)="handleIt($event)"
-        (ionCancel)="cancel()"
-        (ionClear)="cancel()"
-      ></ion-searchbar>
-    </ion-toolbar>
-  </ion-header>
-
   <ion-list lines="none" *ngFor="let m of music">
-    <ion-item (click)="getArtistDetails(m)">
+    <ion-item [routerLink]="['/socialvibez/detail']">
       <ion-avatar>
         <img src="{{ m.album.images[0].url }}" />
       </ion-avatar>
@@ -33,9 +24,11 @@
         >{{ m.album.artists[0].name }}
         <p color="primary">{{ m.name }}</p>
       </ion-label>
-      <audio size="small">
-        <a color="primary" href="{{m.preview_url}}" class="button play"> Play Preview</a>
-      </audio>
     </ion-item>
+    <ion-avatar size="small">
+      <audio controls play>
+        <source src="{{m.preview_url}}" type="audio/mpeg" />
+      </audio>
+    </ion-avatar>
   </ion-list>
 </ion-content>

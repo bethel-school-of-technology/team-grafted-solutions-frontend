@@ -40,17 +40,6 @@ export class DetailsPage implements OnInit {
     });
   }
 
-  // getArtist(id: string) {
-  //   this.service.getArtist(id).subscribe((artist) => {
-  //     console.log(artist);
-  //     this.artist = artist;
-  //   });
-  // }
-  // getSong() {
-  //   let token = { token: JSON.parse(this.accessToken) };
-
-  //   this.service.getSong(this.searchTerm, token).subscribe((m) => (this.music = m));
-  // }
   getAccessToken(code: any) {
     this.service.getAccessToken(code).subscribe((result) => {
       localStorage.setItem('accessToken', JSON.stringify(result));

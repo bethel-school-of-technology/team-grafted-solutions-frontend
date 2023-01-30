@@ -1,19 +1,48 @@
-<!-- <app-artist [a]="m"></app-artist> -->
+<ion-header>
+  <ion-card ion-text-center>
+    <ion-toolbar>
+      <ion-item lines="none">
+        <ion-buttons slot="start">
+          <ion-back-button text="" defaultHref="/socialvibez/music"></ion-back-button>
+        </ion-buttons>
+        <ion-card-title class="ion-padding">Artist</ion-card-title>
+      </ion-item>
+    </ion-toolbar>
+  </ion-card>
+</ion-header>
 
-<ion-label>{{ a.artists[0].name }} </ion-label>
-<ion-text>{{ a.album.name }}</ion-text>
-
-<ion-label> Artist Bio </ion-label> -->
-
-<a href="{{ a.preview_url }}" class="button play"> Play Preview </a>
-<ion-list lines="none">
-  <ion-card>
+<!-- <div class="ion-text-end"><ion-label>Recent</ion-label></div> -->
+<ion-content>
+  <img alt="Silhouette of mountains" src="https://i.scdn.co/image/ab67616d0000b273508c8a32859f72d80c76a61f" />
+  <!-- <ion-card-title>James Avatar</ion-card-title> -->
+  <ion-chip>
     <ion-avatar>
-      <img src="{{a.images[0].url}}" />
+      <img alt="Silhouette of a person's head" src="https://i.scdn.co/image/ab67616d00004851306cfe9dadd57889201c3384" />
     </ion-avatar>
+    <ion-label>Elevation Worhip</ion-label>
+  </ion-chip>
+  <ion-label> Artist Bio </ion-label>
+
+  <ion-button lines="none" *ngFor="let m of music">
+    <!-- <ion-row>
+  <ion-col *ngIf="m.album.preview_url">
+    <button ion-button icon-left (click)"play(m.album.preview_url)" clear small>
+    <ion-icon name='play'></ion-icon>
+    Preview
+  </button>
+  </ion-col>
+</ion-row> -->
+    <!-- <link lines="none" *ngFor="let m of music">  -->
+    <!-- <a href="{{m.album.preview_url}}">{{m.album.preview_url}} -->
+    <!-- <a href="{{m.album.preview_url}}">Here!</a>  -->
+
+    <a href="{{m.preview_url}}" class="button play"> Play Preview </a>
+  </ion-button>
+  <!-- </link>  -->
+
+  <ion-card>
     <ion-card-content>
-      <!-- <ion-text color="primary">{{ display_name }}</ion-text> -->
+      <ion-text color="primary"> Conversations can go here </ion-text>
     </ion-card-content>
   </ion-card>
-</ion-list>
-<!-- </ion-content> -->
+</ion-content>

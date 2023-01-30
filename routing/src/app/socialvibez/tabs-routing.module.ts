@@ -8,10 +8,6 @@ const routes: Routes = [
     path: '',
     component: TabsPage,
     children: [
-      // {
-      //   path: 'friends',
-      //   loadChildren: () => import('../friends/friends.module').then((m) => m.FriendsPageModule),
-      // },
       {
         path: 'profile',
         loadChildren: () => import('../profile/profile.module').then((m) => m.ProfilePageModule),
@@ -28,10 +24,6 @@ const routes: Routes = [
         path: ':type/:id',
         loadChildren: () => import('../details/details.module').then((m) => m.DetailsPageModule),
       },
-      // {
-      //   path: 'friends-profile',
-      //   loadChildren: () => import('../friends-profile/friends-profile.module').then((m) => m.FriendsProfilePageModule),
-      // },
 
       {
         path: '',
