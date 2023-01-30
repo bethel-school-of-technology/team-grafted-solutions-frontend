@@ -53,22 +53,6 @@ export class MusicPage implements OnInit {
     this.router.navigate(['/details', music.type, artistaId]);
   }
 
-  // searchMusic() {
-  //   this.service.searchMusic(this.searchTerm).subscribe((m) => (this.music = m));
-  // }
-
-  // getSong() {
-  //   let token = { token: JSON.parse(this.accessToken) };
-
-  //   this.service.getSong(this.searchTerm, token).subscribe((m) => (this.music = m));
-  // }
-
-  // getArtist() {
-  //   let token = { token: JSON.parse(this.accessToken) };
-
-  //   this.service.getSong(this.searchTerm, token).subscribe((m) => (this.music = m));
-  // }
-
   searchMusicTest() {
     let token = { token: JSON.parse(this.searchToken) };
 
