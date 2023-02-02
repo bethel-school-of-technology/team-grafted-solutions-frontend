@@ -16,9 +16,9 @@ export class CreateMComponent implements OnInit {
   title: string = '';
   messageLists: Message[] = [];
   ngOnInit(): void {
-    this.title = this.my.title;
-    this.my.getAllMessages() 
-    .subscribe(response => this.messageLists = response);  
+    // this.title = this.my.title;
+    // this.my.getAllMessages() 
+    // .subscribe(response => this.messageLists = response);  
   }
 
 }

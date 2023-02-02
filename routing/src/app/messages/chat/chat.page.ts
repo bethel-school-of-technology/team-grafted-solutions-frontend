@@ -15,47 +15,40 @@ import { MusicService } from 'src/app/service/music.service';
 export class ChatPage implements OnInit {
   baseURL = 'http://localhost:3001/messages';
   accessToken: any;
-  //replace 'sender' w/ the users name
-  name: string = 'Sender';
   newMessage: any;
-  isLoading = false;
-  messageInfo: any = {
-    mInfo: ' ',
-  };
   searchToken: any;
   makeMessage: Message = new Message();
   code: any;
+  title: string = '';
   currentUserId = 1;
-  chats = [
-    // {id: 1, sender: 1, message: 'hi how are you'},
-    // {id: 2, sender: 2, message: 'hello there'},
-  ];
   searchTerm: any;
+
+
+
+  chats = [
+    {id: 1, sender: 1, message1:'Did you guys hear Elevations new Album???'},
+
+    {id: 2, sender: 2, message2:'YEAH IT WAS AMAZING'},
+
+    {id: 3, sender: 3, message3: 'What do you think I am listening to right now?!?!?'},
+
+    {id: 4, sender: 4, message4: 'this might be their best one yet!'},
+
+    {id: 5, sender: 5, message5:'I agree^^'},
+
+    {id: 6, sender: 6, message6:'I havent stopped playing it'},
+
+  ];
 
   constructor(private c: ChatService, private http: HttpClient, private crud: CrudServiceService, private service: MusicService) {
     // this.accessToken = localStorage.getItem('accessToken');
     let data: any = JSON.parse(localStorage.getItem('accessToken'));
     this.accessToken = data.token;
   }
-  title: string = '';
-  messageLists: Message[] = [];
-
-  ngOnInit(): void {
-    this.code = new URLSearchParams(window.location.search).get('code');
-
-    // this.getAccessToken(this.code);
-
-    this.title = this.crud.title;
-    this.crud.getAllMessages().subscribe((response) => (this.messageLists = response));
-  }
 
   createMessage(newMessage: Message): Observable<Message[]> {
     console.log(newMessage);
     return this.http.post<Message[]>(this.baseURL, newMessage);
-  }
-
-  createNewMessage(newMessage: Message): Observable<Message> {
-    return this.http.post<Message>(this.baseURL, newMessage);
   }
 
   getAccessToken(code: any) {
@@ -78,8 +71,19 @@ export class ChatPage implements OnInit {
 
     // });
 
-    this.crud.createNewMessage({ message: ' testings ', token: this.accessToken }).subscribe((m) => {
+    this.crud.createNewMessages().subscribe((m) => {
       this.newMessage = m;
     });
   }
+
+  
+  ngOnInit(): void {
+    this.code = new URLSearchParams(window.location.search).get('code');
+
+    // this.getAccessToken(this.code);
+
+    this.title = this.crud.title;
+    // this.crud.getAllMessages().subscribe((response) => (this.messageLists = response));
+  }
+
 }

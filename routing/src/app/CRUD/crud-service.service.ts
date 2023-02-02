@@ -25,7 +25,9 @@ export class CrudServiceService {
     return this.http.get<Message[]>(this.baseURL);
   }
 
-  createNewMessage(newMessage: any): Observable<Message> {
-    return this.http.post<Message>(this.baseURL, newMessage);
+  createNewMessages(): Observable<Message[]> {
+    return this.http.post<Message[]>(this.baseURL);
   }
+
+
 }

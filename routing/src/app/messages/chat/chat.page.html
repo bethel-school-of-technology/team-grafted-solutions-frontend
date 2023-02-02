@@ -3,11 +3,44 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/socialvibez/music"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{name}}</ion-title>
+    <ion-title>
+      <!-- Profile icons -->
+      <div class="chat-avatar">
+      <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="right" title="" data-original-title="June Lane">
+        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="...">
+      </a>
+    </div>
+
+    <div class="chat-avatar">
+      <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="right" title="" data-original-title="June Lane">
+        <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="...">
+      </a>
+    </div>
+
+
+    <div class="chat-avatar">
+      <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="right" title="" data-original-title="June Lane">
+        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="...">
+      </a>
+    </div>
+
+
+    <div class="chat-avatar">
+      <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="right" title="" data-original-title="June Lane">
+        <img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="...">
+      </a>
+    </div>
+
+
+    <div class="chat-avatar">
+      <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="right" title="" data-original-title="June Lane">
+        <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="...">
+      </a>
+    </div>
+
+</ion-title>
   </ion-toolbar>
 </ion-header>
-<div> <app-create-m> </app-create-m>
-</div>
 <ion-content [scrollEvents]="true">
   <form>
   <ion-list lines="none" *ngIf="(chats) as chat$">
@@ -15,21 +48,14 @@
       <app-chat-box [chat]="chat" [current_user_id]="currentUserId"></app-chat-box>
     </ion-item-group>
   </ion-list>
-  {{newMessage}}
 </form>
-
-
 </ion-content>
 
 <ion-footer>
   <ion-toolbar>
-    <form #form="ngForm" (ngSubmit)="onSubmit()">
-    <ion-textarea type="text" autoGrow rows="1" placeholder="Send message" class="ion-text-center" [(ngModel)]="messageInfo">
-    </ion-textarea>
+    <ion-textarea type="text" autoGrow rows="1" placeholder="Send message" class="ion-text-center"> </ion-textarea><ion-button type="submit" class="sendBtn">send </ion-button>
 
-    <ion-button type="submit" >
-      To send
-    </ion-button>
+
     <!-- <ion-buttons slot="end">
       <ion-fab-button *ngIf="!isLoading" size="small" color="primary" (click)="createMessage(newMessage)">
         <ion-icon name="send"></ion-icon>
@@ -38,6 +64,5 @@
         <ion-spinner name="crescent" color="white"></ion-spinner>
       </ion-fab-button>
     </ion-buttons> -->
-  </form>
   </ion-toolbar>
 </ion-footer>

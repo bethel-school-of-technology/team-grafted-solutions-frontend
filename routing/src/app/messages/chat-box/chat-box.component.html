@@ -1,17 +1,25 @@
-<ion-item lines="none" [class]="chat?.sender !=current_user_id ? 'sender' : 'user'">
+<ion-item 
+lines="none" 
+[class]="chat?.sender !=current_user_id ? 'sender' : 'user'">
   <ion-label [slot]="chat?.sender == current_user_id ? 'end' : 'start'" class="ion-text-wrap">
-
+    <!-- each individual message that are listed in chat.page.ts -->
+    <ion-text>{{chat?.message1}}
+              {{chat?.message2}}
+              {{chat?.message3}}
+              {{chat?.message4}}
+              {{chat?.message5}}
+              {{chat?.message6}}
+    </ion-text> 
+    
+    
+    
     <ion-note>
       <!-- <small>{{(chat?.createdAt)?.toDate() | date: 'HH:mm'}}</small> -->
       <small>10:05AM</small>
-      <ion-icon [color]="chat?.sender == current_user_id ? 'light' : 'primary'" name="checkmark-done-outline"></ion-icon>
-    </ion-note>
-    <h1> 
-      {{title}}
-    </h1>
-    
-    <div *ngFor="let m of messageLists"> 
-    <p> {{m.message}}</p>
-    </div>
+    </ion-note>    
   </ion-label>
+  
+
 </ion-item>
+
+

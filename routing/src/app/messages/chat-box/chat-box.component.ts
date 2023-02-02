@@ -25,9 +25,9 @@ export class ChatBoxComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.title = this.my.title;
-    this.my.getAllMessages() 
-    .subscribe(response => this.messageLists = response);  
+    // this.title = this.my.title;
+    // this.my.getAllMessages() 
+    // .subscribe(response => this.messageLists = response);  
 
   }
 
