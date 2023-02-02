@@ -1,36 +1,13 @@
-<!-- <ion-fab horizontal="end" vertical="top" class="ion-padding"> -->
-<!-- <ion-fab-button size="small" expand="block" (click)="setOpen(true)"> -->
-<!-- <ion-avatar>
-  <img
-    alt="Silhouette of a person's head"
-    src="https://images.unsplash.com/photo-1547434836-398fc5a73e91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-  />
-</ion-avatar> -->
-<!-- </ion-fab-button> -->
-<!-- <app-edit-profile></app-edit-profile> -->
-<!-- <ion-modal [isOpen]="isModalOpen"> -->
-<!-- <ng-template> -->
-<!-- <ion-card-header> -->
 <ion-card color="light">
-  <!-- <ion-card-header color="dark"> -->
   <ion-item lines="none">
     <ion-avatar>
-      <!-- <img *ngIf="userData.images" alt="Silhouette of a person's head" src="{{ userData.images[0].url }}" /> -->
-      <img
-        alt="Silhouette of a person's head"
-        src="https://images.unsplash.com/photo-1547434836-398fc5a73e91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-      />
+      <img *ngIf="userData.images" alt="Silhouette of a person's head" src="{{userData.images[0].url}}" />
     </ion-avatar>
-    <!-- <ion-label color="primary" *ngFor="let uD of userData" color="light">{{ uD.display_name }}</ion-label> -->
-    <ion-label color="secondary" class="ion-padding"> James Richards</ion-label>
+    <ion-label color="secondary" class="ion-padding"> {{userData.display_name}}</ion-label>
     <ion-button href="https://www.spotify.com/us/account/overview/" fill="clear">
       <ion-icon slot="start" name="cog"></ion-icon>
     </ion-button>
   </ion-item>
-  <!-- <ion-buttons slot="end">
-      <ion-button (click)="setOpen(false)">Close</ion-button>
-    </ion-buttons> -->
-  <!-- </ion-card-header> -->
 </ion-card>
 
 <ion-card>
@@ -39,16 +16,6 @@
     <ion-text color="primary"> I love trees in the summer and the desert during winter. </ion-text>
   </ion-card-content>
 </ion-card>
-<!-- 
-  <ion-segment value="=comments">
-    <ion-segment-button type="button" value="comments">
-      <ion-label>Comments</ion-label>
-    </ion-segment-button>
-
-    <ion-segment-button type="button" value="segment">
-      <ion-label>Segment</ion-label>
-    </ion-segment-button>
-  </ion-segment> -->
 
 <ion-content class="ion-padding">
   <div class="ion-text-start"><ion-label color="secondary"> Recent Activity </ion-label></div>
@@ -96,7 +63,3 @@
   </ion-card>
 </ion-content>
 <ion-toolbar> </ion-toolbar>
-<!-- </ng-template> -->
-<!-- </ion-modal> -->
-<!-- </ion-fab> -->
-<!-- </ion-card-header> -->
