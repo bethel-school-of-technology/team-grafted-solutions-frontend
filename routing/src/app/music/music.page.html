@@ -16,19 +16,21 @@
 </ion-header>
 <ion-content>
   <ion-list lines="none" *ngFor="let m of music">
+    <!-- <ion-item [routerLink]="['/socialvibez/detail']"> -->
+
     <ion-item [routerLink]="['/socialvibez/detail']">
       <ion-avatar>
         <img src="{{ m.album.images[0].url }}" />
       </ion-avatar>
       <ion-label class="ion-padding-start"
-        >{{ m.album.artists[0].name }}
-        <p color="primary">{{ m.name }}</p>
+        >{{ m.name }}
+        <p color="primary">{{ m.album.artists[0].name }}</p>
       </ion-label>
     </ion-item>
-    <ion-avatar size="small">
+    <ion-button color="dark" size="small">
       <audio controls play>
         <source src="{{m.preview_url}}" type="audio/mpeg" />
       </audio>
-    </ion-avatar>
+    </ion-button>
   </ion-list>
 </ion-content>
