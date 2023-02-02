@@ -19,9 +19,15 @@ export class ProfilePage implements OnInit {
   constructor(private modalCtrl: ModalController) {}
 
   ngOnInit() {
+<<<<<<< HEAD
     // let data = JSON.parse(localStorage.getItem('accessToken'));
     // this.userData = data.userData;
     // console.log(this.userData);
     // this.likedSongs();
+=======
+    let data = JSON.parse(localStorage.getItem('accessToken')!);
+    this.userData = data.userData;
+    console.log(this.userData);
+>>>>>>> Andy-dev
   }
 }

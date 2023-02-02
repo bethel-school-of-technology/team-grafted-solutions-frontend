@@ -1,21 +1,37 @@
 <ion-card color="light">
   <ion-item lines="none">
     <ion-avatar>
+<<<<<<< HEAD
       <img
         alt="Silhouette of a person's head"
         src="https://images.unsplash.com/photo-1547434836-398fc5a73e91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
       />
+=======
+      <img *ngIf="userData.images" alt="Silhouette of a person's head" src="{{userData.images[0].url}}" />
+>>>>>>> Andy-dev
     </ion-avatar>
-    <!-- <ion-label color="primary" *ngFor="let uD of userData" color="light">{{ uD.display_name }}</ion-label> -->
-    <ion-label color="secondary" class="ion-padding"> James Richards</ion-label>
-    <ion-button href="https://www.spotify.com/us/account/overview/" fill="clear">
+    <ion-label color="secondary" class="ion-padding"> {{userData.display_name}}</ion-label>
+    <ion-chip color="secondary">
+      <ion-icon color="primary" class="ion-padding-end" name="people-circle"></ion-icon>
+      <ion-label> {{userData.followers.total}}</ion-label>
+    </ion-chip>
+    <ion-button class="ion-padding-start" href="https://www.spotify.com/us/account/overview/" fill="clear">
       <ion-icon slot="start" name="cog"></ion-icon>
     </ion-button>
   </ion-item>
 </ion-card>
 
 <ion-card>
-  <ion-card-subtitle color="secondary"> About Me </ion-card-subtitle>
+  <ion-card-subtitle color="secondary">
+    <ion-text>
+      <ion-chip color="secondary">
+        <ion-icon color="primary" name="earth"></ion-icon>
+        <ion-label> {{userData.country}}</ion-label>
+      </ion-chip>
+    </ion-text>
+    About Me</ion-card-subtitle
+  >
+
   <ion-card-content>
     <ion-text color="primary"> I love trees in the summer and the desert during winter. </ion-text>
   </ion-card-content>

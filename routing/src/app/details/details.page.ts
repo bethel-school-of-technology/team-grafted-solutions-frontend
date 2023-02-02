@@ -11,6 +11,8 @@ export class DetailsPage implements OnInit {
   @Input()
   artist: any = {};
 
+  userData: any;
+
   @Input()
   public music: any[] = [];
 
@@ -45,5 +47,9 @@ export class DetailsPage implements OnInit {
       localStorage.setItem('accessToken', JSON.stringify(result));
       this.accessToken = localStorage.getItem('accessToken');
     });
+
+    let data = JSON.parse(localStorage.getItem('accessToken')!);
+    this.userData = data.userData;
+    console.log(this.userData);
   }
 }
