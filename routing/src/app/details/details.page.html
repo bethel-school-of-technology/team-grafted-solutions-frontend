@@ -10,39 +10,31 @@
     </ion-toolbar>
   </ion-card>
 </ion-header>
-
-<!-- <div class="ion-text-end"><ion-label>Recent</ion-label></div> -->
 <ion-content>
-  <!-- <img alt="Silhouette of mountains" src="https://i.scdn.co/image/ab67616d0000b273508c8a32859f72d80c76a61f" /> -->
-  <!-- <ion-card-title>James Avatar</ion-card-title> -->
-  <ion-chip>
-    <ion-avatar>
-      <img alt="Silhouette of a person's head" src="https://i.scdn.co/image/ab67616d00004851306cfe9dadd57889201c3384" />
-    </ion-avatar>
-    <ion-label>Elevation Worhip</ion-label>
-  </ion-chip>
-  <ion-label> Artist Bio </ion-label>
-
-  <!-- <ion-button lines="none" *ngFor="let m of music"> -->
-  <!-- <ion-row>
-  <ion-col *ngIf="m.album.preview_url">
-    <button ion-button icon-left (click)"play(m.album.preview_url)" clear small>
-    <ion-icon name='play'></ion-icon>
-    Preview
-  </button>
-  </ion-col>
-</ion-row> -->
-  <!-- <link lines="none" *ngFor="let m of music">  -->
-  <!-- <a href="{{m.album.preview_url}}">{{m.album.preview_url}} -->
-  <!-- <a href="{{m.album.preview_url}}">Here!</a>  -->
-
-  <!-- <a href="{{m.preview_url}}" class="button play"> Play Preview </a> -->
-  <!-- </ion-button> -->
-  <!-- </link>  -->
-
+  <ion-card-header>
+    <ion-item lines="none">
+      <ion-avatar>
+        <img
+          alt="Silhouette of a person's head"
+          src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.premierfestivals.com%2Fsites%2Fdefault%2Ffiles%2Fimages%2Felevation_wd_0.jpeg&f=1&nofb=1&ipt=0a8a8a364d99105fe785a659098e04abf8814ab610d9170a02c984125812667b&ipo=images"
+        />
+      </ion-avatar>
+      <ion-label class="ion-padding-start">Elevation Worship</ion-label>
+    </ion-item>
+  </ion-card-header>
   <ion-card>
+    <img
+      alt="Silhouette of mountains"
+      src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FrJSeF65wALw%2Fmaxresdefault.jpg&f=1&nofb=1&ipt=0afe608b43a72c6f1a72f4e7a4c122fc455498d592ab62d0dd7a32904733a2ed&ipo=images"
+    />
+
     <ion-card-content>
-      <ion-text color="primary"> Conversations can go here </ion-text>
+      <ion-text color="secondary"> Oldie but goodie! </ion-text>
+      <div class="ion-text-end">
+        <ion-text color="primary"> I know right! </ion-text>
+      </div>
     </ion-card-content>
+    <ion-item> <ion-input></ion-input> </ion-item>
+    <ion-button color="light" fill="clear">Send</ion-button>
   </ion-card>
 </ion-content>
