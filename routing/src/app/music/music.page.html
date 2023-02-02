@@ -16,10 +16,8 @@
 </ion-header>
 <ion-content>
   <ion-list lines="none" *ngFor="let m of music">
-    <!-- <ion-item [routerLink]="['/socialvibez/detail']"> -->
-
-    <ion-item [routerLink]="['/socialvibez/detail']">
-      <ion-avatar>
+    <ion-item>
+      <ion-avatar (click)="getArtistDetails(m)">
         <img src="{{ m.album.images[0].url }}" />
       </ion-avatar>
       <ion-label class="ion-padding-start"
